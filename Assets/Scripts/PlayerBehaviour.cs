@@ -16,9 +16,18 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 mouseDirection;
 
     public Vector3 currentFacingVector = new Vector3(0.0f, 0.0f, 1.0f);
+    public Quaternion quarternionFacing = Quaternion.identity;
 
     public float currentMovementSpeed;
     public float currentRotationSpeed;
+
+
+
+    public GameObject spellProjectileParent;
+    public GameObject spellProjectileBase;
+    public float spellProjectileForce = 100.0f;
+    public float spellTimeout = 0.5f;
+    public float spellGlobalCooldownRemaining = 0.0f;
 
     public void HandleKeyboardInput(){
         // ========================== othogonal movement
@@ -69,7 +78,30 @@ public class PlayerBehaviour : MonoBehaviour
         this.currentFacingVector = Vector3.RotateTowards(this.currentFacingVector, this.mouseDirection, this.currentRotationSpeed * Time.deltaTime, 0.0f);
 
         // rotate our player to face it
-        this.gameObject.transform.rotation = Quaternion.LookRotation(this.currentFacingVector, Vector3.up);
+        this.quarternionFacing = Quaternion.LookRotation(this.currentFacingVector, Vector3.up);
+        this.gameObject.transform.rotation = this.quarternionFacing;
+    }
+
+    public void HandleSpellTimeouts(){
+        // zzzz our spell firing
+        this.spellGlobalCooldownRemaining = Mathf.Max(0.0f, this.spellGlobalCooldownRemaining - Time.deltaTime);
+    }
+    public void PerformSpellAttack(){
+        // prepare spawn
+        Vector3 spawnLocation = this.gameObject.transform.position + this.currentFacingVector;
+        // create one
+        GameObject newProjectile = (GameObject)Instantiate(this.spellProjectileBase, spawnLocation, this.quarternionFacing, this.spellProjectileParent.transform);
+        // make it move??
+        newProjectile.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, this.spellProjectileForce));
+    }
+    public void HandleAttack(){
+        // detect primary
+        if(Input.GetMouseButton(0) && this.spellGlobalCooldownRemaining == 0.0f){
+            this.PerformSpellAttack();
+
+            // snooze from spell
+            this.spellGlobalCooldownRemaining = this.spellTimeout;
+        }
     }
 
 
@@ -91,5 +123,7 @@ public class PlayerBehaviour : MonoBehaviour
         this.HandleMouseInput();
         this.HandleOrthogonolMovement();
         this.HandlePlayerRotation();
+        this.HandleSpellTimeouts();
+        this.HandleAttack();
     }
 }
