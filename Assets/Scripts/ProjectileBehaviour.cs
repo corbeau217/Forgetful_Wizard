@@ -16,7 +16,6 @@ public class ProjectileBehaviour : MonoBehaviour
         // ...
     }
 
-
     void OnTriggerEnter (Collider other)
     {
         // see who we collided with

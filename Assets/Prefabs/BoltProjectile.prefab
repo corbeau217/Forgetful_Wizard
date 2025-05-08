@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4238915752488376175}
   - component: {fileID: 2349171547205343445}
   m_Layer: 0
-  m_Name: Bolt
+  m_Name: BoltProjectile
   m_TagString: SpellProjectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

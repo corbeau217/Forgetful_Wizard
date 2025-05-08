@@ -29,13 +29,12 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 mouseDirection;
 
 
+    public GameObject spellObjectParent;
+    public ProjectileSpellData projectileSpell;
 
-    public GameObject spellProjectileParent;
-    public GameObject spellProjectileBase;
-    public bool attemptSpellUsage = false;
-    public float spellProjectileForce = 100.0f;
-    public float spellTimeout = 0.5f;
-    public float spellGlobalCooldownRemaining = 0.0f;
+    public bool attemptProjectileSpell = false;
+
+    public float projectileSpellCooldown = 0.0f;
 
     // ==========================================================================================
     // ==========================================================================================
@@ -91,7 +90,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         // detect primary
         if(Input.GetMouseButton(0)){
-            this.attemptSpellUsage = true;
+            this.attemptProjectileSpell = true;
         }
 
         // ----------------------------------------------------------
@@ -132,30 +131,30 @@ public class PlayerBehaviour : MonoBehaviour
         playerRigidBody.MoveRotation(this.quarternionFacing);
     }
 
+    // ==========================================================================================
+    // ==========================================================================================
+    // ==========================================================================================
 
     public void HandleTimeouts(){
         // zzzz our spell firing
-        this.spellGlobalCooldownRemaining = Mathf.Max(0.0f, this.spellGlobalCooldownRemaining - Time.deltaTime);
+        this.projectileSpellCooldown = Mathf.Max(0.0f, this.projectileSpellCooldown - Time.deltaTime);
     }
     public void HandleSpellUsage(){
         // have spell use flag
-        if(this.attemptSpellUsage){
+        if(this.attemptProjectileSpell){
             // check for cooldown over
-            if(this.spellGlobalCooldownRemaining == 0.0f){
+            if(this.projectileSpellCooldown == 0.0f){
                 // ...
                 // prepare spawn
                 Vector3 spawnLocation = this.gameObject.transform.position + this.currentFacingVector;
-                // create one
-                GameObject newProjectile = (GameObject)Instantiate(this.spellProjectileBase, spawnLocation, this.quarternionFacing, this.spellProjectileParent.transform);
-                // make it move??
-                newProjectile.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0.0f, 0.0f, this.spellProjectileForce));
 
+                this.projectileSpell.ActivateSpell( spawnLocation, this.quarternionFacing, this.spellObjectParent.transform );
 
                 // snooze from spell
-                this.spellGlobalCooldownRemaining = this.spellTimeout;
+                this.projectileSpellCooldown = this.projectileSpell.spellTimeout;
             }
             // remove the spell use flag
-            this.attemptSpellUsage = false;
+            this.attemptProjectileSpell = false;
         }
     }
 
