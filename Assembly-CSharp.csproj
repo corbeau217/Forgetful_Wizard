@@ -38,10 +38,10 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/FollowBehaviour.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerData.cs" />
+     <Compile Include="Assets/Scripts/Spell/ProjectileSpellData.cs" />
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
      <Compile Include="Assets/Scripts/PlayerBehaviour.cs" />
      <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
-     <Compile Include="Assets/Scripts/Spell/ProjectileSpellData.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/corbeau/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -675,6 +675,9 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Sysroot.Linux_x86_64">
+        <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
@@ -693,6 +696,9 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
         <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Toolchain.Linux-x86_64">
+        <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
         <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
@@ -708,14 +714,14 @@
     <Reference Include="UnityEngine.UI">
         <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Core">
-        <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+        <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
         <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-        <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+    <Reference Include="Unity.Services.Core">
+        <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
         <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
@@ -734,12 +740,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Sysroot.Linux_x86_64">
-        <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Toolchain.Linux-x86_64">
-        <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
     </Reference>
     <Reference Include="Unity.SysrootPackage.Editor">
         <HintPath>/home/corbeau/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
