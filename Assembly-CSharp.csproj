@@ -42,6 +42,7 @@
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
      <Compile Include="Assets/Scripts/PlayerBehaviour.cs" />
      <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
+     <Compile Include="Assets/Scripts/World/TileData.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
