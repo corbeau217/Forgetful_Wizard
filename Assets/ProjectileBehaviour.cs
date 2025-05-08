@@ -21,5 +21,6 @@ public class ProjectileBehaviour : MonoBehaviour
     {
         // ....
         Debug.Log ("projectile collided with something");
+        Destroy(this.gameObject, 0.0f);
     }
 }
