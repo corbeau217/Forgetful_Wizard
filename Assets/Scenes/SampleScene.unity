@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 239690324}
   - component: {fileID: 239690323}
   - component: {fileID: 239690322}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 594302906}
   - component: {fileID: 594302905}
   - component: {fileID: 594302904}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 600281933}
   - component: {fileID: 600281932}
   - component: {fileID: 600281931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ GameObject:
   - component: {fileID: 978058519}
   - component: {fileID: 978058518}
   - component: {fileID: 978058517}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -1038,6 +1038,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994350315}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1044216298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1044216299}
+  m_Layer: 0
+  m_Name: PlayerForward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1044216299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044216298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1994106421}
+  m_Father: {fileID: 1926244670}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1065981217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1194,7 @@ GameObject:
   - component: {fileID: 1165308135}
   - component: {fileID: 1165308134}
   - component: {fileID: 1165308133}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -1259,7 +1291,7 @@ GameObject:
   - component: {fileID: 1182879219}
   - component: {fileID: 1182879218}
   - component: {fileID: 1182879217}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -1356,7 +1388,7 @@ GameObject:
   - component: {fileID: 1339641342}
   - component: {fileID: 1339641341}
   - component: {fileID: 1339641340}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -1933,7 +1965,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1163407731}
-  - {fileID: 1994106421}
+  - {fileID: 1044216299}
   - {fileID: 1414973808}
   m_Father: {fileID: 961107839}
   m_RootOrder: 1
@@ -1972,6 +2004,11 @@ MonoBehaviour:
   sprintBurstSpellCooldownOnUsageMinimum: 0.35
   sprintBurstSpellCooldownOnUsageMaximum: 0.7
   sprintBurstForce: 35
+  blinkKey: 32
+  attemptBlink: 0
+  blinkSpellCooldown: 0
+  blinkSpellCooldownOnUsage: 0.5
+  blinkDistance: 10
 --- !u!54 &1926244672
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1999,7 +2036,7 @@ GameObject:
   - component: {fileID: 1994106421}
   - component: {fileID: 1994106422}
   m_Layer: 0
-  m_Name: ForwardArrow
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2014,11 +2051,11 @@ Transform:
   m_GameObject: {fileID: 1994106420}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.5, z: 1}
-  m_LocalScale: {x: 0.2, y: 0.20000003, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.20000005, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1926244670}
-  m_RootOrder: 1
+  m_Father: {fileID: 1044216299}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &1994106422
 SpriteRenderer:

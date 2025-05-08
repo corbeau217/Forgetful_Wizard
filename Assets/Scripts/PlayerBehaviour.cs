@@ -31,9 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public GameObject spellObjectParent;
     public ProjectileSpellData projectileSpell;
-
     public bool attemptProjectileSpell = false;
-
     public float projectileSpellCooldown = 0.0f;
 
     public KeyCode sprintBurstKey = KeyCode.LeftShift;
@@ -42,6 +40,15 @@ public class PlayerBehaviour : MonoBehaviour
     public float sprintBurstSpellCooldownOnUsageMinimum = 0.35f;
     public float sprintBurstSpellCooldownOnUsageMaximum = 0.6f;
     public float sprintBurstForce = 20.0f;
+
+
+    public KeyCode blinkKey = KeyCode.Space;
+    public bool attemptBlink = false;
+    public float blinkSpellCooldown = 0.0f;
+    public float blinkSpellCooldownOnUsage = 0.5f;
+    public float blinkDistance = 10.0f;
+    public float blinkObstacleBufferDistance = 0.5f;
+
 
     // ==========================================================================================
     // ==========================================================================================
@@ -84,6 +91,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(Input.GetKey(this.sprintBurstKey)){
             this.attemptSprintBurst = true;
+        }
+        if(Input.GetKey(this.blinkKey)){
+            this.attemptBlink = true;
         }
 
         // ================================================================================
@@ -152,6 +162,7 @@ public class PlayerBehaviour : MonoBehaviour
         // zzzz our spell firing
         this.projectileSpellCooldown = Mathf.Max(0.0f, this.projectileSpellCooldown - Time.deltaTime);
         this.sprintBurstSpellCooldown = Mathf.Max(0.0f, this.sprintBurstSpellCooldown - Time.deltaTime);
+        this.blinkSpellCooldown = Mathf.Max(0.0f, this.blinkSpellCooldown - Time.deltaTime);
     }
     public void HandleSpellUsage(){
         // have spell use flag
@@ -181,6 +192,50 @@ public class PlayerBehaviour : MonoBehaviour
 
             // remove spell use flag
             this.attemptSprintBurst = false;
+        }
+        if(this.attemptBlink){
+            if(this.blinkSpellCooldown == 0.0f){
+                LayerMask layerMask = LayerMask.GetMask("Walls");
+                RaycastHit hit;
+                Vector3 blinkOrigin = this.gameObject.transform.position;
+                blinkOrigin.y += 0.5f;
+
+                Vector3 blinkDirection = this.movementForceDirection;
+                if(this.movementForceDirection.magnitude < 1.0f || this.movementForceDirection == Vector3.forward){
+                    // use mouse instead
+                    blinkDirection = this.mouseDirection;
+                }
+                
+                // prepare our working distance
+                float currentBlinkDistance = this.blinkDistance;
+
+                // Does the ray intersect any objects excluding the player layer
+                if (Physics.Raycast(blinkOrigin, blinkDirection, out hit, this.blinkDistance, layerMask))
+                { 
+                    // Debug.DrawRay(blinkOrigin, blinkDirection * hit.distance, Color.yellow); 
+                    // Debug.Log("Did Hit"); 
+                    // change our blink distance
+                    currentBlinkDistance = hit.distance - this.blinkObstacleBufferDistance;
+                }
+                // else
+                // { 
+                //     Debug.DrawRay(blinkOrigin, blinkDirection * this.blinkDistance, Color.white); 
+                //     Debug.Log("Did not Hit"); 
+                //     // can just keep using the same distance
+                // }
+
+                // vector used for blinking
+                Vector3 blinkVector = blinkDirection * currentBlinkDistance;
+                
+                // apply to position
+                this.playerRigidBody.position = this.playerRigidBody.position + blinkVector;
+
+                // snooze from spell
+                this.blinkSpellCooldown = this.blinkSpellCooldownOnUsage;
+            }
+
+            // remove spell use flag
+            this.attemptBlink = false;
         }
     }
 
