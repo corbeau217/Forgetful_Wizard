@@ -6,49 +6,53 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    // using left handed xyz axis
-    public Vector3 DirectionVector_UP    = new Vector3( 0.0f, 0.0f,  1.0f);
-    public Vector3 DirectionVector_DOWN  = new Vector3( 0.0f, 0.0f, -1.0f);
-    public Vector3 DirectionVector_LEFT  = new Vector3(-1.0f, 0.0f,  0.0f);
-    public Vector3 DirectionVector_RIGHT = new Vector3( 1.0f, 0.0f,  0.0f);
+    public PlayerData playerData;
+    public GameObject mousePlaneObj;
 
-    // TODO : handle when left and right are applied and need to sqrt(2)/2 for the vector
-
-    public KeyCode moveKeyUp = KeyCode.W;
-    public KeyCode moveKeyDown = KeyCode.S;
-    public KeyCode moveKeyLeft = KeyCode.A;
-    public KeyCode moveKeyRight = KeyCode.D;
-
-    public float currentMovementSpeed = 10.0f;
 
     public Vector3 currentOrthogonalMovement;
 
-    public void HandleInput(){
+    public Vector3 playerToMouse;
+    public Vector3 mouseDirection;
+
+    public Vector3 currentFacingVector = new Vector3(0.0f, 0.0f, 1.0f);
+
+    public float currentMovementSpeed;
+    public float currentRotationSpeed;
+
+    public void HandleKeyboardInput(){
         // ========================== othogonal movement
         // ================================================================================
 
         // prepare movement vector
-        Vector3 OrthogonalMovement = new Vector3(0.0f, 0.0f, 0.0f);
+        Vector3 orthogonalMovement = new Vector3(0.0f, 0.0f, 0.0f);
 
         // determine orthogonal movement vector
 
-        if(Input.GetKey(this.moveKeyUp)){
-            OrthogonalMovement += DirectionVector_UP;
+        if(Input.GetKey(this.playerData.moveKey_Up)){
+            orthogonalMovement += this.playerData.directionVector_UP;
         }
-        if(Input.GetKey(this.moveKeyDown)){
-            OrthogonalMovement += DirectionVector_DOWN;
+        if(Input.GetKey(this.playerData.moveKey_Down)){
+            orthogonalMovement += this.playerData.directionVector_DOWN;
         }
-        if(Input.GetKey(this.moveKeyLeft)){
-            OrthogonalMovement += DirectionVector_LEFT;
+        if(Input.GetKey(this.playerData.moveKey_Left)){
+            orthogonalMovement += this.playerData.directionVector_LEFT;
         }
-        if(Input.GetKey(this.moveKeyRight)){
-            OrthogonalMovement += DirectionVector_RIGHT;
+        if(Input.GetKey(this.playerData.moveKey_Right)){
+            orthogonalMovement += this.playerData.directionVector_RIGHT;
         }
 
         // remove extra diagonal speed and apply as our movement direction
-        this.currentOrthogonalMovement = Vector3.Normalize(OrthogonalMovement);
+        this.currentOrthogonalMovement = Vector3.Normalize(orthogonalMovement);
 
         // ================================================================================
+    }
+    public void HandleMouseInput(){
+        // need to get the vector between us and the mouse location 
+        this.playerToMouse = this.mousePlaneObj.transform.position - this.gameObject.transform.position;
+
+        // prepare the normalized vector
+        this.mouseDirection = Vector3.Normalize(playerToMouse);
     }
 
     public void HandleOrthogonolMovement(){
@@ -59,19 +63,33 @@ public class PlayerBehaviour : MonoBehaviour
         this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, desiredLocation, this.currentMovementSpeed * Time.deltaTime);
     }
 
+    public void HandlePlayerRotation(){
+        // change our facing vector
+        //      RotateTowards( current, target, radiansForRotation, magnitudeChange )
+        this.currentFacingVector = Vector3.RotateTowards(this.currentFacingVector, this.mouseDirection, this.currentRotationSpeed * Time.deltaTime, 0.0f);
 
+        // rotate our player to face it
+        this.gameObject.transform.rotation = Quaternion.LookRotation(this.currentFacingVector, Vector3.up);
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
         this.currentOrthogonalMovement = new Vector3(0.0f, 0.0f, 0.0f);
+        this.playerToMouse = new Vector3(0.0f, 0.0f, 0.0f);
+        this.mouseDirection = new Vector3(0.0f, 0.0f, 0.0f);
+
+        this.currentMovementSpeed = this.playerData.base_movementSpeed;
+        this.currentRotationSpeed = this.playerData.base_rotationSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.HandleInput();
+        this.HandleKeyboardInput();
+        this.HandleMouseInput();
         this.HandleOrthogonolMovement();
+        this.HandlePlayerRotation();
     }
 }
