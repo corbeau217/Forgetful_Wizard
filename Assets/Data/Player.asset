@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafbb0dfa230a8fa69e9dfd34c5ee66e, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  directionVector_UP: {x: 0, y: 0, z: 1}
-  directionVector_DOWN: {x: 0, y: 0, z: -1}
-  directionVector_LEFT: {x: -1, y: 0, z: 0}
-  directionVector_RIGHT: {x: 1, y: 0, z: 0}
   moveKey_Up: 119
   moveKey_Down: 115
   moveKey_Left: 97
   moveKey_Right: 100
-  base_movementSpeed: 10
-  base_rotationSpeed: 20
+  base_movementForceScalar: 40
+  base_rotationSpeed: 30
+  base_playerDrag: 2.5
+  base_playerAngularDrag: 0.05
+  stationary_playerDrag: 20
+  stationary_playerAngularDrag: 2
