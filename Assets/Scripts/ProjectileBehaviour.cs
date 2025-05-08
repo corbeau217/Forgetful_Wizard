@@ -18,12 +18,14 @@ public class ProjectileBehaviour : MonoBehaviour
 
     void OnTriggerEnter (Collider other)
     {
-        // see who we collided with
-        if(other.gameObject.tag != "Walls"){
-            Debug.Log ("projectile collided with " + other.gameObject.tag);
+        if(other.gameObject.tag != "Player"){
+            // see who we collided with
+            if(other.gameObject.tag != "Walls"){
+                Debug.Log ("projectile collided with " + other.gameObject.tag);
+            }
+            
+            // otherwise cleanup projectile
+            Destroy(this.gameObject, 0.0f);
         }
-        
-        // otherwise cleanup projectile
-        Destroy(this.gameObject, 0.0f);
     }
 }

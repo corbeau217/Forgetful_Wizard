@@ -36,6 +36,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     public float projectileSpellCooldown = 0.0f;
 
+    public KeyCode sprintBurstKey = KeyCode.LeftShift;
+    public bool attemptSprintBurst = false;
+    public float sprintBurstSpellCooldown = 0.0f;
+    public float sprintBurstSpellCooldownOnUsageMinimum = 0.35f;
+    public float sprintBurstSpellCooldownOnUsageMaximum = 0.6f;
+    public float sprintBurstForce = 20.0f;
+
     // ==========================================================================================
     // ==========================================================================================
     // ==========================================================================================
@@ -72,6 +79,12 @@ public class PlayerBehaviour : MonoBehaviour
 
         // remove extra diagonal speed and apply as our movement direction
         this.movementForceDirection = Vector3.Normalize(orthogonalMovement);
+
+        // ================================================================================
+
+        if(Input.GetKey(this.sprintBurstKey)){
+            this.attemptSprintBurst = true;
+        }
 
         // ================================================================================
     }
@@ -125,10 +138,10 @@ public class PlayerBehaviour : MonoBehaviour
             this.playerRigidBody.drag = this.playerData.base_playerDrag;
             this.playerRigidBody.angularDrag = this.playerData.base_playerAngularDrag;
             // add our movement force
-            playerRigidBody.AddForce(this.currentMovementForce, ForceMode.Impulse);
+            this.playerRigidBody.AddForce(this.currentMovementForce, ForceMode.Impulse);
         }
         // provide move rotation
-        playerRigidBody.MoveRotation(this.quarternionFacing);
+        this.playerRigidBody.MoveRotation(this.quarternionFacing);
     }
 
     // ==========================================================================================
@@ -138,6 +151,7 @@ public class PlayerBehaviour : MonoBehaviour
     public void HandleTimeouts(){
         // zzzz our spell firing
         this.projectileSpellCooldown = Mathf.Max(0.0f, this.projectileSpellCooldown - Time.deltaTime);
+        this.sprintBurstSpellCooldown = Mathf.Max(0.0f, this.sprintBurstSpellCooldown - Time.deltaTime);
     }
     public void HandleSpellUsage(){
         // have spell use flag
@@ -155,6 +169,18 @@ public class PlayerBehaviour : MonoBehaviour
             }
             // remove the spell use flag
             this.attemptProjectileSpell = false;
+        }
+        if(this.attemptSprintBurst){
+            if(this.sprintBurstSpellCooldown == 0.0f){
+                // add our sprint burst force in direction of movement
+                this.playerRigidBody.AddForce((this.movementForceDirection * this.sprintBurstForce), ForceMode.Impulse);
+
+                // snooze from spell
+                this.sprintBurstSpellCooldown = Random.Range(this.sprintBurstSpellCooldownOnUsageMinimum, this.sprintBurstSpellCooldownOnUsageMaximum);
+            }
+
+            // remove spell use flag
+            this.attemptSprintBurst = false;
         }
     }
 

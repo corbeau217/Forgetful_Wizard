@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 767704065}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 994350317}
   m_Layer: 0
   m_Name: Staff
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1735,7 +1735,7 @@ GameObject:
   - component: {fileID: 1734810020}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1955,18 +1955,23 @@ MonoBehaviour:
   playerRigidBody: {fileID: 0}
   movementForceScalar: 0
   rotationSpeedScalar: 0
+  movementInputNotDetected: 1
   movementForceDirection: {x: 0, y: 0, z: 0}
   currentMovementForce: {x: 0, y: 0, z: 0}
   currentFacingVector: {x: 0, y: 0, z: 1}
   quarternionFacing: {x: 0, y: 0, z: 0, w: 1}
   playerToMouse: {x: 0, y: 0, z: 0}
   mouseDirection: {x: 0, y: 0, z: 0}
-  spellProjectileParent: {fileID: 1709601755}
-  spellProjectileBase: {fileID: 7531285990756059325, guid: b38441a0854693e2ba30b70debe19839, type: 3}
-  attemptSpellUsage: 0
-  spellProjectileForce: 1000
-  spellTimeout: 0.5
-  spellGlobalCooldownRemaining: 0
+  spellObjectParent: {fileID: 1709601755}
+  projectileSpell: {fileID: 11400000, guid: ef752ec57eb4bd6a2a7c71138196df0e, type: 2}
+  attemptProjectileSpell: 0
+  projectileSpellCooldown: 0
+  sprintBurstKey: 304
+  attemptSprintBurst: 0
+  sprintBurstSpellCooldown: 0
+  sprintBurstSpellCooldownOnUsageMinimum: 0.35
+  sprintBurstSpellCooldownOnUsageMaximum: 0.7
+  sprintBurstForce: 35
 --- !u!54 &1926244672
 Rigidbody:
   m_ObjectHideFlags: 0

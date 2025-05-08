@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Bolt
   m_EditorClassIdentifier: 
   projectileObject: {fileID: 7531285990756059325, guid: b38441a0854693e2ba30b70debe19839, type: 3}
-  spellProjectileForce: 100
+  spellProjectileForce: 1000
   spellTimeout: 0.5
