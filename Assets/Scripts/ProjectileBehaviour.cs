@@ -19,8 +19,12 @@ public class ProjectileBehaviour : MonoBehaviour
 
     void OnTriggerEnter (Collider other)
     {
-        // ....
-        Debug.Log ("projectile collided with something");
+        // see who we collided with
+        if(other.gameObject.tag != "Walls"){
+            Debug.Log ("projectile collided with " + other.gameObject.tag);
+        }
+        
+        // otherwise cleanup projectile
         Destroy(this.gameObject, 0.0f);
     }
 }

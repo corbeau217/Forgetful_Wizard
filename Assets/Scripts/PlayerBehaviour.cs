@@ -21,6 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float currentMovementSpeed;
     public float currentRotationSpeed;
 
+    public Vector3 desiredPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
 
     public GameObject spellProjectileParent;
@@ -67,9 +68,9 @@ public class PlayerBehaviour : MonoBehaviour
     public void HandleOrthogonolMovement(){
         // prepare location
         Vector3 desiredLocation = this.gameObject.transform.position + this.currentOrthogonalMovement;
-
         // apply movement
-        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, desiredLocation, this.currentMovementSpeed * Time.deltaTime);
+        // this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, desiredLocation, this.currentMovementSpeed * Time.deltaTime);
+        this.desiredPosition = Vector3.MoveTowards(this.gameObject.transform.position, desiredLocation, this.currentMovementSpeed * Time.deltaTime);
     }
 
     public void HandlePlayerRotation(){
@@ -79,8 +80,16 @@ public class PlayerBehaviour : MonoBehaviour
 
         // rotate our player to face it
         this.quarternionFacing = Quaternion.LookRotation(this.currentFacingVector, Vector3.up);
-        this.gameObject.transform.rotation = this.quarternionFacing;
+        // this.gameObject.transform.rotation = this.quarternionFacing;
+        // this.desiredRotation = this.quarternionFacing;
     }
+    public void ApplyMovementUpdate(){
+        Rigidbody rigidbody = this.GetComponent<Rigidbody>();
+        
+        rigidbody.MovePosition(this.desiredPosition);
+        rigidbody.MoveRotation(this.quarternionFacing);
+    }
+
 
     public void HandleSpellTimeouts(){
         // zzzz our spell firing
@@ -121,8 +130,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         this.HandleKeyboardInput();
         this.HandleMouseInput();
+        
         this.HandleOrthogonolMovement();
         this.HandlePlayerRotation();
+        this.ApplyMovementUpdate();
+
         this.HandleSpellTimeouts();
         this.HandleAttack();
     }
