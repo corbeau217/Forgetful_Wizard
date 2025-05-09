@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f12da725a558f400e8f3af76128a2832, type: 3}
-  m_Name: Empty
+  m_Name: W2_FR
   m_EditorClassIdentifier: 
-  TilePrefab: {fileID: 1289834670660149734, guid: 72b45a2c0db0b45a383fd86a24917488, type: 3}
-  vacantTiles: 010101010101010101
+  TilePrefab: {fileID: 2013974112828741282, guid: a7ce238436b3e4a66aaa5368b5a81632, type: 3}
+  filledRequired: 000100000001000000

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12da725a558f400e8f3af76128a2832, type: 3}
+  m_Name: C2_AR
+  m_EditorClassIdentifier: 
+  TilePrefab: {fileID: 2491687065889820051, guid: 5321c251602e04d8bb0b186f3ec2f355, type: 3}
+  filledRequired: 000001000000000001

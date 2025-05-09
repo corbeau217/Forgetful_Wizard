@@ -8,3 +8,105 @@
     * [ ] basic movement
     * [ ] dash/blink
     * [ ] clones
+
+## TileSet data
+
+### details
+
+| `ID` | `NAME ` | `ADJ. BITS  ` | `TILE DETAILS                   ` |
+| ---- | ------- | ------------- | --------------------------------- |
+| `00` | `Empty` | `000 000 000` | `empty tile                     ` |
+| `01` | `C1_FL` | `100 000 000` | `corner front left              ` |
+| `02` | `W1_F ` | `010 000 000` | `wall front                     ` |
+| `03` | `C1_FR` | `001 000 000` | `corner front right             ` |
+| `04` | `C2_AF` | `101 000 000` | `corners front                  ` |
+| `05` | `W1_L ` | `000 100 000` | `wall left                      ` |
+| `06` | `W2_FL` | `010 100 000` | `walls front left               ` |
+| `07` | `Block` | `000 010 000` | `filled in tile                 ` |
+| `08` | `W1_R ` | `000 001 000` | `wall right                     ` |
+| `09` | `W2_FR` | `010 001 000` | `walls front right              ` |
+| `10` | `W2_PF` | `000 101 000` | `walls parallel front open      ` |
+| `11` | `W3_NB` | `010 101 000` | `walls all but back             ` |
+| `12` | `C1_BL` | `000 000 100` | `corner back left               ` |
+| `13` | `C2_AL` | `100 000 100` | `corners left                   ` |
+| `14` | `C2_DR` | `001 000 100` | `corners diagonal front right   ` |
+| `15` | `C3_FL` | `101 000 100` | `corners adjacent to front left ` |
+| `16` | `W1_B ` | `000 000 010` | `wall back                      ` |
+| `17` | `W2_PL` | `010 000 010` | `walls parallel left open       ` |
+| `18` | `W2_BL` | `000 100 010` | `walls back left                ` |
+| `19` | `W3_NR` | `010 100 010` | `walls all but right            ` |
+| `20` | `W2_BR` | `000 001 010` | `walls back right               ` |
+| `21` | `W3_NL` | `010 001 010` | `walls all but left             ` |
+| `22` | `W3_NF` | `000 101 010` | `walls all but front            ` |
+| `23` | `W4   ` | `010 010 010` | `walls all                      ` |
+| `24` | `C1_BR` | `000 000 001` | `corner back right              ` |
+| `25` | `C2_DL` | `100 000 001` | `corners diagonal front left    ` |
+| `26` | `C2_AR` | `001 000 001` | `corners right                  ` |
+| `27` | `C3_FR` | `101 000 001` | `corners adjacent to front right` |
+| `28` | `C2_AB` | `000 000 101` | `corners back                   ` |
+| `29` | `C3_BL` | `100 000 101` | `corners adjacent to back left  ` |
+| `30` | `C3_BR` | `001 000 101` | `corners adjacent to back right ` |
+| `31` | `C4   ` | `101 000 101` | `corner                         ` |
+
+### logging
+
+* `TileSetData.cs`
+```c#
+    public void ListTileData(){
+        for(int i = 0; i < tileDataList.Length; i++){
+            int tileAdjHash = GetAdjacencyHash(tileDataList[i].filledRequired);
+            Debug.Log( "tileDataList["+(i)+"]: '"+(tileDataList[i].name)+"', ["+(tileAdjHash)+"]" );
+        }
+    }
+
+    public void LogHashOrderStatus(){
+        // prepare hash list
+        int[] tileHashList = new int[tileDataList.Length];
+        // fill hash list
+        for(int i = 0; i < tileDataList.Length; i++){
+            tileHashList[i] = GetAdjacencyHash(tileDataList[i].filledRequired);
+        }
+        // now check each if it's less than previous
+        int searchIndex = 1;
+        for(; searchIndex < tileDataList.Length; searchIndex++){
+            if(tileHashList[searchIndex] < tileHashList[searchIndex-1]){
+                Debug.Log("tileDataList["+(searchIndex)+"] NEEDS EARLIER");
+                break;
+            }
+        }
+        if(searchIndex >= tileDataList.Length){
+            Debug.Log("tileDataList in hash order :D");
+        }
+    }
+```
+
+* `TileMap3D.cs`
+```c#
+    public TileSetData tileset;
+    public float debugLoggingSnoozeTime = 0.5f;
+    public float debugLoggingSnooze = 0.0f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        this.tileset.ListTileData();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(this.debugLoggingSnooze == 0.0f){
+            if(Input.GetKey(KeyCode.P)){
+                this.tileset.ListTileData();
+                this.debugLoggingSnooze = this.debugLoggingSnoozeTime;
+            }
+            if(Input.GetKey(KeyCode.O)){
+                this.tileset.LogHashOrderStatus();
+                this.debugLoggingSnooze = this.debugLoggingSnoozeTime;
+            }
+        }
+        else {
+            this.debugLoggingSnooze = Mathf.Max(0.0f, this.debugLoggingSnooze - Time.deltaTime);
+        }
+    }
+```
