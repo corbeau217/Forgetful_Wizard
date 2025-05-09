@@ -15,3 +15,4 @@ MonoBehaviour:
   TilePrefab: {fileID: 1996921429276916325, guid: f4faf951bfb9f4419ac9d4c4681cd881, type: 3}
   filledRequired: 000100010001000100
   vacancyRequired: 000000000100000000
+  fillMap: {fileID: 2800000, guid: 0dfe1d4bd10bc2204a05ca166abc9fae, type: 3}

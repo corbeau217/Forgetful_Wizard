@@ -6,6 +6,8 @@ public class Tilemap3D : MonoBehaviour
 {
     public TileSetData tileSet;
     public MapLayoutData mapLayout;
+    public bool fillOnStart;
+
     private TileData[,] tileGridData;
     private GameObject[,] tileObjects;
 
@@ -110,8 +112,11 @@ public class Tilemap3D : MonoBehaviour
     void Start()
     {
         this.DumpData();
-        this.LoadGridData();
-        this.GenerateTileObjects();
+        
+        if(fillOnStart){
+            this.LoadGridData();
+            this.GenerateTileObjects();
+        }
     }
 
     // Update is called once per frame

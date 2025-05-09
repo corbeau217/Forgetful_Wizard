@@ -9,6 +9,7 @@ public class TileData : ScriptableObject
     // top row to bottom row, left to right each row
     public bool[] filledRequired;
     public bool[] vacancyRequired;
+    public Texture2D fillMap;
 
 
     private bool adjacencyHashPrepared;
