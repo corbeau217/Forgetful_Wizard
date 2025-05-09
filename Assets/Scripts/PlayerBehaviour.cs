@@ -195,7 +195,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         if(this.attemptBlink){
             if(this.blinkSpellCooldown == 0.0f){
-                LayerMask layerMask = LayerMask.GetMask("Walls");
+                LayerMask layerMask = LayerMask.GetMask("Walls", "Tiles");
                 RaycastHit hit;
                 Vector3 blinkOrigin = this.gameObject.transform.position;
                 blinkOrigin.y += 0.5f;

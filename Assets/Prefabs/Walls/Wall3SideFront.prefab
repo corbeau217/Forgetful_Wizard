@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5435636938675472760}
   - component: {fileID: 3608308029495014943}
   - component: {fileID: 3707786433510690434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall3SideFront
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

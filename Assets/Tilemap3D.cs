@@ -7,6 +7,7 @@ public class Tilemap3D : MonoBehaviour
     public TileSetData tileSet;
     public MapLayoutData mapLayout;
     private TileData[,] tileGridData;
+    private GameObject[,] tileObjects;
 
     private bool loadedTileData;
 
@@ -15,11 +16,25 @@ public class Tilemap3D : MonoBehaviour
         if(this.mapLayout.RowCount() > 0 && this.mapLayout.ColCount() > 0){
             // prepare the grid
             this.tileGridData = new TileData[this.mapLayout.RowCount(),this.mapLayout.ColCount()];
+            this.tileObjects = new GameObject[this.mapLayout.RowCount(),this.mapLayout.ColCount()];
 
             // TODO: process grid data
             // for each cell in the grid
             //   go and find the adjacency data
             //      then find a tile that fits that data
+            for(int rowIndex = 0; rowIndex < this.mapLayout.RowCount(); rowIndex++){
+                for(int colIndex = 0; colIndex < this.mapLayout.ColCount(); colIndex++){
+                    // TODO handle swapping out for the required tile
+
+                    // for now we just check if it's filled
+                    if(this.mapLayout.IsLocationFilled(rowIndex,colIndex)){
+                        this.tileGridData[rowIndex,colIndex] = this.tileSet.tileDataBlock;
+                    }
+                    else {
+                        this.tileGridData[rowIndex,colIndex] = this.tileSet.tileDataEmpty;
+                    }
+                }
+            }
 
             // label as loaded
             this.loadedTileData = true;
@@ -30,11 +45,25 @@ public class Tilemap3D : MonoBehaviour
     }
     private void GenerateTileObjects(){
         if(this.loadedTileData){
-            // TODO create tiles based on supplied data
-            Debug.Log("tiles to be generated");
+            // every row
+            for(int rowIndex = 0; rowIndex < this.mapLayout.RowCount(); rowIndex++){
+                // every column
+                for(int colIndex = 0; colIndex < this.mapLayout.ColCount(); colIndex++){
+                    // generate tile for location
+                    this.tileObjects[rowIndex,colIndex] = (GameObject)Instantiate(
+                        // tile object
+                        this.tileGridData[rowIndex,colIndex].TilePrefab,
+                        // parent transform
+                        this.gameObject.transform
+                    );
+                    // add rect transform to them
+                    RectTransform rt = this.tileObjects[rowIndex,colIndex].AddComponent(typeof(RectTransform)) as RectTransform;
+                    // then??
+                }
+            }
         }
         else {
-            Debug.Log("loading tiles failure");
+            Debug.Log("Tilemap3D didnt have tile data to load");
         }
     }
     void DumpData(){
@@ -77,7 +106,7 @@ public class Tilemap3D : MonoBehaviour
     {
         this.DumpData();
         this.LoadGridData();
-        // this.GenerateTileObjects();
+        this.GenerateTileObjects();
     }
 
     // Update is called once per frame

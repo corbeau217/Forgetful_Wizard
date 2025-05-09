@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2220010413603848426}
   - component: {fileID: 6340714776337892901}
   - component: {fileID: 9215701851521261255}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Corner2DiagFrontLeft
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

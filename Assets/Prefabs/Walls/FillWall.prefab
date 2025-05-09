@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8765011116223708035}
   - component: {fileID: 5453663022140098509}
   - component: {fileID: 3769670268464628488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,9 +106,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6173977075831400588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FillWall
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

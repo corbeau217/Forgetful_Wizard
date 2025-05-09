@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6637252652831329906}
   - component: {fileID: 4652899519426790945}
   - component: {fileID: 5311906030953500030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Corner2AdjBack
-  m_TagString: Untagged
+  m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -20,7 +20,7 @@ public class ProjectileBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag != "Player"){
             // see who we collided with
-            if(other.gameObject.tag != "Walls"){
+            if(other.gameObject.tag != "Walls" && other.gameObject.tag != "Tiles"){
                 Debug.Log ("projectile collided with " + other.gameObject.tag);
             }
             
