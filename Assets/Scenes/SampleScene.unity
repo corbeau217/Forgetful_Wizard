@@ -1967,6 +1967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileSet: {fileID: 11400000, guid: 9287886b8ae4eeceda3b7e24af608b90, type: 2}
   mapLayout: {fileID: 11400000, guid: 6c7092af60b6c920885d6005fec71eda, type: 2}
+  fillOnStart: 1
 --- !u!114 &1847822708
 MonoBehaviour:
   m_ObjectHideFlags: 0
