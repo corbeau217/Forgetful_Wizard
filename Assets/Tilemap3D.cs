@@ -37,12 +37,47 @@ public class Tilemap3D : MonoBehaviour
             Debug.Log("loading tiles failure");
         }
     }
-
+    void DumpData(){
+        // int lineIndex = 0;
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111110000011111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111100000001111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111100000001111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111100000001111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111110000011111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111010111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111100001110000011100001111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000000000000000000111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111100001110000011100001111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111100001110000011100001111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000000000000000000111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111100001110000011100001111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111101111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111101111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111000111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111000111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111000111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
+        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
+    }
     // Start is called before the first frame update
     void Start()
     {
+        this.DumpData();
         this.LoadGridData();
-        this.GenerateTileObjects();
+        // this.GenerateTileObjects();
     }
 
     // Update is called once per frame

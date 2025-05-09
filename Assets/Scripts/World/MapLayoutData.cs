@@ -6,23 +6,23 @@ using UnityEngine;
 public class MapLayoutData : ScriptableObject
 {
 
-    public uint[] rowBits;
+    public int[] rowData;
     private bool[,] cellFilledGrid;
     private int rowCount;
     private int colCount;
     private bool loadedGridData;
 
-    public void LoadFrom(uint[] rowBits){
-        this.cellFilledGrid = new bool[rowBits.Length,32];
+    public void LoadFrom(int[] rowData){
+        this.cellFilledGrid = new bool[rowData.Length,31];
         // each row
-        for(int rowIndex = 0; rowIndex < rowBits.Length; rowIndex++){
-            // gather that rows bits, int is 32 bits, left to right for columns
-            for(int colIndex = 0; colIndex < 32; colIndex++){
+        for(int rowIndex = 0; rowIndex < rowData.Length; rowIndex++){
+            // gather that rows bits, int is 32 bits but we ignore signed bit, left to right for columns
+            for(int colIndex = 0; colIndex < 31; colIndex++){
                 // prepare mask as most significant bit as 1
                 //      left to right, as we do with adjacency
-                uint bitMask = (0x80000000 >> colIndex);
+                int bitMask = (0x40000000 >> colIndex);
                 // test if it's real
-                if( (rowBits[rowIndex] & bitMask) > 0 ){
+                if( (rowData[rowIndex] & bitMask) > 0 ){
                     this.cellFilledGrid[rowIndex,colIndex] = true;
                 }
                 // redundant, defaults false anyway
@@ -33,14 +33,17 @@ public class MapLayoutData : ScriptableObject
         }
     }
     public void Load(){
-        if(this.rowBits!=null && this.rowBits.Length > 0){
-            this.rowCount = rowBits.Length;
-            this.colCount = 32;
-            this.LoadFrom(this.rowBits);
+        if(this.rowData!=null && this.rowData.Length > 0){
+            this.rowCount = rowData.Length;
+            this.colCount = 31;
+            this.LoadFrom(this.rowData);
             this.loadedGridData = true;
         }
         else {
             Debug.Log("No row data to load!");
+        }
+        if(this.rowData.Length==0){
+            this.rowData = new int[32];
         }
     }
     public bool[] GetAdjacency(int rowIndex, int colIndex){

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d03dc160f937ba8198219761683ef8c, type: 3}
   m_Name: MapLayout1
   m_EditorClassIdentifier: 
-  rowBits: 
+  rowData: ffffff7fffffff7fffffff7fff3ff87fff1ff07fff1ff07fff1ff07fff3ff87fff7ffd7f7f38387c3f1010783f0000783f1010787f38387c3f1010783f1010783f1010787f38387c3f1010783f0000783f1010787f38387cfffffe7ffffffe7fff7ffc7fff7ffc7fff7ffc7fffffff7fffffff7fffffff7fffffff7fffffff7f
