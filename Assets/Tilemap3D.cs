@@ -13,6 +13,8 @@ public class Tilemap3D : MonoBehaviour
 
     private bool loadedTileData;
 
+    public Texture2D fillTexture;
+
     private void LoadGridData(){
         this.mapLayout.Load();
         if(this.mapLayout.RowCount() > 0 && this.mapLayout.ColCount() > 0){
@@ -69,6 +71,12 @@ public class Tilemap3D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Color[] pixelColours = fillTexture.GetPixels(0);
+        for (int i = 0; i < pixelColours.Length; i++)
+        {
+            Debug.Log("pixel["+i+"]: "+pixelColours[i].ToString());
+        }
+
         if(fillOnStart){
             this.LoadGridData();
             this.GenerateTileObjects();

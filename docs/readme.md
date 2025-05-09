@@ -55,6 +55,43 @@ The five boxing wizards jump quickly
 | `30` | `C3_BR` | `001 000 101` | `corners adjacent to back right ` |
 | `31` | `C4   ` | `101 000 101` | `corner                         ` |
 
+### alphabetical ordering
+
+```
+Block
+C1_BL
+C1_BR
+C1_FL
+C1_FR
+C2_AB
+C2_AF
+C2_AL
+C2_AR
+C2_DL
+C2_DR
+C3_BL
+C3_BR
+C3_FL
+C3_FR
+C4
+Empty
+W1_B
+W1_F
+W1_L
+W1_R
+W2_BL
+W2_BR
+W2_FL
+W2_FR
+W2_PF
+W2_PL
+W3_NB
+W3_NF
+W3_NL
+W3_NR
+W4
+```
+
 ### logging
 
 * `TileSetData.cs`

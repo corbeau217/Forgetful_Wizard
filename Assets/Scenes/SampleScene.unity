@@ -1259,7 +1259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065981217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: 0, z: -500}
+  m_LocalPosition: {x: -500, y: -1, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2086,6 +2086,7 @@ MonoBehaviour:
   tileSet: {fileID: 11400000, guid: 9287886b8ae4eeceda3b7e24af608b90, type: 2}
   mapLayout: {fileID: 11400000, guid: 6c7092af60b6c920885d6005fec71eda, type: 2}
   fillOnStart: 1
+  fillTexture: {fileID: 2800000, guid: 2ca3424396543d8c4a3fde269f76ef95, type: 3}
 --- !u!114 &1847822708
 MonoBehaviour:
   m_ObjectHideFlags: 0
