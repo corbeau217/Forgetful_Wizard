@@ -10,20 +10,35 @@ public class TileSetData : ScriptableObject
     public TileData tileDataBlock;
 
     public TileData GetTileData(bool[] adjacentFilled){
-        // TODO : handle adjacency matrix, hash and find by hash
+        // prepare the hash of what we have
+        int lookingAdjacencyHash = TileData.GetAdjacencyHashFrom(adjacentFilled);
 
-        return tileDataBlock;
-    }
+        // find a matching hash
+        for(int i = 0; i < tileDataList.Length; i++){
+            int tileVacancyHash = tileDataList[i].GetVacancyHash();
+            int tileAdjacencyHash = tileDataList[i].GetAdjacencyHash();
 
-    public int GetAdjacencyHash(bool[] adjacentFilled){
-        int result = 0;
-        for(int i = 0; i < adjacentFilled.Length; i++){
-            // add left shifted bit based on adjacency
-            //  index is the power of 2 to add
-            if(adjacentFilled[i]){
-                result += (0x01 << i);
+            // use the vancancy has as a bitwise mask and see if we match something,
+            //  but also that we have the required adjacency for the tile
+            if( (tileVacancyHash & lookingAdjacencyHash) == 0 && (tileAdjacencyHash & lookingAdjacencyHash) == tileAdjacencyHash){
+                // found a hit!
+                Debug.Log("filled["+(lookingAdjacencyHash)+"] -> tile["+(tileAdjacencyHash)+"] matched!");
+                return this.tileDataList[i];
             }
+            // // just vacancy matches 
+            // else if( (tileVacancyHash & lookingAdjacencyHash) > 0 ){
+            //     Debug.Log("filled["+(lookingAdjacencyHash)+"] -> tile["+(tileAdjacencyHash)+"] :: ONLY VACANT MATCHED");
+            // }
+            // // just adjacency matches
+            // else if( tileAdjacencyHash & lookingAdjacencyHash == tileAdjacencyHash ){
+            //     Debug.Log("filled["+(lookingAdjacencyHash)+"] -> tile["+(tileAdjacencyHash)+"] :: ONLY ADJACENT MATCHED");
+            // }
+            // else {
+            //     Debug.Log("filled["+(lookingAdjacencyHash)+"] -> tile["+(tileAdjacencyHash)+"] :: DOESNT MATCH");
+            // }
         }
-        return result;
+
+        // default to block
+        return tileDataBlock;
     }
 }

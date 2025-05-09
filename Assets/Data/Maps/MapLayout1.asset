@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12da725a558f400e8f3af76128a2832, type: 3}
-  m_Name: Empty
+  m_Script: {fileID: 11500000, guid: 1d03dc160f937ba8198219761683ef8c, type: 3}
+  m_Name: MapLayout1
   m_EditorClassIdentifier: 
-  TilePrefab: {fileID: 1289834670660149734, guid: 72b45a2c0db0b45a383fd86a24917488, type: 3}
-  filledRequired: 000000000000000000
-  vacancyRequired: 010101010101010101
+  rowBits: 

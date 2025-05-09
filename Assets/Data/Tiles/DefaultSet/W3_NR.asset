@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TilePrefab: {fileID: 5470779824134008803, guid: 0aa6bf93474864229beb254080c130a9, type: 3}
   filledRequired: 000100010000000100
+  vacancyRequired: 010001000101010001
