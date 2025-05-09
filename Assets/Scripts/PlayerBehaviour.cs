@@ -28,6 +28,8 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 playerToMouse;
     public Vector3 mouseDirection;
 
+    public GameObject movementDirectionObject;
+
 
     public GameObject spellObjectParent;
     public ProjectileSpellData projectileSpell;
@@ -133,6 +135,15 @@ public class PlayerBehaviour : MonoBehaviour
 
         // rotate our player to face it
         this.quarternionFacing = Quaternion.LookRotation(this.currentFacingVector, Vector3.up);
+
+        if(this.movementForceDirection.magnitude > 0.0f){
+            this.movementDirectionObject.SetActive(true);
+            Quaternion moveDirectionQuaternion = Quaternion.LookRotation(this.movementForceDirection);
+            this.movementDirectionObject.transform.rotation = moveDirectionQuaternion;
+        }
+        else {
+            this.movementDirectionObject.SetActive(false);
+        }
     }
 
     public void ApplyMovementUpdate(){
