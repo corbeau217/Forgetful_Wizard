@@ -25,11 +25,13 @@ public class TileSetData : ScriptableObject
                     break;
                 }
             }
+            // check for not yucky to use
             if(!yuckyOption){
                 desirableIndex = i;
                 desirableCount++;
             }
         }
+        // purely for debugging, but shouldnt show up anymore
         if(desirableCount == 0){
             Debug.Log("NO DESIRABLE TILES");
             // default to block

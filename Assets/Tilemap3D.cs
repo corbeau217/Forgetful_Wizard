@@ -20,22 +20,11 @@ public class Tilemap3D : MonoBehaviour
             this.tileGridData = new TileData[this.mapLayout.RowCount(),this.mapLayout.ColCount()];
             this.tileObjects = new GameObject[this.mapLayout.RowCount(),this.mapLayout.ColCount()];
 
-            // TODO: process grid data
             // for each cell in the grid
             //   go and find the adjacency data
             //      then find a tile that fits that data
             for(int rowIndex = 0; rowIndex < this.mapLayout.RowCount(); rowIndex++){
                 for(int colIndex = 0; colIndex < this.mapLayout.ColCount(); colIndex++){
-                    // TODO handle swapping out for the required tile
-
-                    // // for now we just check if it's filled
-                    // if(this.mapLayout.IsLocationFilled(rowIndex,colIndex)){
-                    //     this.tileGridData[rowIndex,colIndex] = this.tileSet.tileDataBlock;
-                    // }
-                    // else {
-                    //     this.tileGridData[rowIndex,colIndex] = this.tileSet.tileDataEmpty;
-                    // }
-                    
                     // gather the adjacency information for the tile
                     bool[] adjacencyData = this.mapLayout.GetAdjacency(rowIndex,colIndex);
                     // try fetch the required tile and save it
@@ -73,46 +62,9 @@ public class Tilemap3D : MonoBehaviour
             Debug.Log("Tilemap3D didnt have tile data to load");
         }
     }
-    void DumpData(){
-        // int lineIndex = 0;
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111110000011111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111100000001111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111100000001111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111100000001111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111110000011111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111010111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111100001110000011100001111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000000000000000000111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111100001110000011100001111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111100001110000011100001111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000000000000000000111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111000000100000001000000111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111100001110000011100001111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111101111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111101111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111000111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111000111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111000111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
-        // Debug.Log("line["+(lineIndex++)+"]: "+(0b01111111111111111111111111111111) );
-    }
     // Start is called before the first frame update
     void Start()
     {
-        this.DumpData();
-        
         if(fillOnStart){
             this.LoadGridData();
             this.GenerateTileObjects();
