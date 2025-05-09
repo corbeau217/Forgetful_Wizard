@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12da725a558f400e8f3af76128a2832, type: 3}
   m_Name: C3_BL
   m_EditorClassIdentifier: 
-  TilePrefab: {fileID: 4114262290235561529, guid: b86b55597adad41f5a740b81d9618b60, type: 3}
+  TilePrefab: {fileID: 1064534731774623067, guid: fc58b425bc71810ff8125a7b777f1856, type: 3}
   filledRequired: 010000000000010001
   vacancyRequired: 000101010101000100
   fillMap: {fileID: 2800000, guid: 451c85bc1b89a52b98bea3722672f7b5, type: 3}

@@ -41,6 +41,8 @@ public class Tilemap3D : MonoBehaviour
     }
     private void GenerateTileObjects(){
         if(this.loadedTileData){
+            Quaternion tileRotation = Quaternion.identity;
+            tileRotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
             // every row
             for(int rowIndex = 0; rowIndex < this.mapLayout.RowCount(); rowIndex++){
                 // every column
@@ -52,6 +54,8 @@ public class Tilemap3D : MonoBehaviour
                         // parent transform
                         this.gameObject.transform
                     );
+                    // anti rotation
+                    this.tileObjects[rowIndex,colIndex].transform.rotation = tileRotation;
                     // add rect transform to them
                     RectTransform rt = this.tileObjects[rowIndex,colIndex].AddComponent(typeof(RectTransform)) as RectTransform;
                     // then??
