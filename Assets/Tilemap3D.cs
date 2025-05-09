@@ -26,13 +26,18 @@ public class Tilemap3D : MonoBehaviour
                 for(int colIndex = 0; colIndex < this.mapLayout.ColCount(); colIndex++){
                     // TODO handle swapping out for the required tile
 
-                    // for now we just check if it's filled
-                    if(this.mapLayout.IsLocationFilled(rowIndex,colIndex)){
-                        this.tileGridData[rowIndex,colIndex] = this.tileSet.tileDataBlock;
-                    }
-                    else {
-                        this.tileGridData[rowIndex,colIndex] = this.tileSet.tileDataEmpty;
-                    }
+                    // // for now we just check if it's filled
+                    // if(this.mapLayout.IsLocationFilled(rowIndex,colIndex)){
+                    //     this.tileGridData[rowIndex,colIndex] = this.tileSet.tileDataBlock;
+                    // }
+                    // else {
+                    //     this.tileGridData[rowIndex,colIndex] = this.tileSet.tileDataEmpty;
+                    // }
+                    
+                    // gather the adjacency information for the tile
+                    bool[] adjacencyData = this.mapLayout.GetAdjacency(rowIndex,colIndex);
+                    // try fetch the required tile and save it
+                    this.tileGridData[rowIndex,colIndex] = this.tileSet.GetTileData(adjacencyData);
                 }
             }
 

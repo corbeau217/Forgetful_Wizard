@@ -41,11 +41,11 @@
      <Compile Include="Assets/Scripts/World/TileData.cs" />
      <Compile Include="Assets/Scripts/Spell/ProjectileSpellData.cs" />
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
-     <Compile Include="Assets/Scripts/PlayerBehaviour.cs" />
-     <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
      <Compile Include="Assets/Scripts/World/TileSetData.cs" />
+     <Compile Include="Assets/Scripts/PlayerBehaviour.cs" />
      <Compile Include="Assets/Tilemap3D.cs" />
      <Compile Include="Assets/Scripts/World/MapLayoutData.cs" />
+     <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/corbeau/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

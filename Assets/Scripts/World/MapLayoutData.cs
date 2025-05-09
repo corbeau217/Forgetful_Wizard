@@ -47,18 +47,31 @@ public class MapLayoutData : ScriptableObject
         }
     }
     public bool[] GetAdjacency(int rowIndex, int colIndex){
-        bool[] result = new bool[9];
-        int resultIndex = 0;
-        // rows
-        for(int rowIndexOffset = 0; rowIndexOffset < 3; rowIndexOffset++){
-            // columns
-            for(int colIndexOffset = 0; colIndexOffset < 3; colIndexOffset++){
-                // get if it's filled
-                result[resultIndex++] = this.IsLocationFilled( rowIndex+rowIndexOffset, colIndex+colIndexOffset );
-            }
-        }
-        // give it up
-        return result;
+        // bool[] result = new bool[9];
+        // int resultIndex = 0;
+        // // rows
+        // for(int rowIndexOffset = -1; rowIndexOffset < 2; rowIndexOffset++){
+        //     // columns
+        //     for(int colIndexOffset = -1; colIndexOffset < 2; colIndexOffset++){
+        //         // get if it's filled
+        //         result[resultIndex++] = this.IsLocationFilled( rowIndex + rowIndexOffset, colIndex + colIndexOffset );
+        //     }
+        // }
+        // // give it up
+        // return result;
+        return new bool[]{
+            this.IsLocationFilled( rowIndex-1, colIndex-1 ),
+            this.IsLocationFilled( rowIndex-1, colIndex   ),
+            this.IsLocationFilled( rowIndex-1, colIndex+1 ),
+
+            this.IsLocationFilled( rowIndex,   colIndex-1 ),
+            this.IsLocationFilled( rowIndex,   colIndex   ),
+            this.IsLocationFilled( rowIndex,   colIndex+1 ),
+
+            this.IsLocationFilled( rowIndex+1, colIndex-1 ),
+            this.IsLocationFilled( rowIndex+1, colIndex   ),
+            this.IsLocationFilled( rowIndex+1, colIndex+1 )
+        };
     }
     public bool IsLocationFilled(int rowIndex, int colIndex){
         // not loaded or out of bounds

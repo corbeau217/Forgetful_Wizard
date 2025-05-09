@@ -12,7 +12,9 @@ public class TileSetData : ScriptableObject
     public TileData GetTileData(bool[] adjacentFilled){
         // prepare the hash of what we have
         int lookingAdjacencyHash = TileData.GetAdjacencyHashFrom(adjacentFilled);
-
+        Debug.Log(
+            "["+((adjacentFilled[0])?1:0)+" "+((adjacentFilled[1])?1:0)+" "+((adjacentFilled[2])?1:0)+"]["+((adjacentFilled[3])?1:0)+" "+((adjacentFilled[4])?1:0)+" "+((adjacentFilled[5])?1:0)+" ]["+((adjacentFilled[6])?1:0)+" "+((adjacentFilled[7])?1:0)+" "+((adjacentFilled[8])?1:0)+" ]\n"
+        );
         // find a matching hash
         for(int i = 0; i < tileDataList.Length; i++){
             int tileVacancyHash = tileDataList[i].GetVacancyHash();
@@ -22,7 +24,7 @@ public class TileSetData : ScriptableObject
             //  but also that we have the required adjacency for the tile
             if( (tileVacancyHash & lookingAdjacencyHash) == 0 && (tileAdjacencyHash & lookingAdjacencyHash) == tileAdjacencyHash){
                 // found a hit!
-                Debug.Log("filled["+(lookingAdjacencyHash)+"] -> tile["+(tileAdjacencyHash)+"] matched!");
+                // Debug.Log("filled["+(lookingAdjacencyHash)+"] -> tile["+(tileAdjacencyHash)+"] matched!");
                 return this.tileDataList[i];
             }
             // // just vacancy matches 
@@ -30,7 +32,7 @@ public class TileSetData : ScriptableObject
             //     Debug.Log("filled["+(lookingAdjacencyHash)+"] -> tile["+(tileAdjacencyHash)+"] :: ONLY VACANT MATCHED");
             // }
             // // just adjacency matches
-            // else if( tileAdjacencyHash & lookingAdjacencyHash == tileAdjacencyHash ){
+            // else if( (tileAdjacencyHash & lookingAdjacencyHash) == tileAdjacencyHash ){
             //     Debug.Log("filled["+(lookingAdjacencyHash)+"] -> tile["+(tileAdjacencyHash)+"] :: ONLY ADJACENT MATCHED");
             // }
             // else {
