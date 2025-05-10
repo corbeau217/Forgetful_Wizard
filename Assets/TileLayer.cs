@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// for grid manipulation
+//  shhhh it's silly but duct tape
+//  makes the projects stop floating
+using UnityEngine.UI;
 
 public class TileLayer : MonoBehaviour
 {
@@ -10,12 +14,20 @@ public class TileLayer : MonoBehaviour
 
     public TileSetData tileSet;
     public MapLayerMaskData mapLayerMask;
+    public GameObject tileContainer;
+
+    // X and Z are cell size in grid, Y is grid scale for height
+    public Vector3 cellDimensions = Vector3.one;
+
     public bool fillOnStart;
 
     // ================================================================
     // ================================================================
     // ------------------------------------------- private data fields
 
+    private RectTransform containerRectTransform;
+    private GridLayoutGroup containerGridLayoutGroup;
+    
     private TileData[,] tileGridData;
     private GameObject[,] tileObjects;
 
@@ -23,13 +35,41 @@ public class TileLayer : MonoBehaviour
 
     // ================================================================
     // ================================================================
+    // ------------------------------------------------- event methods
+
+    public void Initialise(){
+        // prepare references
+
+        this.containerRectTransform = this.tileContainer.GetComponent<RectTransform>();
+        this.containerGridLayoutGroup = this.tileContainer.GetComponent<GridLayoutGroup>();
+
+        if(this.mapLayerMask.RowCount() > 0 && this.mapLayerMask.ColCount() > 0){
+            // =====================================
+            // ---------------- prepare data arrays
+
+            // prepare the grid
+            this.tileGridData = new TileData[ this.mapLayerMask.RowCount(), this.mapLayerMask.ColCount() ];
+            this.tileObjects = new GameObject[ this.mapLayerMask.RowCount(), this.mapLayerMask.ColCount() ];
+
+            // =====================================
+            // ------------ prepare grid properties
+
+            // prepare grid sizing
+            float colSize = this.cellDimensions.x;
+            float rowSize = this.cellDimensions.z;
+            
+            this.containerRectTransform.sizeDelta = new Vector2( colSize*this.mapLayerMask.ColCount(), rowSize*this.mapLayerMask.RowCount() );
+            this.containerGridLayoutGroup.cellSize = new Vector2( colSize, rowSize );
+            
+        }
+    }
+
+    // ================================================================
+    // ================================================================
     // ----------------------------------------------- private methods
 
     private void LoadLayerData(){
         if(this.mapLayerMask.RowCount() > 0 && this.mapLayerMask.ColCount() > 0){
-            // prepare the grid
-            this.tileGridData = new TileData[ this.mapLayerMask.RowCount(), this.mapLayerMask.ColCount() ];
-            this.tileObjects = new GameObject[ this.mapLayerMask.RowCount(), this.mapLayerMask.ColCount() ];
 
             // for each cell in the grid
             //   go and find the adjacency data
@@ -64,7 +104,7 @@ public class TileLayer : MonoBehaviour
                         // tile object
                         this.tileGridData[rowIndex,colIndex].TilePrefab,
                         // parent transform
-                        this.gameObject.transform
+                        this.tileContainer.transform
                     );
                     // anti rotation
                     this.tileObjects[rowIndex,colIndex].transform.rotation = tileRotation;
@@ -87,6 +127,7 @@ public class TileLayer : MonoBehaviour
     void Start()
     {
         if(fillOnStart){
+            this.Initialise();
             this.mapLayerMask.Initialise();
             this.LoadLayerData();
             this.GenerateTileObjects();

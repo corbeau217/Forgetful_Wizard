@@ -198,3 +198,8 @@ The five boxing wizards jump quickly
         }
     }
 ```
+
+## references
+
+### normal map generation
+* github project to generate normal maps in web page [https://cpetry.github.io/NormalMap-Online/](https://cpetry.github.io/NormalMap-Online/)

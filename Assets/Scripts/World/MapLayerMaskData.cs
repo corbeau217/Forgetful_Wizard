@@ -25,6 +25,9 @@ public class MapLayerMaskData : ScriptableObject
     //  range of magnitude difference we accept
     public float maskTollerance;
 
+    // treat fill mask as its opposite
+    public bool invertFillMask;
+
     public bool fillOnError;
 
     // ================================================================
@@ -94,9 +97,9 @@ public class MapLayerMaskData : ScriptableObject
         Vector4 desiredColour = new Vector4( this.layerFillColour.r, this.layerFillColour.g, this.layerFillColour.b, this.layerFillColour.a );
         Vector4 testingColour = new Vector4(          colourToTry.r,          colourToTry.g,          colourToTry.b,          colourToTry.a );
 
-        float magnitudeDifference = desiredColour.magnitude - testingColour.magnitude;
+        float magnitudeDifference = Mathf.Abs(desiredColour.magnitude - testingColour.magnitude);
 
-        return Mathf.Abs(magnitudeDifference) < this.maskTollerance;
+        return magnitudeDifference < this.maskTollerance;
     }
 
     // loading our cellFillMask from pixelColourData
@@ -137,7 +140,7 @@ public class MapLayerMaskData : ScriptableObject
         }
         // otherwise
         //  check actually filled
-        return this.cellFillMask[rowIndex,colIndex];
+        return ( !this.invertFillMask && this.cellFillMask[rowIndex,colIndex] ) || ( this.invertFillMask && !(this.cellFillMask[rowIndex,colIndex]) );
     }
 
     // fetching the adjacency information for a given
