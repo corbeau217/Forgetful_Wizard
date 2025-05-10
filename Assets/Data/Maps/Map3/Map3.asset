@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77b0fccd65be4d5da4d58d1a8e812ca, type: 3}
+  m_Name: Map3
+  m_EditorClassIdentifier: 
+  layers:
+  - {fileID: 11400000, guid: f8e55566926dc561e806ceb586f2f85b, type: 2}
+  loadErrorTile: {fileID: 2852632532186512285, guid: a85f5baad02316f45aba1dd99f0c921e, type: 3}
+  accessErrorTile: {fileID: 2852632532186512285, guid: 9152c66f744478d6ab08bbea228e8aeb, type: 3}
+  layerErrorTile: {fileID: 2852632532186512285, guid: d4f8a305a74710deba2845b49a068a9c, type: 3}

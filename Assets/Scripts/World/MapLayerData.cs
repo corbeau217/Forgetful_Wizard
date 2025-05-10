@@ -20,7 +20,7 @@ public class MapLayerData : ScriptableObject
     public float maskTollerance;
 
     // treat fill mask as its opposite
-    public bool invertFillMask;
+    public bool isBackgroundLayer;
 
     public bool fillOnError;
 
@@ -33,6 +33,7 @@ public class MapLayerData : ScriptableObject
 
     // the filling of cells
     private bool[,] cellFillMask;
+
 
     private Vector2Int layerDimensions = new Vector2Int(0, 0);
 
@@ -119,6 +120,15 @@ public class MapLayerData : ScriptableObject
     public int ColCount(){
         return (this.loadedLayerData)?this.layerDimensions.x:-1;
     }
+    public GameObject GetTileObject( int rowIndex, int colIndex ){
+        // background layer or it's filled, just go grab the tile
+        if(this.isBackgroundLayer || this.IsLocationFilled(rowIndex,colIndex)){
+            return this.tileSet.GetTileData(this.GetAdjacency(rowIndex,colIndex)).TilePrefab;
+        }
+        // otherwise say it's bad
+        Debug.Log("erm, trying to use bad tile??");
+        return null;
+    }
 
     // determine if a location should be labeled as filled
     //  using fillOnError for value when provided spooky coordinates
@@ -131,7 +141,7 @@ public class MapLayerData : ScriptableObject
         }
         // otherwise
         //  check actually filled
-        return ( !this.invertFillMask && this.cellFillMask[rowIndex,colIndex] ) || ( this.invertFillMask && !(this.cellFillMask[rowIndex,colIndex]) );
+        return ( !this.isBackgroundLayer && this.cellFillMask[rowIndex,colIndex] ) || ( this.isBackgroundLayer && !(this.cellFillMask[rowIndex,colIndex]) );
     }
 
     // fetching the adjacency information for a given

@@ -10,11 +10,18 @@ public class MapData : ScriptableObject
     // ================================================================
     // -------------------------------------------- public data fields
 
-    MapLayerData[] layers;
+    public MapLayerData[] layers;
+
+    public GameObject loadErrorTile;
+    public GameObject accessErrorTile;
+    public GameObject layerErrorTile;
 
     // ================================================================
     // ================================================================
     // ------------------------------------------- private data fields
+
+    private int[,] tileLayerIndices;
+    
 
     private Vector2Int mapDimensions = new Vector2Int(0, 0);
 
@@ -32,6 +39,13 @@ public class MapData : ScriptableObject
             for(int i = 0; i < this.layers.Length; i++){
                 this.layers[i].Initialise();
             }
+            // use first layer for map dimensions
+            this.mapDimensions.y = this.layers[0].RowCount();
+            this.mapDimensions.x = this.layers[0].ColCount();
+
+            this.tileLayerIndices = new int[ this.mapDimensions.y, this.mapDimensions.x ];
+
+            this.FindTileFilledLayers();
 
             // so the public getters are happy
             this.loadedMapData = true;
@@ -45,6 +59,32 @@ public class MapData : ScriptableObject
     // ================================================================
     // ----------------------------------------------- private methods
 
+    // get all the layer indices that we're using
+    private void FindTileFilledLayers(){
+        // every row
+        for(int rowIndex = 0; rowIndex < this.RowCount(); rowIndex++){
+            // every column
+            for(int colIndex = 0; colIndex < this.ColCount(); colIndex++){
+                this.tileLayerIndices[ rowIndex, colIndex ] = this.FindLayerOfTile( rowIndex, colIndex );
+            }
+        }
+    }
+
+    // find the layer index
+    //  return -1 when not filled
+    private int FindLayerOfTile(int rowIndex, int colIndex){
+        if(!this.loadedMapData){
+            return -1;
+        }
+        // search our layers and find out if it's filled
+        for(int i = 0; i < this.layers.Length; i++){
+            if(this.layers[i].IsLocationFilled(rowIndex, colIndex)){
+                return i;
+            }
+        }
+        // couldnt find a layer it was filled, use background layer
+        return 0;
+    }
 
 
     // ================================================================
@@ -58,41 +98,21 @@ public class MapData : ScriptableObject
         return (this.loadedMapData)?this.mapDimensions.x:-1;
     }
 
-    public bool IsLocationFilled(int layerIndex, int rowIndex, int colIndex){
-        if(!this.loadedMapData){
-            return false;
+
+    public GameObject GetTileObject( int rowIndex, int colIndex ){
+        // did we load it yet?
+        if(this.loadedMapData){
+            int layerIndex = this.tileLayerIndices[ rowIndex, colIndex ];
+            // is there a layer to use?
+            if(layerIndex >= 0){
+                GameObject tileToUse = this.layers[ layerIndex ].GetTileObject(rowIndex, colIndex);
+                return (tileToUse!=null)? tileToUse :this.layerErrorTile;
+            }
+            else {
+                return this.accessErrorTile;
+            }
         }
-        if(layerIndex < 0 || layerIndex >= this.layers.Length){
-            return false;
-        }
-        return this.layers[layerIndex].IsLocationFilled(rowIndex, colIndex);
-    }
-
-    // fetching the adjacency information for a given
-    //  location within our grid
-    // 
-    // where CC is the current cell we want the following:
-    // 
-    //   [ TL ][ TC ][ TR ]
-    //   [ CL ][ CC ][ CR ]
-    //   [ BL ][ BC ][ BR ]
-    // 
-    // this is fetched where the top left is the first, and
-    //  bottom right is the last in row major order
-    public bool[] GetAdjacency(int layerIndex, int rowIndex, int colIndex){
-        return new bool[]{
-            this.IsLocationFilled( layerIndex, rowIndex-1, colIndex-1 ),
-            this.IsLocationFilled( layerIndex, rowIndex-1, colIndex   ),
-            this.IsLocationFilled( layerIndex, rowIndex-1, colIndex+1 ),
-
-            this.IsLocationFilled( layerIndex, rowIndex,   colIndex-1 ),
-            this.IsLocationFilled( layerIndex, rowIndex,   colIndex   ),
-            this.IsLocationFilled( layerIndex, rowIndex,   colIndex+1 ),
-
-            this.IsLocationFilled( layerIndex, rowIndex+1, colIndex-1 ),
-            this.IsLocationFilled( layerIndex, rowIndex+1, colIndex   ),
-            this.IsLocationFilled( layerIndex, rowIndex+1, colIndex+1 )
-        };
+        return this.loadErrorTile;
     }
 
     // ================================================================
