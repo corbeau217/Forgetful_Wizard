@@ -12,9 +12,9 @@ public class MapData : ScriptableObject
 
     public MapLayerData[] layers;
 
-    public GameObject loadErrorTile;
     public GameObject accessErrorTile;
     public GameObject layerErrorTile;
+    public GameObject loadErrorTile;
 
     // ================================================================
     // ================================================================
@@ -108,7 +108,7 @@ public class MapData : ScriptableObject
             // is there a layer to use?
             if(layerIndex >= 0){
                 GameObject tileToUse = this.layers[ layerIndex ].GetTileObject(rowIndex, colIndex);
-                return (tileToUse!=null)? tileToUse :this.layerErrorTile;
+                return (tileToUse!=null)? tileToUse : this.layerErrorTile;
             }
             else {
                 return this.accessErrorTile;

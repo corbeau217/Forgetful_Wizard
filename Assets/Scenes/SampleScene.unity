@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b839b576d7cddecd69b169842e0b5973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapData: {fileID: 11400000, guid: e1e0d799c04091a0bb64a0f666b2035f, type: 2}
+  mapData: {fileID: 11400000, guid: b2d904ec3ef6df55da7a6283083a2552, type: 2}
   tileContainer: {fileID: 1328321200}
   cellDimensions: {x: 2, y: 2, z: 2}
   fillOnStart: 1
