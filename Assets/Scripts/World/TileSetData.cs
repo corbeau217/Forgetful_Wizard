@@ -7,6 +7,13 @@ public class TileSetData : ScriptableObject
 {   
     public TileData[] tileDataList;
 
+    // tile region filling
+    public Texture2DArray tileFilledMap;
+    // nearby required filled tiles
+    public Texture2DArray tileAdjacencyMap;
+    // nearby required vacant tiles
+    public Texture2DArray tileVacancyMap;
+
     public TileData GetTileData(bool[] adjacentFilled){
         int desirableIndex = -1;
         int desirableCount = 0;
@@ -31,8 +38,7 @@ public class TileSetData : ScriptableObject
         }
         // purely for debugging, but shouldnt show up anymore
         if(desirableCount == 0){
-            // Debug.Log("NO DESIRABLE TILES");
-            // default to block
+            // give back null to cause an error
             return null;
         }
         if(desirableCount > 1){
@@ -40,5 +46,22 @@ public class TileSetData : ScriptableObject
         }
 
         return this.tileDataList[desirableIndex];
+    }
+
+    private void PrepareSpriteIDs(){
+        // TODO : assign the locations in the sprite map for each item
+        // cant we just use index?
+    }
+    private void InitialiseTiles(){
+        // TODO : give boolean arrays their data
+    }
+
+    
+
+    public void Initialise(){
+        // TODO : initialise the tile set
+
+        this.PrepareSpriteIDs();
+        this.InitialiseTiles();
     }
 }
