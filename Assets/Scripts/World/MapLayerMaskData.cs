@@ -8,13 +8,6 @@ public class MapLayerMaskData : ScriptableObject
 
     // ================================================================
     // ================================================================
-    // --------------------------------------------- private constants
-
-    private const int DEFAULT_ROW_COUNT = 31;
-    private const int DEFAULT_COL_COUNT = 31;
-
-    // ================================================================
-    // ================================================================
     // -------------------------------------------- public data fields
 
     // where the layer is loaded from
@@ -40,9 +33,7 @@ public class MapLayerMaskData : ScriptableObject
     // the filling of cells
     private bool[,] cellFillMask;
 
-    // // TODO: swap over to using Vector2Int
-    private int rowCount;
-    private int colCount;
+    private Vector2Int layerDimensions = new Vector2Int(0, 0);
 
     // for determining if safe to give information
     //  in public getters
@@ -55,14 +46,13 @@ public class MapLayerMaskData : ScriptableObject
     public void Initialise(){
         // have a layer mask to use
         if( this.layerFillMaskImage != null ){
-            // TODO: determine texture size, default 31x31 for now
-            this.rowCount = DEFAULT_ROW_COUNT;
-            this.colCount = DEFAULT_COL_COUNT;
+            this.layerDimensions.x = this.layerFillMaskImage.width;
+            this.layerDimensions.y = this.layerFillMaskImage.height;
 
             // gather pixel information
             this.pixelColourData = this.layerFillMaskImage.GetPixels(0);
             // prepare fill mask array
-            this.cellFillMask = new bool[ this.rowCount, this.colCount ];
+            this.cellFillMask = new bool[ this.layerDimensions.y, this.layerDimensions.x ];
 
             // hand off for layer mask building
             this.InitialiseFillMask();
@@ -84,11 +74,11 @@ public class MapLayerMaskData : ScriptableObject
     //  texture pixel indices start bottom left also in row major order 
     private int CoordAsPixelIndex(int rowIndex, int colIndex){
         // starting from top
-        int topRowIndex = DEFAULT_ROW_COUNT-1;
+        int topRowIndex = this.layerDimensions.y-1;
         // flipping row index to be bottom to top
         int rowIndexFlipped = topRowIndex-rowIndex;
-        // row is number of 'colCount' of pixels
-        return rowIndexFlipped*this.colCount + colIndex;
+        // row is number of 'layerDimensions.x' of pixels
+        return rowIndexFlipped*this.layerDimensions.x + colIndex;
     }
 
     // turn both colours in to vectors and then compare their magnitudes
@@ -106,9 +96,9 @@ public class MapLayerMaskData : ScriptableObject
     //  assumes that we've already loaded pixelColourData from texture
     private void InitialiseFillMask(){
         // each row
-        for(int rowIndex = 0; rowIndex < this.rowCount; rowIndex++){
+        for(int rowIndex = 0; rowIndex < this.layerDimensions.y; rowIndex++){
             // gather that rows bits, int is 32 bits but we ignore signed bit, left to right for columns
-            for(int colIndex = 0; colIndex < this.colCount; colIndex++){
+            for(int colIndex = 0; colIndex < this.layerDimensions.x; colIndex++){
                 // fetch colour
                 Color cellColor = this.pixelColourData[CoordAsPixelIndex(rowIndex, colIndex)];
 
@@ -123,10 +113,10 @@ public class MapLayerMaskData : ScriptableObject
     // ----------------------------------------- public getter methods
 
     public int RowCount(){
-        return (this.loadedLayerData)?this.rowCount:-1;
+        return (this.loadedLayerData)?this.layerDimensions.y:-1;
     }
     public int ColCount(){
-        return (this.loadedLayerData)?this.colCount:-1;
+        return (this.loadedLayerData)?this.layerDimensions.x:-1;
     }
 
     // determine if a location should be labeled as filled
@@ -134,7 +124,7 @@ public class MapLayerMaskData : ScriptableObject
     public bool IsLocationFilled(int rowIndex, int colIndex){
         // handle errors
         //  not loaded / out of bounds
-        if( (!this.loadedLayerData) || ((rowIndex < 0) || (colIndex < 0) || (rowIndex >= this.rowCount) || (colIndex >= this.colCount)) ) {
+        if( (!this.loadedLayerData) || ((rowIndex < 0) || (colIndex < 0) || (rowIndex >= this.layerDimensions.y) || (colIndex >= this.layerDimensions.x)) ) {
             // use error fill value incase we're not background layer
             return this.fillOnError;
         }
