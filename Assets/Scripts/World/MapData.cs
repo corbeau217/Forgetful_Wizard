@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Map", menuName = "ScriptableObjects/MapMaskData", order = 1)]
-public class MapMaskData : ScriptableObject
+[CreateAssetMenu(fileName = "Map", menuName = "ScriptableObjects/MapData", order = 1)]
+public class MapData : ScriptableObject
 {
 
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
 
-    MapLayerMaskData[] layers;
+    MapLayerData[] layers;
 
     // ================================================================
     // ================================================================

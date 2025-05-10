@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MapLayer", menuName = "ScriptableObjects/MapLayerMaskData", order = 1)]
-public class MapLayerMaskData : ScriptableObject
+[CreateAssetMenu(fileName = "MapLayer", menuName = "ScriptableObjects/MapLayerData", order = 1)]
+public class MapLayerData : ScriptableObject
 {
 
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
 
+    public TileSetData tileSet;
     // where the layer is loaded from
     public Texture2D layerFillMaskImage;
     // colour that this layer uses to fill

@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 721831767}
   - component: {fileID: 721831766}
   m_Layer: 8
-  m_Name: TileLayer
+  m_Name: TileMap
   m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -732,11 +732,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 721831765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4944c2d5d22d26b1b3eeccaa604c3eb, type: 3}
+  m_Script: {fileID: 11500000, guid: b839b576d7cddecd69b169842e0b5973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tileSet: {fileID: 11400000, guid: 9287886b8ae4eeceda3b7e24af608b90, type: 2}
-  mapLayerMask: {fileID: 11400000, guid: 6cdb74d8f0961f81ca2c0eed81f01ea6, type: 2}
+  mapLayerMask: {fileID: 11400000, guid: f8e55566926dc561e806ceb586f2f85b, type: 2}
   tileContainer: {fileID: 1328321200}
   cellDimensions: {x: 2, y: 2, z: 2}
   fillOnStart: 1

@@ -6,14 +6,14 @@ using UnityEngine;
 //  makes the projects stop floating
 using UnityEngine.UI;
 
-public class TileLayer : MonoBehaviour
+public class TileMap : MonoBehaviour
 {
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
 
     public TileSetData tileSet;
-    public MapLayerMaskData mapLayerMask;
+    public MapLayerData mapLayerMask;
     public GameObject tileContainer;
 
     // X and Z are cell size in grid, Y is grid scale for height
