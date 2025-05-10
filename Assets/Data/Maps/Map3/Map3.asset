@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layers:
   - {fileID: 11400000, guid: f8e55566926dc561e806ceb586f2f85b, type: 2}
+  - {fileID: 11400000, guid: ad4fdd7f38b0bd991b3ccf1506155e23, type: 2}
+  - {fileID: 11400000, guid: 0f938ff6cd7c36b6cb2bdbcd8e313376, type: 2}
   loadErrorTile: {fileID: 2852632532186512285, guid: a85f5baad02316f45aba1dd99f0c921e, type: 3}
   accessErrorTile: {fileID: 2852632532186512285, guid: 9152c66f744478d6ab08bbea228e8aeb, type: 3}
   layerErrorTile: {fileID: 2852632532186512285, guid: d4f8a305a74710deba2845b49a068a9c, type: 3}

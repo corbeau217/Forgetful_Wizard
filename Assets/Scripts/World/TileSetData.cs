@@ -6,8 +6,6 @@ using UnityEngine;
 public class TileSetData : ScriptableObject
 {   
     public TileData[] tileDataList;
-    public TileData tileDataEmpty;
-    public TileData tileDataBlock;
 
     public TileData GetTileData(bool[] adjacentFilled){
         int desirableIndex = -1;
@@ -33,9 +31,9 @@ public class TileSetData : ScriptableObject
         }
         // purely for debugging, but shouldnt show up anymore
         if(desirableCount == 0){
-            Debug.Log("NO DESIRABLE TILES");
+            // Debug.Log("NO DESIRABLE TILES");
             // default to block
-            return tileDataBlock;
+            return null;
         }
         if(desirableCount > 1){
             Debug.Log("multiple desirable for placement: "+desirableCount);

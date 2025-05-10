@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300a128233bc8704a9ea429d7862d6fe, type: 3}
+  m_Name: ShelfSet
+  m_EditorClassIdentifier: 
+  tileDataList:
+  - {fileID: 11400000, guid: 038f622450c1b4acf828793624386283, type: 2}

@@ -19,9 +19,6 @@ public class MapLayerData : ScriptableObject
     //  range of magnitude difference we accept
     public float maskTollerance;
 
-    // treat fill mask as its opposite
-    public bool isBackgroundLayer;
-
     public bool fillOnError;
 
     // ================================================================
@@ -91,7 +88,7 @@ public class MapLayerData : ScriptableObject
 
         float magnitudeDifference = Mathf.Abs(desiredColour.magnitude - testingColour.magnitude);
 
-        return magnitudeDifference < this.maskTollerance;
+        return ( (magnitudeDifference < this.maskTollerance));
     }
 
     // loading our cellFillMask from pixelColourData
@@ -121,13 +118,14 @@ public class MapLayerData : ScriptableObject
         return (this.loadedLayerData)?this.layerDimensions.x:-1;
     }
     public GameObject GetTileObject( int rowIndex, int colIndex ){
-        // background layer or it's filled, just go grab the tile
-        if(this.isBackgroundLayer || this.IsLocationFilled(rowIndex,colIndex)){
-            return this.tileSet.GetTileData(this.GetAdjacency(rowIndex,colIndex)).TilePrefab;
+        TileData tile = this.tileSet.GetTileData(this.GetAdjacency(rowIndex,colIndex));
+        if(tile != null){
+            return tile.TilePrefab;
         }
-        // otherwise say it's bad
-        Debug.Log("erm, trying to use bad tile??");
-        return null;
+        else {
+            // dont have the option?
+            return null;
+        }
     }
 
     // determine if a location should be labeled as filled
@@ -136,12 +134,11 @@ public class MapLayerData : ScriptableObject
         // handle errors
         //  not loaded / out of bounds
         if( (!this.loadedLayerData) || ((rowIndex < 0) || (colIndex < 0) || (rowIndex >= this.layerDimensions.y) || (colIndex >= this.layerDimensions.x)) ) {
-            // use error fill value incase we're not background layer
             return this.fillOnError;
         }
         // otherwise
         //  check actually filled
-        return ( !this.isBackgroundLayer && this.cellFillMask[rowIndex,colIndex] ) || ( this.isBackgroundLayer && !(this.cellFillMask[rowIndex,colIndex]) );
+        return !this.cellFillMask[rowIndex, colIndex];
     }
 
     // fetching the adjacency information for a given

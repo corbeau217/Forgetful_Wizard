@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12da725a558f400e8f3af76128a2832, type: 3}
+  m_Name: ShelfBlock
+  m_EditorClassIdentifier: 
+  TilePrefab: {fileID: 5018209765519358535, guid: ab24ecbd194e8a0d786d9c2dce61ee35, type: 3}
+  filledRequired: 000000000100000000
+  vacancyRequired: 000000000000000000
+  fillMap: {fileID: 2800000, guid: b0e278b6aed44f9a98595cae890706b6, type: 3}

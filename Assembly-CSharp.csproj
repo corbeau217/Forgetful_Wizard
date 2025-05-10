@@ -47,7 +47,6 @@
      <Compile Include="Assets/Scripts/World/MapData.cs" />
      <Compile Include="Assets/Scripts/World/MapLayerData.cs" />
      <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
-     <Compile Include="Assets/TileMap_old.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/corbeau/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

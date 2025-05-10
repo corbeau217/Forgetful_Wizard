@@ -42,9 +42,15 @@ public class TileMap : MonoBehaviour
         this.containerGridLayoutGroup = this.tileContainer.GetComponent<GridLayoutGroup>();
 
         // prepare map data
+        
         this.mapData.Initialise();
-        // this.mapLayerMask.Initialise();
+    }
 
+    // ================================================================
+    // ================================================================
+    // ----------------------------------------------- private methods
+
+    private void LoadMapData(){
         // now generate our information
         if(this.mapData.RowCount() > 0 && this.mapData.ColCount() > 0){
             // =====================================
@@ -64,14 +70,6 @@ public class TileMap : MonoBehaviour
             this.containerGridLayoutGroup.cellSize = new Vector2( colSize, rowSize );
             
         }
-    }
-
-    // ================================================================
-    // ================================================================
-    // ----------------------------------------------- private methods
-
-    private void LoadMapData(){
-        // ...
     }
 
     // get the tile objects from our map data and place them in to our tile map

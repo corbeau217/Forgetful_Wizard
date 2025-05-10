@@ -76,9 +76,11 @@ public class MapData : ScriptableObject
         if(!this.loadedMapData){
             return -1;
         }
-        // search our layers and find out if it's filled
-        for(int i = 0; i < this.layers.Length; i++){
-            if(this.layers[i].IsLocationFilled(rowIndex, colIndex)){
+        // search our layers and find out if it's filled,
+        //  starting with last layer
+        for(int i = this.layers.Length-1; i >= 0; i--){
+            GameObject tileObject = this.layers[i].GetTileObject(rowIndex, colIndex);
+            if(tileObject!=null){
                 return i;
             }
         }
