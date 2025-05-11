@@ -38,10 +38,10 @@ The five boxing wizards jump quickly
 - [x] using texture to determine tile placement rules
 - [x] `TileType` for determining tile similarity
 - [ ] `TileType` fetches correct data for a tile
-    - [ ] organise `TileType`s in sprite sheet order
-        - [ ] gather sprite sheet ordering
-        - [ ] input data in the [`TileType` file](/Assets/Scripts/World/TileType.cs)
-- [ ] assign the correct `TileType`s to existing tiles
+    - [x] organise `TileType`s in sprite sheet order
+        - [x] gather sprite sheet ordering
+        - [x] input data in the [`TileType` file](/Assets/Scripts/World/TileType.cs)
+        - [ ] assign the correct `TileType`s to existing tiles
 - [ ] create tiles for missing tile types using closest shape
 ### [ ] Milestone 005 - multi layer map creation
 - [ ] map data holds multiple layers
