@@ -116,10 +116,10 @@ public class MapLayerData : ScriptableObject
     // ----------------------------------------- public getter methods
 
     public int RowCount(){
-        return (this.loadedLayerData)?this.layerDimensions.y:-1;
+        return (this.loadedLayerData)? this.layerDimensions.y : -1;
     }
     public int ColCount(){
-        return (this.loadedLayerData)?this.layerDimensions.x:-1;
+        return (this.loadedLayerData)? this.layerDimensions.x : -1;
     }
     public TileData GetTileData( int rowIndex, int colIndex ){
         return this.tileSet.GetTileData(this.GetAdjacency(rowIndex,colIndex));

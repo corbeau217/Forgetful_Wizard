@@ -81,14 +81,14 @@ public class MapData : ScriptableObject
         }
         // search our layers and find out if it's filled,
         //  starting with last layer
-        for(int i = this.layers.Length-1; i >= 0; i--){
+        for(int i = 0; i < this.layers.Length; i++){
             GameObject tileObject = this.layers[i].GetTileObject(rowIndex, colIndex);
             if(tileObject!=null){
                 return i;
             }
         }
         // couldnt find a layer it was filled, use background layer
-        return 0;
+        return -1;
     }
 
 
@@ -97,10 +97,10 @@ public class MapData : ScriptableObject
     // ----------------------------------------- public getter methods
 
     public int RowCount(){
-        return (this.loadedMapData)?this.mapDimensions.y:-1;
+        return (this.loadedMapData)? this.mapDimensions.y : -1;
     }
     public int ColCount(){
-        return (this.loadedMapData)?this.mapDimensions.x:-1;
+        return (this.loadedMapData)? this.mapDimensions.x : -1;
     }
 
 

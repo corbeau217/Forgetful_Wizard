@@ -102,7 +102,7 @@ public class TileMap : MonoBehaviour
                 // make the tile
                 this.GenerateTile( rowIndex, colIndex, tileRotation );
 
-                // TODO: make the overlay sprite
+                // make the overlay sprite
                 this.GenerateTileOverlay( rowIndex, colIndex, overlayRotation );
 
             }
@@ -110,10 +110,11 @@ public class TileMap : MonoBehaviour
     }
 
     private void GenerateTile( int rowIndex, int colIndex, Quaternion tileRotation ){
+        GameObject tile = this.mapData.GetTileObject(rowIndex,colIndex);
         // generate tile for location
         this.tileObjects[rowIndex,colIndex] = (GameObject)Instantiate(
             // tile object
-            this.mapData.GetTileObject(rowIndex,colIndex),
+            tile,
             // parent transform
             this.tileContainer.transform
         );
@@ -143,7 +144,7 @@ public class TileMap : MonoBehaviour
         // fetch the texture to use
         Texture2D tileTexture = this.mapData.GetTileOverlayTexture(rowIndex,colIndex);
         Sprite textureSprite = Sprite.Create(tileTexture, new Rect(0, 0, tileTexture.width, tileTexture.height), new Vector2(0.0f, 0.0f));
-        SpriteRenderer spriteRender = this.tileOverlayPrefab.GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRender = this.tileOverlayPrefab.GetComponentInChildren<SpriteRenderer>();
         spriteRender.sprite = textureSprite;
 
         float tileScaleX = (1.0f/tileTexture.width) * this.tileOverlayScale.x;
