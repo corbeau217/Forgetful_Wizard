@@ -17,17 +17,36 @@ public class TileSetData : ScriptableObject
     public TileData GetTileData(bool[] adjacentFilled){
         int desirableIndex = -1;
         int desirableCount = 0;
-
+        
         // find a matching hash
         for(int i = 0; i < this.tileDataList.Length; i++){
             TileData checkingTile = this.tileDataList[i];
             bool yuckyOption = false;
             // loop across adjacent filled and find when a fill violates our mapping
             for(int k = 0; k < 9; k++){
-                // not filling a tile that is needed to be filled / no vacancy where it should be?
-                if( (checkingTile.adjacencyRequired[k] && !adjacentFilled[k]) || (checkingTile.vacancyRequired[k] && adjacentFilled[k]) ){
-                    yuckyOption = true;
-                    break;
+                // adjacency was filled?
+                if( adjacentFilled[k] ){
+                    // and it was meant to be vacant?
+                    if( checkingTile.vacancyRequired[k] ){
+                        yuckyOption = true;
+                        break;
+                    }
+                    // didnt care if filled, brancher
+                    else {
+                        // ...
+                    }
+                }
+                // not filled
+                else {
+                    // and wanted it filled
+                    if( checkingTile.adjacencyRequired[k] ){
+                        yuckyOption = true;
+                        break;
+                    }
+                    // didnt care if vacant, brancher
+                    else {
+                        // ...
+                    }
                 }
             }
             // check for not yucky to use
@@ -51,15 +70,23 @@ public class TileSetData : ScriptableObject
     private void InitialiseTiles(){
         // all tiles
         for (int index = 0; index < this.tileDataList.Length; index++) {
+            // Debug.Log("working on "+this.tileDataList.Length+" tiles");
             // the current working tile
             TileData currTile = this.tileDataList[index];
             // get the type
             TileType currTileType  = currTile.tileType;
+
+            // Debug.Log("preparing tile["+index+"] with type["+currTileType.GetIndex()+"]");
+
+            Color[] tileFilledMapPixels = currTileType.GetPixelsFromSpritesheet(this.tileFilledMap);
+            Color[] tileAdjacencyMapPixels = currTileType.GetPixelsFromSpritesheet(this.tileAdjacencyMap);
+            Color[] tileVacancyMapPixels = currTileType.GetPixelsFromSpritesheet(this.tileVacancyMap);
+
             // then fetch the information for it and initialise
             currTile.Initialise(
-                currTileType.GetPixelsFromSpritesheet(this.tileFilledMap),
-                currTileType.GetPixelsFromSpritesheet(this.tileAdjacencyMap),
-                currTileType.GetPixelsFromSpritesheet(this.tileVacancyMap)
+                tileFilledMapPixels,
+                tileAdjacencyMapPixels,
+                tileVacancyMapPixels
             );
         }
     }

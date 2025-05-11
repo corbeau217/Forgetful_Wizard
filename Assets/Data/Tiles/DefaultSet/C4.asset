@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TilePrefab: {fileID: 3951456344359171772, guid: 971477674759230e1b58f272bff2f5e1, type: 3}
   filledRequired: 010001000000010001
+  adjacencyRequired: 010001000000010001
   vacancyRequired: 000100010101000100
-  fillMap: {fileID: 2800000, guid: 959ea98338b1becb89f1208e52f001d4, type: 3}
+  tileType: 27
+  maskTollerance: 0.25

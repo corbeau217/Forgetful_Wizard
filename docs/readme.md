@@ -34,28 +34,29 @@ The five boxing wizards jump quickly
         - [x] object to use
         - [x] adjacency/vacancy rules
     - [x] semi hard coded maps using tileset and map layer data
-### [ ] Milestone 004 - spritesheet map creation
+### [x] Milestone 004 - multi layer map creation
+- [x] map data holds multiple layers
+    - [x] first map layer is background (cutaway to create the room shape)
+    - [x] later layers are details (overwriting background layer with another tile)
+    - [x] map layer holds
+        - [x] layer masking
+        - [x] tileset to use
+    - [x] map data fetches tile to use
+    - [x] tile map handles creating objects in world
+### [x] Milestone 005 - spritesheet map creation
 - [x] using texture to determine tile placement rules
 - [x] `TileType` for determining tile similarity
-- [ ] `TileType` fetches correct data for a tile
+- [x] `TileType` fetches correct data for a tile
     - [x] organise `TileType`s in sprite sheet order
         - [x] gather sprite sheet ordering
         - [x] input data in the [`TileType` file](/Assets/Scripts/World/TileType.cs)
-        - [ ] assign the correct `TileType`s to existing tiles
-- [ ] create tiles for missing tile types using closest shape
-### [ ] Milestone 005 - multi layer map creation
-- [ ] map data holds multiple layers
-    - [ ] first map layer is background (cutaway to create the room shape)
-    - [ ] later layers are details (overwriting background layer with another tile)
-    - [ ] map layer holds
-        - [ ] layer masking
-        - [ ] tileset to use
-    - [ ] map data fetches tile to use
-    - [ ] tile map handles creating objects in world
+        - [x] assign the correct `TileType`s to existing tiles
+- [x] create tiles for missing tile types using closest shape
 ### [ ] Milestone 006 - tile updates
 - [ ] debug tile sprite overlay
     - [ ] shows expected sprite shape above tiles
-        - [ ] making code able to handle ajacency/vacancy sprites
+    - [ ] making code able to handle ajacency/vacancy sprites
+    - [ ] double check tile type sprite sheet
     - [ ] hotkey to cycle overlay type
 - [ ] adding missing tile objects to project
     - [ ] making tile object shapes

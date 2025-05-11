@@ -43,6 +43,7 @@ public class MapLayerData : ScriptableObject
     // ------------------------------------------------- event methods
 
     public void Initialise(){
+        this.tileSet.Initialise();
         // have a layer mask to use
         if( this.layerFillMaskImage != null ){
             this.layerDimensions.x = this.layerFillMaskImage.width;

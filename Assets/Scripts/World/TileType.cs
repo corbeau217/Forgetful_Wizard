@@ -112,19 +112,15 @@ static class TileTypeUtils {
 
     // supplying the index of the type
     public static int GetIndex(this TileType input){
-        int inputAsInt = (int)input;
-        int colIndex = inputAsInt % TILE_COLS;
-        int prevRowIndex = inputAsInt / TILE_COLS;
-        int rowIndex = (TILE_COLS-1) - prevRowIndex;
-
-        // it's row major order but from the bottom not the top
-        return (rowIndex*TILE_COLS)+colIndex;
+        // testable
+        return (int)input;
     }
 
     // get the pixel information by type
     public static Color[] GetPixelsFromSpritesheet(this TileType input, Texture2DArray arrayToSearch){
         int index = input.GetIndex();
-        return arrayToSearch.GetPixels(0, index);
+        // Debug.Log("the typed index is "+index);
+        return arrayToSearch.GetPixels(index, 0);
     }
 }
 

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileDataList:
   - {fileID: 11400000, guid: 91b76118a145fc0308497b5df0316738, type: 2}
-  tileDataEmpty: {fileID: 11400000, guid: a2eeecb3f093d4f96b08fd3fdb506ec8, type: 2}
-  tileDataBlock: {fileID: 11400000, guid: e65fcf75550572b2791902cc942e7ba2, type: 2}
+  tileFilledMap: {fileID: 18700000, guid: fdb36e2d369304b8fb369c0423ebf9fa, type: 3}
+  tileAdjacencyMap: {fileID: 18700000, guid: 530324651de154e71b32b61a8f986fb2, type: 3}
+  tileVacancyMap: {fileID: 18700000, guid: 61c9dd982bffa4b5e90f3e2a0f3c9946, type: 3}

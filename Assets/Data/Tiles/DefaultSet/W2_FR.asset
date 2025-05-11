@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: W2_FR
   m_EditorClassIdentifier: 
   TilePrefab: {fileID: 6939322952517102379, guid: b8504634e02d0a6c9a65e59c80a42044, type: 3}
-  filledRequired: 000100000001000000
-  vacancyRequired: 000000010100010100
-  fillMap: {fileID: 2800000, guid: 111347412e59de97f8fa4d5b686e9fa8, type: 3}
+  filledRequired: 000001000001010101
+  adjacencyRequired: 000000000001000100
+  vacancyRequired: 010100010100000000
+  tileType: 36
+  maskTollerance: 0.25
