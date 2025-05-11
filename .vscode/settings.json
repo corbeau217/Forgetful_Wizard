@@ -1,4 +1,4 @@
-﻿{
+{
     "files.exclude":
     {
         "**/.DS_Store":true,
@@ -51,5 +51,43 @@
         "ProjectSettings/":true,
         "temp/":true,
         "Temp/":true
+    },
+
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ] Milestone",
+        "[x] Milestone",
+        "[ ]",
+        "[x]"
+      ],
+    "todo-tree.highlights.customHighlight": {
+        // ================================ MILESTONE TO-DO OPTIONS
+        "[ ] Milestone": {
+            "icon": "milestone",
+            "foreground": "lightblue",
+            "iconColour": "grey",
+            "gutterIcon": true
+        },
+        "[x] Milestone": {
+            "icon": "checklist",
+            "foreground": "lightgreen",
+            "iconColour": "green",
+            "gutterIcon": true
+        },
+        // ================================ NORMAL TO-DO OPTIONS
+        "[ ]": {
+            "foreground": "grey",
+            "iconColour": "grey",
+            "gutterIcon": true
+        },
+        "[x]": {
+            "foreground": "green",
+            "iconColour": "green",
+            "gutterIcon": false
+        }
     }
 }

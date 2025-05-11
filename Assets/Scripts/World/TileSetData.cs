@@ -25,7 +25,7 @@ public class TileSetData : ScriptableObject
             // loop across adjacent filled and find when a fill violates our mapping
             for(int k = 0; k < 9; k++){
                 // not filling a tile that is needed to be filled / no vacancy where it should be?
-                if( (checkingTile.filledRequired[k] && !adjacentFilled[k]) || (checkingTile.vacancyRequired[k] && adjacentFilled[k]) ){
+                if( (checkingTile.adjacencyRequired[k] && !adjacentFilled[k]) || (checkingTile.vacancyRequired[k] && adjacentFilled[k]) ){
                     yuckyOption = true;
                     break;
                 }
@@ -48,20 +48,25 @@ public class TileSetData : ScriptableObject
         return this.tileDataList[desirableIndex];
     }
 
-    private void PrepareSpriteIDs(){
-        // TODO : assign the locations in the sprite map for each item
-        // cant we just use index?
-    }
     private void InitialiseTiles(){
-        // TODO : give boolean arrays their data
+        // all tiles
+        for (int index = 0; index < this.tileDataList.Length; index++) {
+            // the current working tile
+            TileData currTile = this.tileDataList[index];
+            // get the type
+            TileType currTileType  = currTile.tileType;
+            // then fetch the information for it and initialise
+            currTile.Initialise(
+                currTileType.GetPixelsFromSpritesheet(this.tileFilledMap),
+                currTileType.GetPixelsFromSpritesheet(this.tileAdjacencyMap),
+                currTileType.GetPixelsFromSpritesheet(this.tileVacancyMap)
+            );
+        }
     }
 
     
 
     public void Initialise(){
-        // TODO : initialise the tile set
-
-        this.PrepareSpriteIDs();
         this.InitialiseTiles();
     }
 }
