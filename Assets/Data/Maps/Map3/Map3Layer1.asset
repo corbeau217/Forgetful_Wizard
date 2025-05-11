@@ -15,5 +15,5 @@ MonoBehaviour:
   tileSet: {fileID: 11400000, guid: 9287886b8ae4eeceda3b7e24af608b90, type: 2}
   layerFillMaskImage: {fileID: 2800000, guid: 9aa3d9e3f4e14d149b781af0e95c7b2a, type: 3}
   layerFillColour: {r: 1, g: 1, b: 1, a: 0}
-  maskTollerance: 0.5
+  maskTollerance: 0.3
   fillOnError: 1

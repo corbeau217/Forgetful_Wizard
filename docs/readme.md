@@ -55,13 +55,11 @@ The five boxing wizards jump quickly
 ### [ ] Milestone 006 - tile updates
 - [ ] debug tile sprite overlay
     - [x] shows expected sprite shape above tiles
-    - [ ] making code able to handle ajacency/vacancy sprites
     - [ ] double check tile type sprite sheet
-    - [ ] hotkey to cycle overlay type
-- [ ] adding missing tile objects to project
-    - [ ] making tile object shapes
-- [ ] tiles show option count text above them when more than 1 legal option
 ### [ ] Milestone 007 - room connecting
+- [ ] debugging system
+    - [ ] tile overlay has 3 layers for each of tile mask types
+    - [ ] hotkey to cycle overlay type
 - [ ] room mapping changes
     - [ ] world now has room based tile maps using fixed room selection
     - [ ] rooms allow movement between using room based entry/exit 
@@ -88,6 +86,9 @@ The five boxing wizards jump quickly
         - [ ] experiment with hexagonal tiles?
 - [ ] minimalist ui showing equipped spells
 ### [ ] Milestone 011 - simple detail tiles
+- [ ] adding missing tile objects to project
+    - [ ] making tile object shapes
+- [ ] tiles show option count text above them when more than 1 legal option??
 - [ ] tiles classified as movement or detail
     - [ ] movement tiles are the previous tile types
     - [ ] detail tiles are part of movement tiles?? idk

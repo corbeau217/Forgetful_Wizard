@@ -22,6 +22,7 @@ public class TileMap : MonoBehaviour
 
     public GameObject tileOverlayPrefab;
 
+    public Vector2 tileOverlayScale = new Vector2(80.0f, 80.0f);
     // X and Z are cell size in grid, Y is grid scale for height
     public Vector3 cellDimensions = Vector3.one;
 
@@ -33,6 +34,8 @@ public class TileMap : MonoBehaviour
 
     private RectTransform containerRectTransform;
     private GridLayoutGroup containerGridLayoutGroup;
+    private RectTransform overlayContainerRectTransform;
+    private GridLayoutGroup overlayContainerGridLayoutGroup;
     
     private GameObject[,] tileObjects;
     private GameObject[,] tileOverlayObjects;
@@ -46,6 +49,8 @@ public class TileMap : MonoBehaviour
 
         this.containerRectTransform = this.tileContainer.GetComponent<RectTransform>();
         this.containerGridLayoutGroup = this.tileContainer.GetComponent<GridLayoutGroup>();
+        this.overlayContainerRectTransform = this.tileOverlayContainer.GetComponent<RectTransform>();
+        this.overlayContainerGridLayoutGroup = this.tileOverlayContainer.GetComponent<GridLayoutGroup>();
 
         // prepare map data
         
@@ -75,6 +80,10 @@ public class TileMap : MonoBehaviour
             
             this.containerRectTransform.sizeDelta = new Vector2( colSize*this.mapData.ColCount(), rowSize*this.mapData.RowCount() );
             this.containerGridLayoutGroup.cellSize = new Vector2( colSize, rowSize );
+
+
+            this.overlayContainerRectTransform.sizeDelta = new Vector2( colSize*this.mapData.ColCount(), rowSize*this.mapData.RowCount() );
+            this.overlayContainerGridLayoutGroup.cellSize = new Vector2( colSize, rowSize );
             
         }
     }
@@ -137,8 +146,8 @@ public class TileMap : MonoBehaviour
         SpriteRenderer spriteRender = this.tileOverlayPrefab.GetComponent<SpriteRenderer>();
         spriteRender.sprite = textureSprite;
 
-        float tileScaleX = (1.0f/tileTexture.width) * 40.0f;
-        float tileScaleY = (1.0f/tileTexture.height) * 40.0f;
+        float tileScaleX = (1.0f/tileTexture.width) * this.tileOverlayScale.x;
+        float tileScaleY = (1.0f/tileTexture.height) * this.tileOverlayScale.y;
         this.tileOverlayObjects[rowIndex,colIndex].transform.localScale = new Vector3(tileScaleX, tileScaleY, 1.0f);
     }
 
