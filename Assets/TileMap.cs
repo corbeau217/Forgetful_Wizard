@@ -15,7 +15,12 @@ public class TileMap : MonoBehaviour
     // -------------------------------------------- public data fields
 
     public MapData mapData;
+    // contains the room tiles
     public GameObject tileContainer;
+    // has the sprites for debugging room tiles
+    public GameObject tileOverlayContainer;
+
+    public GameObject tileOverlayPrefab;
 
     // X and Z are cell size in grid, Y is grid scale for height
     public Vector3 cellDimensions = Vector3.one;
@@ -30,6 +35,7 @@ public class TileMap : MonoBehaviour
     private GridLayoutGroup containerGridLayoutGroup;
     
     private GameObject[,] tileObjects;
+    private GameObject[,] tileOverlayObjects;
 
     // ================================================================
     // ================================================================
@@ -58,6 +64,7 @@ public class TileMap : MonoBehaviour
 
             // prepare the grid
             this.tileObjects = new GameObject[ this.mapData.RowCount(), this.mapData.ColCount() ];
+            this.tileOverlayObjects = new GameObject[ this.mapData.RowCount(), this.mapData.ColCount() ];
 
             // =====================================
             // ------------ prepare grid properties
@@ -75,25 +82,64 @@ public class TileMap : MonoBehaviour
     // get the tile objects from our map data and place them in to our tile map
     private void GenerateTileObjects(){
         Quaternion tileRotation = Quaternion.identity;
+        Quaternion overlayRotation = Quaternion.identity;
         tileRotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+        overlayRotation.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
         // every row
         for(int rowIndex = 0; rowIndex < this.mapData.RowCount(); rowIndex++){
             // every column
             for(int colIndex = 0; colIndex < this.mapData.ColCount(); colIndex++){
-                // generate tile for location
-                this.tileObjects[rowIndex,colIndex] = (GameObject)Instantiate(
-                    // tile object
-                    this.mapData.GetTileObject(rowIndex,colIndex),
-                    // parent transform
-                    this.tileContainer.transform
-                );
-                // anti rotation
-                this.tileObjects[rowIndex,colIndex].transform.rotation = tileRotation;
-                // add rect transform to them
-                RectTransform rt = this.tileObjects[rowIndex,colIndex].AddComponent(typeof(RectTransform)) as RectTransform;
-                // then??
+
+                // make the tile
+                this.GenerateTile( rowIndex, colIndex, tileRotation );
+
+                // TODO: make the overlay sprite
+                this.GenerateTileOverlay( rowIndex, colIndex, overlayRotation );
+
             }
         }
+    }
+
+    private void GenerateTile( int rowIndex, int colIndex, Quaternion tileRotation ){
+        // generate tile for location
+        this.tileObjects[rowIndex,colIndex] = (GameObject)Instantiate(
+            // tile object
+            this.mapData.GetTileObject(rowIndex,colIndex),
+            // parent transform
+            this.tileContainer.transform
+        );
+        
+        // anti rotation
+        this.tileObjects[rowIndex,colIndex].transform.rotation = tileRotation;
+
+        // add rect transform to them
+        RectTransform rt = this.tileObjects[rowIndex,colIndex].AddComponent(typeof(RectTransform)) as RectTransform;
+    }
+
+
+    private void GenerateTileOverlay( int rowIndex, int colIndex, Quaternion tileRotation ){
+        // generate tile for location
+        this.tileOverlayObjects[rowIndex,colIndex] = (GameObject)Instantiate(
+            this.tileOverlayPrefab,
+            // parent transform
+            this.tileOverlayContainer.transform
+        );
+
+        // anti rotation
+        this.tileOverlayObjects[rowIndex,colIndex].transform.rotation = tileRotation;
+
+        // add rect transform to them
+        RectTransform rt = this.tileOverlayObjects[rowIndex,colIndex].AddComponent(typeof(RectTransform)) as RectTransform;
+
+        // fetch the texture to use
+        Texture2D tileTexture = this.mapData.GetTileOverlayTexture(rowIndex,colIndex);
+        Sprite textureSprite = Sprite.Create(tileTexture, new Rect(0, 0, tileTexture.width, tileTexture.height), new Vector2(0.0f, 0.0f));
+        SpriteRenderer spriteRender = this.tileOverlayPrefab.GetComponent<SpriteRenderer>();
+        spriteRender.sprite = textureSprite;
+
+        float tileScaleX = (1.0f/tileTexture.width) * 40.0f;
+        float tileScaleY = (1.0f/tileTexture.height) * 40.0f;
+        this.tileOverlayObjects[rowIndex,colIndex].transform.localScale = new Vector3(tileScaleX, tileScaleY, 1.0f);
     }
 
     // ================================================================

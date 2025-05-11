@@ -13,8 +13,11 @@ public class MapData : ScriptableObject
     public MapLayerData[] layers;
 
     public GameObject accessErrorTile;
+    public Texture2D accessErrorTileSprite;
     public GameObject layerErrorTile;
+    public Texture2D layerErrorTileSprite;
     public GameObject loadErrorTile;
+    public Texture2D loadErrorTileSprite;
 
     // ================================================================
     // ================================================================
@@ -115,6 +118,33 @@ public class MapData : ScriptableObject
             }
         }
         return this.loadErrorTile;
+    }
+
+    // return type???
+    public Texture2D GetTileOverlayTexture( int rowIndex, int colIndex ){
+        // did we load it yet?
+        if(this.loadedMapData){
+            int layerIndex = this.tileLayerIndices[ rowIndex, colIndex ];
+            // is there a layer to use?
+            if(layerIndex >= 0){
+                // get the tile sprite/texture
+                Texture2D tileToUse = this.layers[ layerIndex ].GetTileOverlay(rowIndex, colIndex);
+                if(tileToUse!=null){
+                    // have tile
+                    return tileToUse;
+                }
+                else {
+                    // layer error tile
+                    return layerErrorTileSprite;
+                }
+            }
+            else {
+                // access error overlay 
+                return accessErrorTileSprite;
+            }
+        }
+        // load error overlay
+        return loadErrorTileSprite;
     }
 
     // ================================================================

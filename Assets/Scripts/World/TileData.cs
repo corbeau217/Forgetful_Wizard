@@ -18,6 +18,10 @@ public class TileData : ScriptableObject
 
     public float maskTollerance = 0.5f;
 
+    public Texture2D filledMaskTexture;
+    public Texture2D adjacencyTexture;
+    public Texture2D vacancyTexture;
+
     public void Initialise( Color[] filledMask, Color[] adjacencyMask, Color[] vacancyMask ){
         // whadawegot
         // Debug.Log("initialising tile with filledMask["+filledMask.Length+"], adjacencyMask["+adjacencyMask.Length+"], vacancyMask["+vacancyMask.Length+"]");
@@ -26,12 +30,18 @@ public class TileData : ScriptableObject
         this.adjacencyRequired = ((this.adjacencyRequired != null && this.adjacencyRequired.Length == 9)? this.adjacencyRequired : new bool[adjacencyMask.Length]);
         this.vacancyRequired = ((this.vacancyRequired != null && this.vacancyRequired.Length == 9)? this.vacancyRequired : new bool[vacancyMask.Length]);
         
+        // make the textures
+        this.filledMaskTexture = TextureFrom(filledMask);
+        this.adjacencyTexture = TextureFrom(adjacencyMask);
+        this.vacancyTexture = TextureFrom(vacancyMask);
+
+
         Vector4 fullVec = Vector4.one;
         // only have 9 pixels in the sprite mask
         for (int cellIndex = 0; cellIndex < 9; cellIndex++) {
             // cell index row major order starting from top left
             //  pixel index is row major order starting from bottom left
-            int pixelIndex = cellToPixelIndex(cellIndex);
+            int pixelIndex = cellIndexToPixelIndex(cellIndex);
 
             // prepare the current pixel vectors to determine mask value
             Vector4 filledVec = new Vector4( 
@@ -60,12 +70,12 @@ public class TileData : ScriptableObject
         }
     }
 
-
     // converts tile to texture's pixel index
     //  tile index start from the top left in row major order
     //  texture pixel indices start bottom left also in row major order 
 
-    int cellToPixelIndex(int cellIndex){
+    int cellIndexToPixelIndex(int cellIndex){
+        // return cellIndex;
         int columnCount = 3;
         int rowCount = 3;
 
@@ -81,5 +91,22 @@ public class TileData : ScriptableObject
 
         // combine for the pixel index
         return (pixelRowIndex*columnCount)+cellColIndex;
+    }
+
+    Texture2D TextureFrom(Color[] colourArray){
+        Texture2D result = new Texture2D(3,3, TextureFormat.RGBA32, false, false );
+        // make it pixelated
+        result.filterMode = FilterMode.Point;
+        int i = 0;
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++) {
+                result.SetPixel(x, y, colourArray[i++]);
+            }
+        }
+        // apply the setting of the pixels
+        result.Apply();
+
+
+        return result;
     }
 }

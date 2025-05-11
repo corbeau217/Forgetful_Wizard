@@ -54,7 +54,7 @@ The five boxing wizards jump quickly
 - [x] create tiles for missing tile types using closest shape
 ### [ ] Milestone 006 - tile updates
 - [ ] debug tile sprite overlay
-    - [ ] shows expected sprite shape above tiles
+    - [x] shows expected sprite shape above tiles
     - [ ] making code able to handle ajacency/vacancy sprites
     - [ ] double check tile type sprite sheet
     - [ ] hotkey to cycle overlay type
@@ -224,6 +224,11 @@ The five boxing wizards jump quickly
 ### normal map generation
 * github project to generate normal maps in web page [https://cpetry.github.io/NormalMap-Online/](https://cpetry.github.io/NormalMap-Online/)
 * strategy pattern [refactoring guru](https://refactoring.guru/design-patterns/strategy)
+
+## performance improvements
+### code execution
+- [ ] map layer should buffer the tile data for overlays
+
 
 ## ideas
 

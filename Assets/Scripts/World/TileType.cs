@@ -112,8 +112,24 @@ static class TileTypeUtils {
 
     // supplying the index of the type
     public static int GetIndex(this TileType input){
-        // testable
         return (int)input;
+        // int columnCount = 8;
+        // int rowCount = 8;
+
+        // int topleftIndex = (int)input;
+
+        // // extract column index, stays same
+        // int topleftColIndex = topleftIndex % columnCount;
+        
+        // // extract topleft row index
+        // int topleftRowIndexTopToBottom = topleftIndex / columnCount;
+
+        // // convert to pixel row index
+        // int lasttopleftRow = (rowCount-1);
+        // int bottomleftRowIndex = lasttopleftRow - topleftRowIndexTopToBottom;
+
+        // // combine for the bottomleft index
+        // return (bottomleftRowIndex*columnCount)+topleftColIndex;
     }
 
     // get the pixel information by type

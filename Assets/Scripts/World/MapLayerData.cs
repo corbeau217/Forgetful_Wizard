@@ -63,6 +63,9 @@ public class MapLayerData : ScriptableObject
         else {
             Debug.Log("Please provide layerFillMaskImage!");
         }
+
+
+
     }
     
     // ================================================================
@@ -118,10 +121,23 @@ public class MapLayerData : ScriptableObject
     public int ColCount(){
         return (this.loadedLayerData)?this.layerDimensions.x:-1;
     }
+    public TileData GetTileData( int rowIndex, int colIndex ){
+        return this.tileSet.GetTileData(this.GetAdjacency(rowIndex,colIndex));
+    }
     public GameObject GetTileObject( int rowIndex, int colIndex ){
-        TileData tile = this.tileSet.GetTileData(this.GetAdjacency(rowIndex,colIndex));
+        TileData tile = this.GetTileData(rowIndex,colIndex);
         if(tile != null){
             return tile.TilePrefab;
+        }
+        else {
+            // dont have the option?
+            return null;
+        }
+    }
+    public Texture2D GetTileOverlay( int rowIndex, int colIndex ){
+        TileData tile = this.GetTileData(rowIndex,colIndex);
+        if(tile != null){
+            return tile.filledMaskTexture;
         }
         else {
             // dont have the option?
