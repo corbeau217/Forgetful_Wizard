@@ -2,40 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Room", menuName = "ScriptableObjects/RoomData", order = 1)]
-public class RoomData : ScriptableObject
+[CreateAssetMenu(fileName = "GeneratorSettings", menuName = "ScriptableObjects/RoomGeneratorSettings", order = 1)]
+public class RoomGeneratorSettings : ScriptableObject
 {
-
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
 
-    public RoomGeneratorSettings generatorSettings;
+    public TileSetData roomBaseTileset;
+    public RoomLayerMaskData passageLayer;
+    public RoomLayerMaskData roomShapeLayer;
+
+    public TileSetData detailTileset;
+    public RoomLayerMaskData detailLayer;
+
 
     // ================================================================
     // ================================================================
     // ------------------------------------------- private data fields
-    
-    private RoomGenerator roomGenerator;
-
-    private Vector2Int roomDimensions = new Vector2Int(0, 0);
-
-    // for determining if safe to give information
-    //  in public getters
-    // private bool loadedRoomData;
 
     // ================================================================
     // ================================================================
     // ------------------------------------------------- event methods
-
-    public void Initialise(){
-        this.roomGenerator = new RoomGenerator(this.generatorSettings);
-        this.roomGenerator.Initialise();
-
-        this.roomDimensions = this.roomGenerator.GetDimensions();
-
-    }
     
+    public void Initialise(){
+        this.roomBaseTileset.Initialise();
+        this.passageLayer.Initialise();
+        this.roomShapeLayer.Initialise();
+
+        this.detailTileset.Initialise();
+        this.detailLayer.Initialise();
+    }
+
     // ================================================================
     // ================================================================
     // ----------------------------------------------- private methods
@@ -44,23 +42,15 @@ public class RoomData : ScriptableObject
     // ================================================================
     // ----------------------------------------- public getter methods
 
-    public int RowCount(){
-        return this.roomDimensions.y;
-    }
-    public int ColCount(){
-        return this.roomDimensions.x;
+    public Vector2Int GetDimensions(){
+        return this.roomShapeLayer.GetDimensions();
     }
 
-    public TileData GetTileData( int rowIndex, int colIndex ){
-        return this.roomGenerator.GetTileData(rowIndex,colIndex);
+    public bool IsMovementLayerCell( int rowIndex, int colIndex ){
+        return this.passageLayer.GetLocationIsFilled( rowIndex, colIndex ) || this.roomShapeLayer.GetLocationIsFilled( rowIndex, colIndex );
     }
-    public GameObject GetTileObject( int rowIndex, int colIndex ){
-        return this.GetTileData(rowIndex, colIndex).TilePrefab;
-    }
-
-    // return type???
-    public Texture2D GetTileOverlayTexture( int rowIndex, int colIndex ){
-        return this.GetTileData(rowIndex, colIndex).filledMaskTexture;
+    public bool IsDetailLayerCell( int rowIndex, int colIndex ){
+        return this.detailLayer.GetLocationIsFilled( rowIndex, colIndex );
     }
 
     // ================================================================

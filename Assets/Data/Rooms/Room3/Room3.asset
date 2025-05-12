@@ -12,11 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77b0fccd65be4d5da4d58d1a8e812ca, type: 3}
   m_Name: Room3
   m_EditorClassIdentifier: 
-  layers:
-  - {fileID: 11400000, guid: f8e55566926dc561e806ceb586f2f85b, type: 2}
-  accessErrorTile: {fileID: 2852632532186512285, guid: 9152c66f744478d6ab08bbea228e8aeb, type: 3}
-  accessErrorTileSprite: {fileID: 2800000, guid: 0a5b1c1c9936741739cf75e6966cb243, type: 3}
-  layerErrorTile: {fileID: 2852632532186512285, guid: d4f8a305a74710deba2845b49a068a9c, type: 3}
-  layerErrorTileSprite: {fileID: 2800000, guid: dea61f6870b9249fca8d8bd389307fe1, type: 3}
-  loadErrorTile: {fileID: 2852632532186512285, guid: a85f5baad02316f45aba1dd99f0c921e, type: 3}
-  loadErrorTileSprite: {fileID: 2800000, guid: a913175ce29bb4aac93c668743e5d4cd, type: 3}
+  generatorSettings: {fileID: 11400000, guid: 5ff4655d3e4e549228049caf47eeb62f, type: 2}

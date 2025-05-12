@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3273fc98f7643b59ab034ccc05e872, type: 3}
-  m_Name: Level1
+  m_Script: {fileID: 11500000, guid: a2f58545d4ea445428e83239768f6801, type: 3}
+  m_Name: Room3Shape
   m_EditorClassIdentifier: 
-  roomOptions:
-  - {fileID: 11400000, guid: e1e0d799c04091a0bb64a0f666b2035f, type: 2}
-  rowCount: 3
-  colCount: 3
+  layerFillMaskImage: {fileID: 2800000, guid: c1d999e856b434a7090f7cc397813ddd, type: 3}
+  layerFillColour: {r: 1, g: 1, b: 1, a: 1}
+  maskTollerance: 0.5

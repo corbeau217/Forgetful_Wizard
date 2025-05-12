@@ -43,6 +43,7 @@
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
      <Compile Include="Assets/Scripts/World/data/TileSetData.cs" />
      <Compile Include="Assets/Scripts/World/rendering/WorldRenderer.cs" />
+     <Compile Include="Assets/Scripts/World/data/RoomLayerMaskData.cs" />
      <Compile Include="Assets/Scripts/World/data/TileType.cs" />
      <Compile Include="Assets/Scripts/World/rendering/TileOverlayObject.cs" />
      <Compile Include="Assets/Scripts/PlayerBehaviour.cs" />
@@ -53,6 +54,8 @@
      <Compile Include="Assets/Scripts/World/rendering/LevelRenderer.cs" />
      <Compile Include="Assets/Scripts/World/data/WorldGenData.cs" />
      <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
+     <Compile Include="Assets/Scripts/World/RoomGeneratorSettings.cs" />
+     <Compile Include="Assets/Scripts/World/RoomGenerator.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
