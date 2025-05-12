@@ -18,8 +18,8 @@ MonoBehaviour:
   moveKey_Right: 100
   base_movementForceScalar: 0.25
   base_rotationSpeed: 20
-  base_playerMass: 2
-  base_playerDrag: 2
+  base_playerMass: 1
+  base_playerDrag: 1
   base_playerAngularDrag: 1
   stationary_playerDrag: 15
   stationary_playerAngularDrag: 2

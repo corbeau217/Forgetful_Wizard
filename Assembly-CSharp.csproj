@@ -38,21 +38,21 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/FollowBehaviour.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerData.cs" />
-     <Compile Include="Assets/Scripts/World/TileData.cs" />
+     <Compile Include="Assets/Scripts/World/data/TileData.cs" />
      <Compile Include="Assets/Scripts/Spell/ProjectileSpellData.cs" />
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
-     <Compile Include="Assets/Scripts/World/TileSetData.cs" />
-     <Compile Include="Assets/Scripts/World/TileType.cs" />
+     <Compile Include="Assets/Scripts/World/data/TileSetData.cs" />
+     <Compile Include="Assets/Scripts/World/rendering/WorldRenderer.cs" />
+     <Compile Include="Assets/Scripts/World/data/TileType.cs" />
+     <Compile Include="Assets/Scripts/World/rendering/TileOverlayObject.cs" />
      <Compile Include="Assets/Scripts/PlayerBehaviour.cs" />
-     <Compile Include="Assets/RoomRenderer.cs" />
-     <Compile Include="Assets/Scripts/World/RoomData.cs" />
-     <Compile Include="Assets/Scripts/World/RoomLayerData.cs" />
+     <Compile Include="Assets/Scripts/World/rendering/RoomRenderer.cs" />
+     <Compile Include="Assets/Scripts/World/data/RoomData.cs" />
+     <Compile Include="Assets/Scripts/World/data/LevelData.cs" />
+     <Compile Include="Assets/Scripts/World/data/RoomLayerData.cs" />
+     <Compile Include="Assets/Scripts/World/rendering/LevelRenderer.cs" />
+     <Compile Include="Assets/Scripts/World/data/WorldGenData.cs" />
      <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
-     <Compile Include="Assets/Scripts/World/TileOverlayObject.cs" />
-     <Compile Include="Assets/Scripts/World/LevelRenderer.cs" />
-     <Compile Include="Assets/Scripts/World/LevelData.cs" />
-     <Compile Include="Assets/Scripts/World/WorldRenderer.cs" />
-     <Compile Include="Assets/Scripts/World/WorldGenData.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
