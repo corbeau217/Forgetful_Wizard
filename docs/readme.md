@@ -72,9 +72,9 @@ The five boxing wizards jump quickly
 - [x] rooms have their passage type, and their room map
     - [x] primary background layer is the passage way the room has to other rooms
     - [x] secondary background layer is the room shape
-- [ ] maps have allowed passage types
-- [ ] rooms generate using passage and map information
-    - [ ] resulting room cutaway is union of passage background and map background
+- [x] maps have allowed passage types
+- [x] rooms generate using passage and map information
+    - [x] resulting room cutaway is union of passage background and map background
 ### [ ] Milestone 009 - simple magic system
 - [ ] muddle out spell usage architecture in documentation
     - [ ] spell types
@@ -97,12 +97,16 @@ The five boxing wizards jump quickly
     - [ ] detail tiles are part of movement tiles?? idk
     - [ ] tile objects made for detail tiles
     - [ ] code supports new objects for detail layers
-### [ ] Milestone 012 - initial interactables
+### [ ] Milestone 012 - room passage types
+- [ ] adding in room passage types
+    - [ ] generating level based on adjacency of rooms
+        - [ ] room adjacency / vacancy rules
+### [ ] Milestone 013 - initial interactables
 - [ ] interactable tile interface
     - [ ] tile that can be activated in some way
 - [ ] actor / living entity / being interface
     - [ ] dummy that just exists and does nothing
-### [ ] Milestone 013 - more interactables
+### [ ] Milestone 014 - more interactables
 - [ ] interactable tile
     - [ ] interaction states
     - [ ] strategy pattern for state changes
@@ -112,7 +116,7 @@ The five boxing wizards jump quickly
     - [ ] fires event
 - [ ] actor / living entity / being interface
     - [ ] movement strategy pattern
-### [ ] Milestone 014 - simple resources
+### [ ] Milestone 015 - simple resources
 - [ ] design player resource architecture
     - [ ] player health
     - [ ] player magic resource
