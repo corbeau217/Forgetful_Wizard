@@ -4,10 +4,74 @@ using UnityEngine;
 
 
 public enum CellGenerationType {
+    // TODO : include this in utils
+    Empty,
     Filled,
+    Passage,
     Movement,
     Detail
 }
+public static class CellGenerationTypeUtils {
+    public static CellGenerationType GetTypeFromMask( bool passageUsed, bool movementUsed, bool detailUsed ){
+        // passage tiles dont care about any other type of cell
+        if (passageUsed) { return CellGenerationType.Movement; }
+        
+        // still movement if detail isnt using it
+        else if (movementUsed && !detailUsed) { return CellGenerationType.Movement; }
+        
+        // detail wants to use it and would be free?
+        else if (movementUsed && detailUsed) { return CellGenerationType.Detail; }
+
+        // otherwise fill it
+        else { return CellGenerationType.Filled; }
+    }
+
+    public static bool AllowsDetailTile(this CellGenerationType typeIn){
+        switch (typeIn) {
+            default:
+            case CellGenerationType.Detail:
+            case CellGenerationType.Movement:
+                return true;
+            case CellGenerationType.Filled:
+            case CellGenerationType.Passage:
+                return false;
+        }
+    }
+    public static bool FindsOtherTypeOccupied(this CellGenerationType typeIn, CellGenerationType otherIn){
+        // what we care about?
+        switch (typeIn) {
+            default:
+            case CellGenerationType.Movement:
+            case CellGenerationType.Passage:
+                // only filled cells
+                return otherIn == CellGenerationType.Filled;
+            case CellGenerationType.Detail:
+            case CellGenerationType.Filled:
+                // anything that fills a cells
+                return otherIn.IsOccupied();
+        }
+    }
+    public static bool IsOccupied(this CellGenerationType typeIn){
+        switch (typeIn) {
+            default:
+            case CellGenerationType.Movement:
+            case CellGenerationType.Passage:
+                return false;
+            case CellGenerationType.Detail:
+            case CellGenerationType.Filled:
+                return true;
+        }
+    }
+    public static TileSetData ChooseTileset(this CellGenerationType typeIn, TileSetData baseTileset, TileSetData detailTileset){
+        if(typeIn.AllowsDetailTile()){
+            return detailTileset;
+        }
+        else {
+            return baseTileset;
+        }
+    }
+}
+
 
 // [CreateAssetMenu(fileName = "RoomGenerator", menuName = "ScriptableObjects/RoomGenerator", order = 1)]
 public class RoomGenerator {
@@ -18,9 +82,6 @@ public class RoomGenerator {
     RoomLayerMaskData roomPassageMask;
 
     Vector2Int roomDimensions;
-
-    bool[,] roomMovementCells;
-    bool[,] roomDetailCells;
 
     CellGenerationType[,] cellGenerationTypes;
 
@@ -40,19 +101,9 @@ public class RoomGenerator {
         // get the room sizing
         this.roomDimensions = this.roomSettings.GetDimensions();
 
-        // make the arrays
-        this.roomMovementCells = new bool[this.roomDimensions.y, this.roomDimensions.x];
-        this.roomDetailCells = new bool[this.roomDimensions.y, this.roomDimensions.x];
-
         this.cellGenerationTypes = new CellGenerationType[this.roomDimensions.y, this.roomDimensions.x];
 
-        this.roomOccupiedCells = new bool[this.roomDimensions.y, this.roomDimensions.x];
-
         this.roomTileLayout = new TileData[this.roomDimensions.y, this.roomDimensions.x];
-
-
-        // find the cell fillings and combine passage and shape layers
-        this.GatherCellFills();
 
         this.GatherCellTypes();
 
@@ -60,38 +111,15 @@ public class RoomGenerator {
         this.GenerateCellData();
     }
 
-
-    private void GatherCellFills(){
-        for (int rowIndex = 0; rowIndex < this.roomDimensions.y; rowIndex++) {
-            for (int colIndex = 0; colIndex < this.roomDimensions.x; colIndex++) {
-                this.roomMovementCells[rowIndex,colIndex] = this.roomSettings.IsMovementLayerCell(rowIndex,colIndex);
-                this.roomDetailCells[rowIndex,colIndex] = this.roomSettings.IsDetailLayerCell(rowIndex,colIndex);
-
-                // not a movement cell or it's a detail cell
-                this.roomOccupiedCells[rowIndex,colIndex] = !this.roomMovementCells[rowIndex,colIndex] || this.roomDetailCells[rowIndex,colIndex];
-            }
-        }
-    }
     private void GatherCellTypes(){
         for (int rowIndex = 0; rowIndex < this.roomDimensions.y; rowIndex++) {
             for (int colIndex = 0; colIndex < this.roomDimensions.x; colIndex++) {
-                
-                // when not a movement cell
-                if(!this.roomMovementCells[rowIndex,colIndex]){
-                    this.cellGenerationTypes[rowIndex,colIndex] = CellGenerationType.Filled;
-                    this.roomOccupiedCells[rowIndex,colIndex] = true;
-                }
-                else{
-                    // used for detail?
-                    if(this.roomDetailCells[rowIndex,colIndex]){
-                        this.cellGenerationTypes[rowIndex,colIndex] = CellGenerationType.Detail;
-                        this.roomOccupiedCells[rowIndex,colIndex] = true;
-                    }
-                    else{
-                        this.cellGenerationTypes[rowIndex,colIndex] = CellGenerationType.Movement;
-                        this.roomOccupiedCells[rowIndex,colIndex] = false;
-                    }
-                }
+                this.cellGenerationTypes[rowIndex, colIndex] = CellGenerationTypeUtils.GetTypeFromMask(
+                    this.roomSettings.IsPassageUsedCell(rowIndex,colIndex),
+                    this.roomSettings.IsMovementUsedCell(rowIndex,colIndex),
+                    this.roomSettings.IsDetailUsedCell(rowIndex,colIndex)
+                );
+
             }
         }
     }
@@ -99,22 +127,18 @@ public class RoomGenerator {
     private void GenerateCellData(){
         for (int rowIndex = 0; rowIndex < this.roomDimensions.y; rowIndex++) {
             for (int colIndex = 0; colIndex < this.roomDimensions.x; colIndex++) {
-                TileSetData tileSetOfTile;
-
                 // prepare receipts
                 bool[] adjacency = this.GetAdjacencyList( rowIndex, colIndex );
 
                 // find our tileset for this tile
-                switch (this.cellGenerationTypes[rowIndex,colIndex]) {
-                    default:
-                    case CellGenerationType.Filled:
-                    case CellGenerationType.Movement:
-                        tileSetOfTile = this.roomSettings.roomBaseTileset;
-                        break;
-                    case CellGenerationType.Detail:
-                        tileSetOfTile = this.roomSettings.detailTileset;
-                        break;
+                TileSetData tileSetOfTile;
+                if(this.cellGenerationTypes[rowIndex,colIndex].IsOccupied()){
+                    tileSetOfTile = this.cellGenerationTypes[rowIndex,colIndex].ChooseTileset(this.roomSettings.roomBaseTileset, this.roomSettings.detailTileset);
                 }
+                else {
+                    tileSetOfTile = this.roomSettings.roomBaseTileset;
+                }
+
                 // use it
                 this.roomTileLayout[ rowIndex, colIndex ] = tileSetOfTile.GetTileData(adjacency);
             }
@@ -133,25 +157,22 @@ public class RoomGenerator {
     // this is fetched where the top left is the first, and
     //  bottom right is the last in row major order
     public bool[] GetAdjacencyList( int rowIndex, int colIndex ){
-        return new bool[]{
-            this.IsOccupied( rowIndex-1, colIndex-1 ),
-            this.IsOccupied( rowIndex-1, colIndex   ),
-            this.IsOccupied( rowIndex-1, colIndex+1 ),
-
-            this.IsOccupied( rowIndex,   colIndex-1 ),
-            this.IsOccupied( rowIndex,   colIndex   ),
-            this.IsOccupied( rowIndex,   colIndex+1 ),
-
-            this.IsOccupied( rowIndex+1, colIndex-1 ),
-            this.IsOccupied( rowIndex+1, colIndex   ),
-            this.IsOccupied( rowIndex+1, colIndex+1 )
-        };
-    }
-    private bool IsOccupied( int rowIndex, int colIndex ){
-        if( (rowIndex < 0) || (colIndex < 0) || (rowIndex >= this.roomDimensions.y) || (colIndex >= this.roomDimensions.x) ){
-            return false;
+        bool[] adjacencyList = new bool[9];
+        int i = 0;
+        for (int rowOffset = -1; rowOffset < 2; rowOffset++)
+        {
+            for (int colOffset = -1; colOffset < 2; colOffset++)
+            {
+                adjacencyList[i++] = this.cellGenerationTypes[rowIndex,colIndex].FindsOtherTypeOccupied( this.GetCellGenerationTypeAt(rowIndex+rowOffset, colIndex+colOffset) );
+            }
         }
-        return this.roomOccupiedCells[ rowIndex, colIndex ];
+        return adjacencyList;
+    }
+    private CellGenerationType GetCellGenerationTypeAt( int rowIndex, int colIndex ){
+        if( (rowIndex < 0) || (colIndex < 0) || (rowIndex >= this.roomDimensions.y) || (colIndex >= this.roomDimensions.x) ){
+            return CellGenerationType.Empty;
+        }
+        return this.cellGenerationTypes[ rowIndex, colIndex ];
     }
 
 

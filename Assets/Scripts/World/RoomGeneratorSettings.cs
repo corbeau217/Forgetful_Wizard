@@ -55,6 +55,17 @@ public class RoomGeneratorSettings : ScriptableObject
         return this.detailLayer.GetLocationIsFilled( rowIndex, colIndex );
     }
 
+
+    public bool IsPassageUsedCell( int rowIndex, int colIndex ){
+        return this.passageLayer.GetLocationIsFilled( rowIndex, colIndex );
+    }
+    public bool IsMovementUsedCell( int rowIndex, int colIndex ){
+        return this.roomShapeLayer.GetLocationIsFilled( rowIndex, colIndex );
+    }
+    public bool IsDetailUsedCell( int rowIndex, int colIndex ){
+        return this.detailLayer.GetLocationIsFilled( rowIndex, colIndex );
+    }
+
     // ================================================================
     // ================================================================
 }
