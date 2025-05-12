@@ -67,6 +67,8 @@ The five boxing wizards jump quickly
 - [x] floor contains rooms
     - [x] floor is data object containing room information
 ### [ ] Milestone 008 - room modularity
+- [ ] inverting data ownership in layers holding tiles
+    - [ ] room has tiles that have layers
 - [ ] rooms have their passage type, and their room map
     - [ ] primary background layer is the passage way the room has to other rooms
     - [ ] secondary background layer is the room shape
