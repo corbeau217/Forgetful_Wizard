@@ -9,6 +9,8 @@ public class RoomGeneratorSettings : ScriptableObject
     // ================================================================
     // -------------------------------------------- public data fields
 
+    public RoomLayerMaskData[] listOfPassageMasks;
+    
     public TileSetData roomBaseTileset;
     public RoomLayerMaskData passageLayer;
     public RoomLayerMaskData roomShapeLayer;
@@ -25,7 +27,9 @@ public class RoomGeneratorSettings : ScriptableObject
     // ================================================================
     // ------------------------------------------------- event methods
     
-    public void Initialise(){
+    public void Initialise(RoomLayerMaskData passageLayerToUse){
+        this.passageLayer = passageLayerToUse;
+
         this.roomBaseTileset.Initialise();
         this.passageLayer.Initialise();
         this.roomShapeLayer.Initialise();

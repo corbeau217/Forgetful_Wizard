@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01e95a3d1b4514576806dd9e4d0b2dc9, type: 3}
-  m_Name: Room3
+  m_Name: Room3_GeneratorSettings
   m_EditorClassIdentifier: 
+  listOfPassageMasks:
+  - {fileID: 11400000, guid: 2470dc75210394acd88e2e9681d20b2a, type: 2}
+  - {fileID: 11400000, guid: b6965aef3656d41e99773060cfe7c2a5, type: 2}
   roomBaseTileset: {fileID: 11400000, guid: 9287886b8ae4eeceda3b7e24af608b90, type: 2}
   passageLayer: {fileID: 11400000, guid: 2470dc75210394acd88e2e9681d20b2a, type: 2}
   roomShapeLayer: {fileID: 11400000, guid: 37693551b40184368acba7338cc188b7, type: 2}

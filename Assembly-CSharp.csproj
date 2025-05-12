@@ -50,7 +50,6 @@
      <Compile Include="Assets/Scripts/World/rendering/RoomRenderer.cs" />
      <Compile Include="Assets/Scripts/World/data/RoomData.cs" />
      <Compile Include="Assets/Scripts/World/data/LevelData.cs" />
-     <Compile Include="Assets/Scripts/World/data/RoomLayerData.cs" />
      <Compile Include="Assets/Scripts/World/rendering/LevelRenderer.cs" />
      <Compile Include="Assets/Scripts/World/data/WorldGenData.cs" />
      <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />

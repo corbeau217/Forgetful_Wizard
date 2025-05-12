@@ -20,16 +20,14 @@ public class RoomData : ScriptableObject
 
     private Vector2Int roomDimensions = new Vector2Int(0, 0);
 
-    // for determining if safe to give information
-    //  in public getters
-    // private bool loadedRoomData;
-
     // ================================================================
     // ================================================================
     // ------------------------------------------------- event methods
 
     public void Initialise(){
-        this.roomGenerator = new RoomGenerator(this.generatorSettings);
+
+        // TODO : choose from list??????
+        this.roomGenerator = new RoomGenerator(this.generatorSettings, PassageType.P4);
         this.roomGenerator.Initialise();
 
         this.roomDimensions = this.roomGenerator.GetDimensions();

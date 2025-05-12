@@ -66,12 +66,12 @@ The five boxing wizards jump quickly
     - [x] rooms allow movement between using room based entry/exit 
 - [x] floor contains rooms
     - [x] floor is data object containing room information
-### [ ] Milestone 008 - room modularity
-- [ ] inverting data ownership in layers holding tiles
-    - [ ] room has tiles that have layers
-- [ ] rooms have their passage type, and their room map
-    - [ ] primary background layer is the passage way the room has to other rooms
-    - [ ] secondary background layer is the room shape
+### [x] Milestone 008 - room modularity
+- [x] inverting data ownership in layers holding tiles
+    - [x] room has tiles that have layers
+- [x] rooms have their passage type, and their room map
+    - [x] primary background layer is the passage way the room has to other rooms
+    - [x] secondary background layer is the room shape
 - [ ] maps have allowed passage types
 - [ ] rooms generate using passage and map information
     - [ ] resulting room cutaway is union of passage background and map background
