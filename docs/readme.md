@@ -52,14 +52,15 @@ The five boxing wizards jump quickly
         - [x] input data in the [`TileType` file](/Assets/Scripts/World/TileType.cs)
         - [x] assign the correct `TileType`s to existing tiles
 - [x] create tiles for missing tile types using closest shape
-### [ ] Milestone 006 - tile updates
-- [ ] debug tile sprite overlay
+### [x] Milestone 006 - tile updates
+- [x] debug tile sprite overlay
     - [x] shows expected sprite shape above tiles
-    - [ ] double check tile type sprite sheet
+    - [x] double check tile type sprite sheet
 ### [ ] Milestone 007 - room connecting
-- [ ] debugging system
-    - [ ] tile overlay has 3 layers for each of tile mask types
-    - [ ] hotkey to cycle overlay type
+- [x] debugging system
+    - [x] tile overlay has 3 layers for each of tile mask types
+    - [x] hotkey to cycle overlay type
+    - [x] hotkey to show/hide
 - [ ] room mapping changes
     - [ ] world now has room based tile maps using fixed room selection
     - [ ] rooms allow movement between using room based entry/exit 

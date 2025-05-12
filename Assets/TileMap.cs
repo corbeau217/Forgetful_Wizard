@@ -9,10 +9,19 @@ using UnityEngine.UI;
 // this is for generating the tile map in the world, and should just be runtime logic
 public class TileMap : MonoBehaviour
 {
+    // ================================================================
+    // ================================================================
+    // ------------------------------------------ private const fields
+
+    private const float DEFAULT_PIXELS_PER_WORLD_UNIT = 100.0f;
+    private const float TILE_SHAPE_INNER_SIZE_X = 1.8f;
+    private const float TILE_SHAPE_INNER_SIZE_Y = 1.8f;
+
 
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
+
 
     public MapData mapData;
     // contains the room tiles
@@ -22,11 +31,14 @@ public class TileMap : MonoBehaviour
 
     public GameObject tileOverlayPrefab;
 
-    public Vector2 tileOverlayScale = new Vector2(80.0f, 80.0f);
+    public Vector2 tileOverlayScale = new Vector2(DEFAULT_PIXELS_PER_WORLD_UNIT * TILE_SHAPE_INNER_SIZE_X, DEFAULT_PIXELS_PER_WORLD_UNIT * TILE_SHAPE_INNER_SIZE_Y);
     // X and Z are cell size in grid, Y is grid scale for height
     public Vector3 cellDimensions = Vector3.one;
 
+    public float overlayOpacity = 1.0f;
+
     public bool fillOnStart;
+
 
     // ================================================================
     // ================================================================
@@ -128,28 +140,39 @@ public class TileMap : MonoBehaviour
 
 
     private void GenerateTileOverlay( int rowIndex, int colIndex, Quaternion tileRotation ){
+        // prepare tile information
+        TileData tileData = this.mapData.GetTileData(rowIndex,colIndex);
+
         // generate tile for location
-        this.tileOverlayObjects[rowIndex,colIndex] = (GameObject)Instantiate(
+        GameObject tileOverlayInstance = (GameObject)Instantiate(
             this.tileOverlayPrefab,
             // parent transform
             this.tileOverlayContainer.transform
         );
 
+        TileOverlayObject overlayObjectHandler = tileOverlayInstance.GetComponent<TileOverlayObject>();
+        overlayObjectHandler.Initialise(
+            tileData.filledMaskTexture,
+            tileData.adjacencyTexture,
+            tileData.vacancyTexture,
+            this.overlayOpacity
+        );
+
         // anti rotation
-        this.tileOverlayObjects[rowIndex,colIndex].transform.rotation = tileRotation;
+        tileOverlayInstance.transform.rotation = tileRotation;
 
         // add rect transform to them
-        RectTransform rt = this.tileOverlayObjects[rowIndex,colIndex].AddComponent(typeof(RectTransform)) as RectTransform;
+        RectTransform rt = tileOverlayInstance.AddComponent(typeof(RectTransform)) as RectTransform;
 
-        // fetch the texture to use
-        Texture2D tileTexture = this.mapData.GetTileOverlayTexture(rowIndex,colIndex);
-        Sprite textureSprite = Sprite.Create(tileTexture, new Rect(0, 0, tileTexture.width, tileTexture.height), new Vector2(0.0f, 0.0f));
-        SpriteRenderer spriteRender = this.tileOverlayPrefab.GetComponentInChildren<SpriteRenderer>();
-        spriteRender.sprite = textureSprite;
 
-        float tileScaleX = (1.0f/tileTexture.width) * this.tileOverlayScale.x;
-        float tileScaleY = (1.0f/tileTexture.height) * this.tileOverlayScale.y;
-        this.tileOverlayObjects[rowIndex,colIndex].transform.localScale = new Vector3(tileScaleX, tileScaleY, 1.0f);
+
+        // force our scaling
+        float tileScaleX = (1.0f/overlayObjectHandler.textureWidth) * this.tileOverlayScale.x;
+        float tileScaleY = (1.0f/overlayObjectHandler.textureHeight) * this.tileOverlayScale.y;
+        tileOverlayInstance.transform.localScale = new Vector3(tileScaleX, tileScaleY, 1.0f);
+
+        // give the location our created object
+        this.tileOverlayObjects[rowIndex,colIndex] = tileOverlayInstance;
     }
 
     // ================================================================

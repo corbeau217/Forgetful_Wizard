@@ -104,6 +104,19 @@ public class MapData : ScriptableObject
     }
 
 
+    public TileData GetTileData( int rowIndex, int colIndex ){
+        // did we load it yet?
+        if(this.loadedMapData){
+            int layerIndex = this.tileLayerIndices[ rowIndex, colIndex ];
+            // is there a layer to use?
+            if(layerIndex >= 0){
+                return this.layers[ layerIndex ].GetTileData(rowIndex, colIndex);
+                
+            }
+        }
+        // otherwise
+        return null;
+    }
     public GameObject GetTileObject( int rowIndex, int colIndex ){
         // did we load it yet?
         if(this.loadedMapData){
