@@ -22,31 +22,29 @@ public class RoomRenderer : MonoBehaviour
     // ================================================================
     // -------------------------------------------- public data fields
 
-
-    public RoomData roomData;
-    // contains the room tiles
-    public GameObject tileContainer;
-    // has the sprites for debugging room tiles
-    public GameObject tileOverlayContainer;
-
-    public GameObject tileOverlayPrefab;
-
     public Vector2 tileOverlayScale = new Vector2(DEFAULT_PIXELS_PER_WORLD_UNIT * TILE_SHAPE_INNER_SIZE_X, DEFAULT_PIXELS_PER_WORLD_UNIT * TILE_SHAPE_INNER_SIZE_Y);
     // X and Z are cell size in grid, Y is grid scale for height
     public Vector3 cellDimensions = Vector3.one;
 
     public float overlayOpacity = 1.0f;
 
-    public bool fillOnStart;
-
 
     // ================================================================
     // ================================================================
     // ------------------------------------------- private data fields
+    
+    private WorldGenData worldGenData;
+    private RoomData roomData;
+
+    private GameObject tileOverlayPrefab;
+
+    private GameObject tileContainer;
+    private GameObject tileOverlayContainer;
 
     private RectTransform containerRectTransform;
-    private GridLayoutGroup containerGridLayoutGroup;
     private RectTransform overlayContainerRectTransform;
+
+    private GridLayoutGroup containerGridLayoutGroup;
     private GridLayoutGroup overlayContainerGridLayoutGroup;
     
     private GameObject[,] tileObjects;
@@ -55,6 +53,21 @@ public class RoomRenderer : MonoBehaviour
     // ================================================================
     // ================================================================
     // ------------------------------------------------- event methods
+
+    public void GenerateFromData(WorldGenData worldGenData, RoomData roomDataToUse){
+        this.worldGenData = worldGenData;
+        this.roomData = roomDataToUse;
+
+
+        this.tileOverlayPrefab = this.worldGenData.tileOverlayPrefab;
+
+        this.tileContainer = this.gameObject.transform.Find("TileGrid").gameObject;
+        this.tileOverlayContainer = this.gameObject.transform.Find("TileOverlayGrid").gameObject;
+
+        this.Initialise();
+        this.LoadRoomData();
+        this.GenerateTileObjects();
+    }
 
     public void Initialise(){
         // prepare references
@@ -124,7 +137,7 @@ public class RoomRenderer : MonoBehaviour
     private void GenerateTile( int rowIndex, int colIndex, Quaternion tileRotation ){
         GameObject tile = this.roomData.GetTileObject(rowIndex,colIndex);
         // generate tile for location
-        this.tileObjects[rowIndex,colIndex] = (GameObject)Instantiate(
+        GameObject tileInstance = (GameObject)Instantiate(
             // tile object
             tile,
             // parent transform
@@ -132,10 +145,13 @@ public class RoomRenderer : MonoBehaviour
         );
         
         // anti rotation
-        this.tileObjects[rowIndex,colIndex].transform.rotation = tileRotation;
+        tileInstance.transform.rotation = tileRotation;
 
         // add rect transform to them
-        RectTransform rt = this.tileObjects[rowIndex,colIndex].AddComponent(typeof(RectTransform)) as RectTransform;
+        RectTransform rt = tileInstance.AddComponent(typeof(RectTransform)) as RectTransform;
+        
+        // use it
+        this.tileObjects[rowIndex,colIndex] = tileInstance;
     }
 
 
@@ -151,6 +167,7 @@ public class RoomRenderer : MonoBehaviour
         );
 
         TileOverlayObject overlayObjectHandler = tileOverlayInstance.GetComponent<TileOverlayObject>();
+
         overlayObjectHandler.Initialise(
             tileData.filledMaskTexture,
             tileData.adjacencyTexture,
@@ -163,8 +180,6 @@ public class RoomRenderer : MonoBehaviour
 
         // add rect transform to them
         RectTransform rt = tileOverlayInstance.AddComponent(typeof(RectTransform)) as RectTransform;
-
-
 
         // force our scaling
         float tileScaleX = (1.0f/overlayObjectHandler.textureWidth) * this.tileOverlayScale.x;
@@ -182,11 +197,7 @@ public class RoomRenderer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(fillOnStart){
-            this.Initialise();
-            this.LoadRoomData();
-            this.GenerateTileObjects();
-        }
+        // ...
     }
 
     // Update is called once per frame

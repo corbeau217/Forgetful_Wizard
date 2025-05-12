@@ -56,17 +56,17 @@ The five boxing wizards jump quickly
 - [x] debug tile sprite overlay
     - [x] shows expected sprite shape above tiles
     - [x] double check tile type sprite sheet
-### [ ] Milestone 007 - room connecting
+### [x] Milestone 007 - room connecting
 - [x] debugging system
     - [x] tile overlay has 3 layers for each of tile mask types
     - [x] hotkey to cycle overlay type
     - [x] hotkey to show/hide
-- [ ] room mapping changes
-    - [ ] world now has room based tile maps using fixed room selection
-    - [ ] rooms allow movement between using room based entry/exit 
+- [x] room mapping changes
+    - [x] world now has room based tile maps using fixed room selection
+    - [x] rooms allow movement between using room based entry/exit 
+- [x] floor contains rooms
+    - [x] floor is data object containing room information
 ### [ ] Milestone 008 - room modularity
-- [ ] floor contains rooms
-    - [ ] floor is data object containing room information
 - [ ] rooms have their passage type, and their room map
     - [ ] primary background layer is the passage way the room has to other rooms
     - [ ] secondary background layer is the room shape
@@ -230,6 +230,7 @@ The five boxing wizards jump quickly
 ## performance improvements
 ### code execution
 - [ ] map layer should buffer the tile data for overlays
+- [ ] having shared map floor shape / combining meshes into one game object
 
 
 ## ideas

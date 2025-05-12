@@ -49,6 +49,10 @@
      <Compile Include="Assets/Scripts/World/RoomLayerData.cs" />
      <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
      <Compile Include="Assets/Scripts/World/TileOverlayObject.cs" />
+     <Compile Include="Assets/Scripts/World/LevelRenderer.cs" />
+     <Compile Include="Assets/Scripts/World/LevelData.cs" />
+     <Compile Include="Assets/Scripts/World/WorldRenderer.cs" />
+     <Compile Include="Assets/Scripts/World/WorldGenData.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

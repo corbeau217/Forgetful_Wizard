@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad06dfec65ea4fb0b96d9b7b838d510, type: 3}
+  m_Name: MainWorldGen
+  m_EditorClassIdentifier: 
+  baseLevelData: {fileID: 11400000, guid: 56ae8e417086b4317bd76134a9f56bad, type: 2}
+  baseRoomPrefab: {fileID: 8426757014189063297, guid: 8bed3d225c9ef404097cee600a6cd20d, type: 3}
+  tileOverlayPrefab: {fileID: 7495104918864547197, guid: 26b5925ed75204035abd9fc10310b69e, type: 3}

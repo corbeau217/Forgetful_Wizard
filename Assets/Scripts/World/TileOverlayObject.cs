@@ -48,7 +48,7 @@ public class TileOverlayObject : MonoBehaviour
     public float textureWidth = 3.0f;
     public float textureHeight = 3.0f;
 
-    public bool showOverlay = true;
+    public bool showOverlay = false;
 
     private Texture2D fillTexture;
     private Texture2D adjacencyTexture;

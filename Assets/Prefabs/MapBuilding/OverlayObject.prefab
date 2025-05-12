@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &4446878964377531028
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &4842635198166430930
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &7495104918864547197
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,5 +302,9 @@ MonoBehaviour:
   fillOverlayRenderer: {fileID: 366437835313020641}
   adjacencyOverlayRenderer: {fileID: 6526279674119215027}
   vacancyOverlayRenderer: {fileID: 2463409068798774284}
+  cyclePrevMode: 91
+  cycleNextMode: 93
+  overlayToggle: 92
   textureWidth: 3
   textureHeight: 3
+  showOverlay: 0
