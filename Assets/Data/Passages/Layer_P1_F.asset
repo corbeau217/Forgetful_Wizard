@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77b0fccd65be4d5da4d58d1a8e812ca, type: 3}
-  m_Name: Room4
+  m_Script: {fileID: 11500000, guid: a2f58545d4ea445428e83239768f6801, type: 3}
+  m_Name: Layer_P1_F
   m_EditorClassIdentifier: 
-  generatorSettings: {fileID: 11400000, guid: b582897d794be4f7194af65837672559, type: 2}
+  layerFillMaskImage: {fileID: 2800000, guid: fd05b1d1f413414fea9d8678d4ab9b38, type: 3}
+  layerFillColour: {r: 1, g: 1, b: 1, a: 1}
+  maskTollerance: 0.5

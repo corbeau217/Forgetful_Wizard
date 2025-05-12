@@ -8,11 +8,9 @@ public class RoomGeneratorSettings : ScriptableObject
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
-
-    public RoomLayerMaskData[] listOfPassageMasks;
     
     public TileSetData roomBaseTileset;
-    public RoomLayerMaskData passageLayer;
+    private RoomLayerMaskData passageLayer;
     public RoomLayerMaskData roomShapeLayer;
 
     public TileSetData detailTileset;

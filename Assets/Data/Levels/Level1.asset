@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomOptions:
   - {fileID: 11400000, guid: e1e0d799c04091a0bb64a0f666b2035f, type: 2}
+  - {fileID: 11400000, guid: e1e0d799c04091a0bb64a0f666b2035f, type: 2}
   rowCount: 3
   colCount: 3

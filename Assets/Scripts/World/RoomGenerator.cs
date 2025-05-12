@@ -9,42 +9,13 @@ public enum CellGenerationType {
     Detail
 }
 
-public enum PassageType {
-    P0,
-
-    P1_F,
-    P1_R,
-    P1_B,
-    P1_L,
-
-    P2_FL,
-    P2_FR,
-    P2_BR,
-    P2_BL,
-
-    P2_PF,
-    P2_PL,
-    
-    P3_F,
-    P3_R,
-    P3_B,
-    P3_L,
-
-    P4
-}
-public static class PassageTypeMethods{
-    public static RoomLayerMaskData GetPassageFrom(this PassageType passage, RoomLayerMaskData[] list){
-        // TODO doaeighre98th8943hgh98h34
-        return list[(int)passage];
-    }
-}
-
 // [CreateAssetMenu(fileName = "RoomGenerator", menuName = "ScriptableObjects/RoomGenerator", order = 1)]
 public class RoomGenerator {
 
     public RoomGeneratorSettings roomSettings;
 
     PassageType roomType;
+    RoomLayerMaskData roomPassageMask;
 
     Vector2Int roomDimensions;
 
@@ -58,16 +29,13 @@ public class RoomGenerator {
     TileData[,] roomTileLayout;
 
 
-    public RoomGenerator(RoomGeneratorSettings settings, PassageType roomPassageType){
+    public RoomGenerator(RoomGeneratorSettings settings, RoomLayerMaskData roomPassageMask){
         this.roomSettings = settings;
-        this.roomType = roomPassageType;
+        this.roomPassageMask = roomPassageMask;
     }
 
     public void Initialise(){
-
-        // make sure everything is ready to use
-        // TODO : make better use typer
-        this.roomSettings.Initialise(this.roomSettings.listOfPassageMasks[Random.Range(0, this.roomSettings.listOfPassageMasks.Length)]);
+        this.roomSettings.Initialise(this.roomPassageMask);
 
         // get the room sizing
         this.roomDimensions = this.roomSettings.GetDimensions();

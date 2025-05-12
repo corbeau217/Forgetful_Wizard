@@ -2,38 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PassageType {
+    P0,
+    
+    P1_F,
+    P1_R,
+    P1_B,
+    P1_L,
+    
+    P2_FL,
+    P2_FR,
+    P2_BR,
+    P2_BL,
+    
+    P2_PF,
+    P2_PL,
 
+    P3_NB,
+    P3_NL,
+    P3_NF,
+    P3_NR,
+    
+    P4
+}
 
-
-[CreateAssetMenu(fileName = "Room", menuName = "ScriptableObjects/RoomData", order = 1)]
-public class RoomData : ScriptableObject
+[CreateAssetMenu(fileName = "PassageMask", menuName = "ScriptableObjects/PassageMaskData", order = 1)]
+public class PassageMaskData : ScriptableObject
 {
 
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
 
-    public RoomGeneratorSettings generatorSettings;
+    public PassageType passageType;
+    public RoomLayerMaskData roomMask;
 
     // ================================================================
     // ================================================================
     // ------------------------------------------- private data fields
-    
-    private RoomGenerator roomGenerator;
-
-    private Vector2Int roomDimensions = new Vector2Int(0, 0);
 
     // ================================================================
     // ================================================================
     // ------------------------------------------------- event methods
-
-    public void Initialise(RoomLayerMaskData roomPassageMask){
-        this.roomGenerator = new RoomGenerator(this.generatorSettings, roomPassageMask);
-        this.roomGenerator.Initialise();
-
-        this.roomDimensions = this.roomGenerator.GetDimensions();
-
-    }
     
     // ================================================================
     // ================================================================
@@ -42,25 +52,6 @@ public class RoomData : ScriptableObject
     // ================================================================
     // ================================================================
     // ----------------------------------------- public getter methods
-
-    public int RowCount(){
-        return this.roomDimensions.y;
-    }
-    public int ColCount(){
-        return this.roomDimensions.x;
-    }
-
-    public TileData GetTileData( int rowIndex, int colIndex ){
-        return this.roomGenerator.GetTileData(rowIndex,colIndex);
-    }
-    public GameObject GetTileObject( int rowIndex, int colIndex ){
-        return this.GetTileData(rowIndex, colIndex).TilePrefab;
-    }
-
-    // return type???
-    public Texture2D GetTileOverlayTexture( int rowIndex, int colIndex ){
-        return this.GetTileData(rowIndex, colIndex).filledMaskTexture;
-    }
 
     // ================================================================
     // ================================================================

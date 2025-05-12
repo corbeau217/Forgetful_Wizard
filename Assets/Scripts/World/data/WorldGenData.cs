@@ -13,6 +13,9 @@ public class WorldGenData : ScriptableObject
     // ================================================================
     // -------------------------------------------- public data fields
 
+    public PassageMaskData[] passageMasks;
+
+
     public LevelData baseLevelData;
     public GameObject baseRoomPrefab;
     public GameObject tileOverlayPrefab;
@@ -34,6 +37,16 @@ public class WorldGenData : ScriptableObject
 
     public LevelData GetLevelData(){
         return this.baseLevelData;
+    }
+
+    public RoomLayerMaskData GetRoomPassageFromType(PassageType typeIn){
+        for (int index = 0; index < this.passageMasks.Length; index++) {
+            if(this.passageMasks[index].passageType == typeIn){
+                return this.passageMasks[index].roomMask;
+            }
+        }
+        Debug.Log("failed to find in "+this.passageMasks.Length);
+        return null;
     }
 
     // ================================================================

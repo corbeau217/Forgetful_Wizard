@@ -75,6 +75,7 @@ The five boxing wizards jump quickly
 - [x] maps have allowed passage types
 - [x] rooms generate using passage and map information
     - [x] resulting room cutaway is union of passage background and map background
+    - [x] level using hard coded passages
 ### [ ] Milestone 009 - simple magic system
 - [ ] muddle out spell usage architecture in documentation
     - [ ] spell types

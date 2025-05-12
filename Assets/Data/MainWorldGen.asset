@@ -12,6 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad06dfec65ea4fb0b96d9b7b838d510, type: 3}
   m_Name: MainWorldGen
   m_EditorClassIdentifier: 
+  passageMasks:
+  - {fileID: 11400000, guid: a51c20b0da9d84640814441307b74920, type: 2}
+  - {fileID: 11400000, guid: 9f0670ca391fd41da85072d63958a1c4, type: 2}
+  - {fileID: 11400000, guid: 7860bb468b93d4629b3af9603285d77e, type: 2}
+  - {fileID: 11400000, guid: bb9c4dd428ed243f7a4bd8723aa7953d, type: 2}
+  - {fileID: 11400000, guid: 8b23468fdfc0f433fbd5be7a5eede603, type: 2}
+  - {fileID: 11400000, guid: 59fa5cf4a9e884e9cb04adcd5a9b42bf, type: 2}
+  - {fileID: 11400000, guid: 2597618b5066243678a815a90c2b97ba, type: 2}
+  - {fileID: 11400000, guid: 2b77996fd06c24133b5d40e35ef9edd9, type: 2}
+  - {fileID: 11400000, guid: b78a72e5589bc4160b1cb1d036019d50, type: 2}
+  - {fileID: 11400000, guid: 48ecbdb55024b49ad9a6ba2f79a4e3ee, type: 2}
+  - {fileID: 11400000, guid: 07331ddd8a520453989c54824ccbd268, type: 2}
+  - {fileID: 11400000, guid: c7adbf8694ee34b15b037273c813c5b2, type: 2}
+  - {fileID: 11400000, guid: afc5e43aa122c45fbb26391cdfa8f584, type: 2}
+  - {fileID: 11400000, guid: 26709b966100842fcb2e526130cdfb08, type: 2}
+  - {fileID: 11400000, guid: 597e11f159d6c438aaa2c0b4f85dd8a9, type: 2}
+  - {fileID: 11400000, guid: 3aa573743cb7e44dda09bc84df039d75, type: 2}
   baseLevelData: {fileID: 11400000, guid: 56ae8e417086b4317bd76134a9f56bad, type: 2}
   baseRoomPrefab: {fileID: 8426757014189063297, guid: 8bed3d225c9ef404097cee600a6cd20d, type: 3}
   tileOverlayPrefab: {fileID: 7495104918864547197, guid: 26b5925ed75204035abd9fc10310b69e, type: 3}
+  defaultRoomSize: {x: 31, y: 31}
+  defaultTileSize: {x: 2, y: 2}
