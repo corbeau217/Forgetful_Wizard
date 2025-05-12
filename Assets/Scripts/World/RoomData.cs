@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Map", menuName = "ScriptableObjects/MapData", order = 1)]
-public class MapData : ScriptableObject
+[CreateAssetMenu(fileName = "Room", menuName = "ScriptableObjects/RoomData", order = 1)]
+public class RoomData : ScriptableObject
 {
 
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
 
-    public MapLayerData[] layers;
+    public RoomLayerData[] layers;
 
     public GameObject accessErrorTile;
     public Texture2D accessErrorTileSprite;
@@ -26,11 +26,11 @@ public class MapData : ScriptableObject
     private int[,] tileLayerIndices;
     
 
-    private Vector2Int mapDimensions = new Vector2Int(0, 0);
+    private Vector2Int roomDimensions = new Vector2Int(0, 0);
 
     // for determining if safe to give information
     //  in public getters
-    private bool loadedMapData;
+    private bool loadedRoomData;
 
     // ================================================================
     // ================================================================
@@ -42,19 +42,19 @@ public class MapData : ScriptableObject
             for(int i = 0; i < this.layers.Length; i++){
                 this.layers[i].Initialise();
             }
-            // use first layer for map dimensions
-            this.mapDimensions.y = this.layers[0].RowCount();
-            this.mapDimensions.x = this.layers[0].ColCount();
+            // use first layer for room dimensions
+            this.roomDimensions.y = this.layers[0].RowCount();
+            this.roomDimensions.x = this.layers[0].ColCount();
 
-            this.tileLayerIndices = new int[ this.mapDimensions.y, this.mapDimensions.x ];
+            this.tileLayerIndices = new int[ this.roomDimensions.y, this.roomDimensions.x ];
 
             this.FindTileFilledLayers();
 
             // so the public getters are happy
-            this.loadedMapData = true;
+            this.loadedRoomData = true;
         }
         else {
-            Debug.Log("Please provide map with layers!");
+            Debug.Log("Please provide room with layers!");
         }
     }
     
@@ -76,7 +76,7 @@ public class MapData : ScriptableObject
     // find the layer index
     //  return -1 when not filled
     private int FindLayerOfTile(int rowIndex, int colIndex){
-        if(!this.loadedMapData){
+        if(!this.loadedRoomData){
             return -1;
         }
         // search our layers and find out if it's filled,
@@ -97,16 +97,16 @@ public class MapData : ScriptableObject
     // ----------------------------------------- public getter methods
 
     public int RowCount(){
-        return (this.loadedMapData)? this.mapDimensions.y : -1;
+        return (this.loadedRoomData)? this.roomDimensions.y : -1;
     }
     public int ColCount(){
-        return (this.loadedMapData)? this.mapDimensions.x : -1;
+        return (this.loadedRoomData)? this.roomDimensions.x : -1;
     }
 
 
     public TileData GetTileData( int rowIndex, int colIndex ){
         // did we load it yet?
-        if(this.loadedMapData){
+        if(this.loadedRoomData){
             int layerIndex = this.tileLayerIndices[ rowIndex, colIndex ];
             // is there a layer to use?
             if(layerIndex >= 0){
@@ -119,7 +119,7 @@ public class MapData : ScriptableObject
     }
     public GameObject GetTileObject( int rowIndex, int colIndex ){
         // did we load it yet?
-        if(this.loadedMapData){
+        if(this.loadedRoomData){
             int layerIndex = this.tileLayerIndices[ rowIndex, colIndex ];
             // is there a layer to use?
             if(layerIndex >= 0){
@@ -136,7 +136,7 @@ public class MapData : ScriptableObject
     // return type???
     public Texture2D GetTileOverlayTexture( int rowIndex, int colIndex ){
         // did we load it yet?
-        if(this.loadedMapData){
+        if(this.loadedRoomData){
             int layerIndex = this.tileLayerIndices[ rowIndex, colIndex ];
             // is there a layer to use?
             if(layerIndex >= 0){

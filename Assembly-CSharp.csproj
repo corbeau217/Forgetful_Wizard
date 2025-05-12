@@ -44,9 +44,9 @@
      <Compile Include="Assets/Scripts/World/TileSetData.cs" />
      <Compile Include="Assets/Scripts/World/TileType.cs" />
      <Compile Include="Assets/Scripts/PlayerBehaviour.cs" />
-     <Compile Include="Assets/TileMap.cs" />
-     <Compile Include="Assets/Scripts/World/MapData.cs" />
-     <Compile Include="Assets/Scripts/World/MapLayerData.cs" />
+     <Compile Include="Assets/RoomRenderer.cs" />
+     <Compile Include="Assets/Scripts/World/RoomData.cs" />
+     <Compile Include="Assets/Scripts/World/RoomLayerData.cs" />
      <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
      <Compile Include="Assets/Scripts/World/TileOverlayObject.cs" />
     <Reference Include="UnityEngine">

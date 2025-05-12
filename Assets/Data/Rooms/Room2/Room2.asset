@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a77b0fccd65be4d5da4d58d1a8e812ca, type: 3}
-  m_Name: Map2
+  m_Name: Room2
   m_EditorClassIdentifier: 
   layers:
   - {fileID: 11400000, guid: 8edff4dc19575dbd5a164fee2595744d, type: 2}

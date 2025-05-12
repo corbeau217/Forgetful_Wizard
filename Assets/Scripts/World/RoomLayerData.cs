@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MapLayer", menuName = "ScriptableObjects/MapLayerData", order = 1)]
-public class MapLayerData : ScriptableObject
+[CreateAssetMenu(fileName = "RoomLayer", menuName = "ScriptableObjects/RoomLayerData", order = 1)]
+public class RoomLayerData : ScriptableObject
 {
 
     // ================================================================

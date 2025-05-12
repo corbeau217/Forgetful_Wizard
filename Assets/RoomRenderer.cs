@@ -6,8 +6,8 @@ using UnityEngine;
 //  makes the projects stop floating
 using UnityEngine.UI;
 
-// this is for generating the tile map in the world, and should just be runtime logic
-public class TileMap : MonoBehaviour
+// this is for generating the tile room in the world, and should just be runtime logic
+public class RoomRenderer : MonoBehaviour
 {
     // ================================================================
     // ================================================================
@@ -23,7 +23,7 @@ public class TileMap : MonoBehaviour
     // -------------------------------------------- public data fields
 
 
-    public MapData mapData;
+    public RoomData roomData;
     // contains the room tiles
     public GameObject tileContainer;
     // has the sprites for debugging room tiles
@@ -64,24 +64,24 @@ public class TileMap : MonoBehaviour
         this.overlayContainerRectTransform = this.tileOverlayContainer.GetComponent<RectTransform>();
         this.overlayContainerGridLayoutGroup = this.tileOverlayContainer.GetComponent<GridLayoutGroup>();
 
-        // prepare map data
+        // prepare room data
         
-        this.mapData.Initialise();
+        this.roomData.Initialise();
     }
 
     // ================================================================
     // ================================================================
     // ----------------------------------------------- private methods
 
-    private void LoadMapData(){
+    private void LoadRoomData(){
         // now generate our information
-        if(this.mapData.RowCount() > 0 && this.mapData.ColCount() > 0){
+        if(this.roomData.RowCount() > 0 && this.roomData.ColCount() > 0){
             // =====================================
             // ---------------- prepare data arrays
 
             // prepare the grid
-            this.tileObjects = new GameObject[ this.mapData.RowCount(), this.mapData.ColCount() ];
-            this.tileOverlayObjects = new GameObject[ this.mapData.RowCount(), this.mapData.ColCount() ];
+            this.tileObjects = new GameObject[ this.roomData.RowCount(), this.roomData.ColCount() ];
+            this.tileOverlayObjects = new GameObject[ this.roomData.RowCount(), this.roomData.ColCount() ];
 
             // =====================================
             // ------------ prepare grid properties
@@ -90,26 +90,26 @@ public class TileMap : MonoBehaviour
             float colSize = this.cellDimensions.x;
             float rowSize = this.cellDimensions.z;
             
-            this.containerRectTransform.sizeDelta = new Vector2( colSize*this.mapData.ColCount(), rowSize*this.mapData.RowCount() );
+            this.containerRectTransform.sizeDelta = new Vector2( colSize*this.roomData.ColCount(), rowSize*this.roomData.RowCount() );
             this.containerGridLayoutGroup.cellSize = new Vector2( colSize, rowSize );
 
 
-            this.overlayContainerRectTransform.sizeDelta = new Vector2( colSize*this.mapData.ColCount(), rowSize*this.mapData.RowCount() );
+            this.overlayContainerRectTransform.sizeDelta = new Vector2( colSize*this.roomData.ColCount(), rowSize*this.roomData.RowCount() );
             this.overlayContainerGridLayoutGroup.cellSize = new Vector2( colSize, rowSize );
             
         }
     }
 
-    // get the tile objects from our map data and place them in to our tile map
+    // get the tile objects from our room data and place them in to our tile room
     private void GenerateTileObjects(){
         Quaternion tileRotation = Quaternion.identity;
         Quaternion overlayRotation = Quaternion.identity;
         tileRotation.eulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
         overlayRotation.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
         // every row
-        for(int rowIndex = 0; rowIndex < this.mapData.RowCount(); rowIndex++){
+        for(int rowIndex = 0; rowIndex < this.roomData.RowCount(); rowIndex++){
             // every column
-            for(int colIndex = 0; colIndex < this.mapData.ColCount(); colIndex++){
+            for(int colIndex = 0; colIndex < this.roomData.ColCount(); colIndex++){
 
                 // make the tile
                 this.GenerateTile( rowIndex, colIndex, tileRotation );
@@ -122,7 +122,7 @@ public class TileMap : MonoBehaviour
     }
 
     private void GenerateTile( int rowIndex, int colIndex, Quaternion tileRotation ){
-        GameObject tile = this.mapData.GetTileObject(rowIndex,colIndex);
+        GameObject tile = this.roomData.GetTileObject(rowIndex,colIndex);
         // generate tile for location
         this.tileObjects[rowIndex,colIndex] = (GameObject)Instantiate(
             // tile object
@@ -141,7 +141,7 @@ public class TileMap : MonoBehaviour
 
     private void GenerateTileOverlay( int rowIndex, int colIndex, Quaternion tileRotation ){
         // prepare tile information
-        TileData tileData = this.mapData.GetTileData(rowIndex,colIndex);
+        TileData tileData = this.roomData.GetTileData(rowIndex,colIndex);
 
         // generate tile for location
         GameObject tileOverlayInstance = (GameObject)Instantiate(
@@ -184,7 +184,7 @@ public class TileMap : MonoBehaviour
     {
         if(fillOnStart){
             this.Initialise();
-            this.LoadMapData();
+            this.LoadRoomData();
             this.GenerateTileObjects();
         }
     }

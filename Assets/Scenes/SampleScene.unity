@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 721831767}
   - component: {fileID: 721831766}
   m_Layer: 8
-  m_Name: TileMap
+  m_Name: RoomContainer
   m_TagString: Tiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b839b576d7cddecd69b169842e0b5973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapData: {fileID: 11400000, guid: e1e0d799c04091a0bb64a0f666b2035f, type: 2}
+  roomData: {fileID: 11400000, guid: e1e0d799c04091a0bb64a0f666b2035f, type: 2}
   tileContainer: {fileID: 1328321200}
   tileOverlayContainer: {fileID: 2091002154}
   tileOverlayPrefab: {fileID: 7495104918864547197, guid: 26b5925ed75204035abd9fc10310b69e, type: 3}
