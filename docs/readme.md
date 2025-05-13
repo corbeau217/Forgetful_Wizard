@@ -86,19 +86,20 @@ The five boxing wizards jump quickly
 - [x] create second bolt option
 - [x] create third bolt option
 - [x] create fourth bolt option
-### [ ] Milestone 010 - simple magic selecting
-- [ ] player spell book data object for all spells
-- [ ] hide/show spell book menu
-    - [ ] uses grid for spell options
-        - [ ] experiment with hexagonal tiles?
+### [x] Milestone 010 - simple magic selecting
+- [x] player spell book data object for all spells
+- [x] hide/show spell book menu
+    - [x] uses grid for spell options
+        - [x] experiment with hexagonal tiles?
+            * *it's cursed, need to make our own later*
 - [ ] minimalist ui showing equipped spells
 ### [ ] Milestone 011 - simple detail tiles
 - [ ] adding missing tile objects to project
     - [ ] making tile object shapes
 - [ ] tiles show option count text above them when more than 1 legal option??
 - [ ] tiles classified as movement or detail
-    - [ ] movement tiles are the previous tile types
-    - [ ] detail tiles are part of movement tiles?? idk
+    - [x] movement tiles are the previous tile types
+    - [x] detail tiles are part of movement tiles?? idk
     - [ ] tile objects made for detail tiles
     - [ ] code supports new objects for detail layers
 ### [ ] Milestone 012 - room passage types

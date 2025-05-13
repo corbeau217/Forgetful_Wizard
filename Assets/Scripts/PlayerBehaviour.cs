@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public GameObject spellObjectParent;
 
-    public BoltSpell boltSpell;
+    public BaseSpell boltSpell;
     public bool attemptProjectileSpell = false;
 
     public BaseSpell sprintSpell;

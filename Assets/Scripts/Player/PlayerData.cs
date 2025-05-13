@@ -5,7 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player", menuName = "ScriptableObjects/PlayerData", order = 1)]
 public class PlayerData : ScriptableObject
 {   
-    // ...
+
+    public SpellBook playerSpellBook;
+
     public KeyCode moveKey_Up = KeyCode.W;
     public KeyCode moveKey_Down = KeyCode.S;
     public KeyCode moveKey_Left = KeyCode.A;
