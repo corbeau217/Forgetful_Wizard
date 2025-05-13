@@ -2273,7 +2273,7 @@ MonoBehaviour:
   mouseDirection: {x: 0, y: 0, z: 0}
   movementDirectionObject: {fileID: 681674834}
   spellObjectParent: {fileID: 1709601755}
-  boltSpell: {fileID: 11400000, guid: 36c81d2d062da40e981cd8a1cbc5ff80, type: 2}
+  boltSpell: {fileID: 11400000, guid: 58d2a71d6459b4209abfa40afee0c4bf, type: 2}
   attemptProjectileSpell: 0
   sprintSpell: {fileID: 11400000, guid: 05ce0086d1e8445f383bdfb9a0de70bb, type: 2}
   sprintBurstKey: 304

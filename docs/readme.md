@@ -76,15 +76,16 @@ The five boxing wizards jump quickly
 - [x] rooms generate using passage and map information
     - [x] resulting room cutaway is union of passage background and map background
     - [x] level using hard coded passages
-### [ ] Milestone 009 - simple magic system
+### [x] Milestone 009 - simple magic system
 - [x] tinker with spell object structuring
 - [x] spell data object abstract class
 - [x] projectile spell abstract class
 - [x] bolt spell abstract class
 - [x] convert sprint spell to new format
 - [x] convert blink to new format
-- [ ] create second bolt option
-- [ ] create third bolt option
+- [x] create second bolt option
+- [x] create third bolt option
+- [x] create fourth bolt option
 ### [ ] Milestone 010 - simple magic selecting
 - [ ] player spell book data object for all spells
 - [ ] hide/show spell book menu

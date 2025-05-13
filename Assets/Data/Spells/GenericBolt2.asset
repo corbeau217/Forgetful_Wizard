@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c2d4548af15045e499db2e7c2b58a5d, type: 3}
-  m_Name: GenericBolt
+  m_Name: GenericBolt2
   m_EditorClassIdentifier: 
-  baseSpellCooldown: 0.2
-  projectileObject: {fileID: 7531285990756059325, guid: b38441a0854693e2ba30b70debe19839, type: 3}
-  spellProjectileForce: 1000
+  baseSpellCooldown: 1.2
+  projectileObject: {fileID: 7531285990756059325, guid: 8c1369a354c0541b0ad892be984b4b88, type: 3}
+  spellProjectileForce: 850
   collisionTags:
   - Walls
   - Tiles

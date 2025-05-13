@@ -8,7 +8,7 @@ public abstract class BaseProjectileSpell : BaseSpell
 
     public float spellProjectileForce = 1000.0f;
 
-    public string[] collisionTags = new string[]{"Walls", "Tiles"};
+    public string[] collisionTags = new string[]{ "Walls", "Tiles" };
 
     protected abstract void OnProjectileSpawn(Vector3 castPoint, Quaternion forwardRotation, Transform spawnParentTransform);
     protected abstract void OnProjectileHit(GameObject projectileObject, Collider hitObject);
