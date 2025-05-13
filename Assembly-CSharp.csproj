@@ -39,7 +39,6 @@
      <Compile Include="Assets/Scripts/FollowBehaviour.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerData.cs" />
      <Compile Include="Assets/Scripts/World/data/TileData.cs" />
-     <Compile Include="Assets/Scripts/Spell/ProjectileSpellData.cs" />
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
      <Compile Include="Assets/Scripts/World/RoomGenerator.cs" />
      <Compile Include="Assets/Scripts/World/data/TileSetData.cs" />
@@ -55,7 +54,10 @@
      <Compile Include="Assets/Scripts/World/data/LevelData.cs" />
      <Compile Include="Assets/Scripts/World/rendering/LevelRenderer.cs" />
      <Compile Include="Assets/Scripts/World/data/WorldGenData.cs" />
-     <Compile Include="Assets/Scripts/ProjectileBehaviour.cs" />
+     <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseSpell.cs" />
+     <Compile Include="Assets/Scripts/Spell/TriggerComponents/ProjectileHitTrigger.cs" />
+     <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseProjectileSpell.cs" />
+     <Compile Include="Assets/Scripts/Spell/BoltSpell.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

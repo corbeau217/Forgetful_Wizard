@@ -2261,7 +2261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 5da02e387a94b49d6a3c53a0510ccadb, type: 2}
   mousePlaneObj: {fileID: 2119438293}
-  playerRigidBody: {fileID: 0}
+  playerRigidBody: {fileID: 1926244672}
   movementForceScalar: 0
   rotationSpeedScalar: 0
   movementInputNotDetected: 1
@@ -2273,9 +2273,8 @@ MonoBehaviour:
   mouseDirection: {x: 0, y: 0, z: 0}
   movementDirectionObject: {fileID: 681674834}
   spellObjectParent: {fileID: 1709601755}
-  projectileSpell: {fileID: 11400000, guid: ef752ec57eb4bd6a2a7c71138196df0e, type: 2}
+  boltSpell: {fileID: 11400000, guid: 36c81d2d062da40e981cd8a1cbc5ff80, type: 2}
   attemptProjectileSpell: 0
-  projectileSpellCooldown: 0
   sprintBurstKey: 304
   attemptSprintBurst: 0
   sprintBurstSpellCooldown: 0

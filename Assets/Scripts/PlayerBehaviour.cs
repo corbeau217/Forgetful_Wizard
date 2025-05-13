@@ -32,9 +32,9 @@ public class PlayerBehaviour : MonoBehaviour
 
 
     public GameObject spellObjectParent;
-    public ProjectileSpellData projectileSpell;
+
+    public BoltSpell boltSpell;
     public bool attemptProjectileSpell = false;
-    public float projectileSpellCooldown = 0.0f;
 
     public KeyCode sprintBurstKey = KeyCode.LeftShift;
     public bool attemptSprintBurst = false;
@@ -171,23 +171,20 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void HandleTimeouts(){
         // zzzz our spell firing
-        this.projectileSpellCooldown = Mathf.Max(0.0f, this.projectileSpellCooldown - Time.deltaTime);
+        
+        this.boltSpell.UpdateSpellCooldown();
+
         this.sprintBurstSpellCooldown = Mathf.Max(0.0f, this.sprintBurstSpellCooldown - Time.deltaTime);
         this.blinkSpellCooldown = Mathf.Max(0.0f, this.blinkSpellCooldown - Time.deltaTime);
     }
     public void HandleSpellUsage(){
         // have spell use flag
         if(this.attemptProjectileSpell){
-            // check for cooldown over
-            if(this.projectileSpellCooldown == 0.0f){
-                // ...
+            if(this.boltSpell.GetRemainingCooldown() == 0.0f){
                 // prepare spawn
                 Vector3 spawnLocation = this.gameObject.transform.position + this.currentFacingVector;
-
-                this.projectileSpell.ActivateSpell( spawnLocation, this.quarternionFacing, this.spellObjectParent.transform );
-
-                // snooze from spell
-                this.projectileSpellCooldown = this.projectileSpell.spellTimeout;
+                
+                this.boltSpell.CastSpell(this.gameObject, spawnLocation, this.quarternionFacing, this.spellObjectParent.transform);
             }
             // remove the spell use flag
             this.attemptProjectileSpell = false;

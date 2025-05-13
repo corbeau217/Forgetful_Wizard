@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eab24a87f7719c2393d4a3ccde34b70, type: 3}
-  m_Name: Bolt
+  m_Script: {fileID: 11500000, guid: 7c2d4548af15045e499db2e7c2b58a5d, type: 3}
+  m_Name: GenericBolt
   m_EditorClassIdentifier: 
+  baseSpellCooldown: 0.2
   projectileObject: {fileID: 7531285990756059325, guid: b38441a0854693e2ba30b70debe19839, type: 3}
   spellProjectileForce: 1000
-  spellTimeout: 0.5
+  collisionTags:
+  - Walls
+  - Tiles
