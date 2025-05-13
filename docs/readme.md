@@ -82,7 +82,7 @@ The five boxing wizards jump quickly
 - [x] projectile spell abstract class
 - [x] bolt spell abstract class
 - [x] convert sprint spell to new format
-- [ ] convert blink to new format
+- [x] convert blink to new format
 - [ ] create second bolt option
 - [ ] create third bolt option
 ### [ ] Milestone 010 - simple magic selecting

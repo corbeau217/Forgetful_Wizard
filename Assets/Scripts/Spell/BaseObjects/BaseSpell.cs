@@ -23,4 +23,11 @@ public abstract class BaseSpell : ScriptableObject {
     public void UpdateSpellCooldown(){
         this.remainingSpellCooldown = Mathf.Max(0.0f, this.remainingSpellCooldown-Time.deltaTime );
     }
+
+
+    // (Vector3 origin, Vector3 direction, out RaycastHit hitInfo, float maxDistance = Mathf.Infinity, int layerMask = DefaultRaycastLayers,
+    protected bool SpellRay(Vector3 origin, Vector3 direction, out RaycastHit hitInfo, float maxRayDistance, int layerMask){
+        return Physics.Raycast(origin, direction, out hitInfo, maxRayDistance, layerMask);
+    }
+
 }

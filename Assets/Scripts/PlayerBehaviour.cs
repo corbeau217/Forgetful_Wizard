@@ -41,12 +41,9 @@ public class PlayerBehaviour : MonoBehaviour
     public bool attemptSprintBurst = false;
 
 
+    public BaseSpell blinkSpell;
     public KeyCode blinkKey = KeyCode.Space;
     public bool attemptBlink = false;
-    public float blinkSpellCooldown = 0.0f;
-    public float blinkSpellCooldownOnUsage = 0.5f;
-    public float blinkDistance = 10.0f;
-    public float blinkObstacleBufferDistance = 0.5f;
 
 
     // ==========================================================================================
@@ -171,11 +168,10 @@ public class PlayerBehaviour : MonoBehaviour
         
         this.boltSpell.UpdateSpellCooldown();
         this.sprintSpell.UpdateSpellCooldown();
-        
-        this.blinkSpellCooldown = Mathf.Max(0.0f, this.blinkSpellCooldown - Time.deltaTime);
+        this.blinkSpell.UpdateSpellCooldown();
     }
     public void HandleSpellUsage(){
-        Quaternion movementQuaternion = Quaternion.LookRotation(this.movementForceDirection, Vector3.up);
+        Quaternion movementQuaternion = (!this.movementInputNotDetected)? Quaternion.LookRotation(this.movementForceDirection, Vector3.up) : Quaternion.identity;
         // have spell use flag
         if(this.attemptProjectileSpell){
             if(this.boltSpell.GetRemainingCooldown() == 0.0f){
@@ -198,44 +194,13 @@ public class PlayerBehaviour : MonoBehaviour
             this.attemptSprintBurst = false;
         }
         if(this.attemptBlink){
-            if(this.blinkSpellCooldown == 0.0f){
-                LayerMask layerMask = LayerMask.GetMask("Walls", "Tiles");
-                RaycastHit hit;
-                Vector3 blinkOrigin = this.gameObject.transform.position;
-                blinkOrigin.y += 0.5f;
-
-                Vector3 blinkDirection = this.movementForceDirection;
-                if(this.movementForceDirection.magnitude < 1.0f || this.movementForceDirection == Vector3.forward){
-                    // use mouse instead
-                    blinkDirection = this.mouseDirection;
+            if(this.blinkSpell.GetRemainingCooldown() == 0.0f){
+                if(!this.movementInputNotDetected){
+                    this.blinkSpell.CastSpell(this.gameObject, this.gameObject.transform.position, movementQuaternion, this.spellObjectParent.transform);
                 }
-                
-                // prepare our working distance
-                float currentBlinkDistance = this.blinkDistance;
-
-                // Does the ray intersect any objects excluding the player layer
-                if (Physics.Raycast(blinkOrigin, blinkDirection, out hit, this.blinkDistance, layerMask))
-                { 
-                    // Debug.DrawRay(blinkOrigin, blinkDirection * hit.distance, Color.yellow); 
-                    // Debug.Log("Did Hit"); 
-                    // change our blink distance
-                    currentBlinkDistance = hit.distance - this.blinkObstacleBufferDistance;
+                else {
+                    this.blinkSpell.CastSpell(this.gameObject, this.gameObject.transform.position, this.quarternionFacing, this.spellObjectParent.transform);
                 }
-                // else
-                // { 
-                //     Debug.DrawRay(blinkOrigin, blinkDirection * this.blinkDistance, Color.white); 
-                //     Debug.Log("Did not Hit"); 
-                //     // can just keep using the same distance
-                // }
-
-                // vector used for blinking
-                Vector3 blinkVector = blinkDirection * currentBlinkDistance;
-                
-                // apply to position
-                this.playerRigidBody.position = this.playerRigidBody.position + blinkVector;
-
-                // snooze from spell
-                this.blinkSpellCooldown = this.blinkSpellCooldownOnUsage;
             }
 
             // remove spell use flag

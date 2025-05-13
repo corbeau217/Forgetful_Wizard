@@ -2278,12 +2278,9 @@ MonoBehaviour:
   sprintSpell: {fileID: 11400000, guid: 05ce0086d1e8445f383bdfb9a0de70bb, type: 2}
   sprintBurstKey: 304
   attemptSprintBurst: 0
+  blinkSpell: {fileID: 11400000, guid: 2facdaeeff4bc4b868e4f81d12ef191f, type: 2}
   blinkKey: 32
   attemptBlink: 0
-  blinkSpellCooldown: 0
-  blinkSpellCooldownOnUsage: 0.5
-  blinkDistance: 10
-  blinkObstacleBufferDistance: 0.5
 --- !u!54 &1926244672
 Rigidbody:
   m_ObjectHideFlags: 0
