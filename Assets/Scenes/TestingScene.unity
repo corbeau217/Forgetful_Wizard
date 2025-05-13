@@ -2275,12 +2275,9 @@ MonoBehaviour:
   spellObjectParent: {fileID: 1709601755}
   boltSpell: {fileID: 11400000, guid: 36c81d2d062da40e981cd8a1cbc5ff80, type: 2}
   attemptProjectileSpell: 0
+  sprintSpell: {fileID: 11400000, guid: 05ce0086d1e8445f383bdfb9a0de70bb, type: 2}
   sprintBurstKey: 304
   attemptSprintBurst: 0
-  sprintBurstSpellCooldown: 0
-  sprintBurstSpellCooldownOnUsageMinimum: 0.35
-  sprintBurstSpellCooldownOnUsageMaximum: 0.7
-  sprintBurstForce: 35
   blinkKey: 32
   attemptBlink: 0
   blinkSpellCooldown: 0

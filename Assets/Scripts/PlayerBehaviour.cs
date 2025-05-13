@@ -36,12 +36,9 @@ public class PlayerBehaviour : MonoBehaviour
     public BoltSpell boltSpell;
     public bool attemptProjectileSpell = false;
 
+    public BaseSpell sprintSpell;
     public KeyCode sprintBurstKey = KeyCode.LeftShift;
     public bool attemptSprintBurst = false;
-    public float sprintBurstSpellCooldown = 0.0f;
-    public float sprintBurstSpellCooldownOnUsageMinimum = 0.35f;
-    public float sprintBurstSpellCooldownOnUsageMaximum = 0.6f;
-    public float sprintBurstForce = 20.0f;
 
 
     public KeyCode blinkKey = KeyCode.Space;
@@ -173,11 +170,12 @@ public class PlayerBehaviour : MonoBehaviour
         // zzzz our spell firing
         
         this.boltSpell.UpdateSpellCooldown();
-
-        this.sprintBurstSpellCooldown = Mathf.Max(0.0f, this.sprintBurstSpellCooldown - Time.deltaTime);
+        this.sprintSpell.UpdateSpellCooldown();
+        
         this.blinkSpellCooldown = Mathf.Max(0.0f, this.blinkSpellCooldown - Time.deltaTime);
     }
     public void HandleSpellUsage(){
+        Quaternion movementQuaternion = Quaternion.LookRotation(this.movementForceDirection, Vector3.up);
         // have spell use flag
         if(this.attemptProjectileSpell){
             if(this.boltSpell.GetRemainingCooldown() == 0.0f){
@@ -190,12 +188,10 @@ public class PlayerBehaviour : MonoBehaviour
             this.attemptProjectileSpell = false;
         }
         if(this.attemptSprintBurst){
-            if(this.sprintBurstSpellCooldown == 0.0f){
-                // add our sprint burst force in direction of movement
-                this.playerRigidBody.AddForce((this.movementForceDirection * this.sprintBurstForce), ForceMode.Impulse);
-
-                // snooze from spell
-                this.sprintBurstSpellCooldown = Random.Range(this.sprintBurstSpellCooldownOnUsageMinimum, this.sprintBurstSpellCooldownOnUsageMaximum);
+            if(this.sprintSpell.GetRemainingCooldown() == 0.0f){
+                if(!this.movementInputNotDetected){
+                    this.sprintSpell.CastSpell(this.gameObject, this.gameObject.transform.position, movementQuaternion, this.spellObjectParent.transform );
+                }
             }
 
             // remove spell use flag

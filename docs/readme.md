@@ -81,7 +81,7 @@ The five boxing wizards jump quickly
 - [x] spell data object abstract class
 - [x] projectile spell abstract class
 - [x] bolt spell abstract class
-- [ ] convert sprint spell to new format
+- [x] convert sprint spell to new format
 - [ ] convert blink to new format
 - [ ] create second bolt option
 - [ ] create third bolt option
