@@ -94,13 +94,17 @@ The five boxing wizards jump quickly
             * *it's cursed, need to make our own later*
 - [ ] minimalist ui showing equipped spells
 ### [ ] Milestone 011 - simple detail tiles
-- [ ] adding missing tile objects to project
-    - [ ] making tile object shapes
+- [x] adding missing tile objects to project
+    - [x] making tile object shapes
 - [ ] tiles show option count text above them when more than 1 legal option??
 - [ ] tiles classified as movement or detail
     - [x] movement tiles are the previous tile types
     - [x] detail tiles are part of movement tiles?? idk
-    - [ ] tile objects made for detail tiles
+    - [ ] nicer tile objects made for detail tiles
+        - [x] make the shapes
+        - [x] swap out the pillar shape to the new style
+        - [ ] add in the type handling
+        - [ ] fill the tileset with the new objects
     - [ ] code supports new objects for detail layers
 ### [ ] Milestone 012 - room passage types
 - [ ] adding in room passage types

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12da725a558f400e8f3af76128a2832, type: 3}
   m_Name: ShelfBlock
   m_EditorClassIdentifier: 
-  TilePrefab: {fileID: 5018209765519358535, guid: ab24ecbd194e8a0d786d9c2dce61ee35, type: 3}
+  TilePrefab: {fileID: 4768556330760753866, guid: 88c322fbf24bf4c9aa5396e789be8221, type: 3}
   filledRequired: 000000000100000000
   adjacencyRequired: 
   vacancyRequired: 000000000000000000
   tileType: 32
   maskTollerance: 0.5
+  filledMaskTexture: {fileID: 0}
+  adjacencyTexture: {fileID: 0}
+  vacancyTexture: {fileID: 0}
