@@ -83,7 +83,6 @@ public class RoomGenerator {
 
     public RoomGeneratorSettings roomSettings;
 
-    PassageType roomType;
     RoomLayerMaskData roomPassageMask;
 
     Vector2Int roomDimensions;

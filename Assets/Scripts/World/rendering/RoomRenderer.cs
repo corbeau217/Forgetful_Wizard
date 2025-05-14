@@ -51,13 +51,13 @@ public class RoomRenderer : MonoBehaviour
     private GameObject[,] tileObjects;
     private GameObject[,] tileOverlayObjects;
 
-    private PassageType passageType;
+    private TileType passageType;
 
     // ================================================================
     // ================================================================
     // ------------------------------------------------- event methods
 
-    public void GenerateFromData(WorldGenData worldGenData, RoomData roomDataToUse, PassageType passageType){
+    public void GenerateFromData(WorldGenData worldGenData, RoomData roomDataToUse, TileType passageType){
         this.worldGenData = worldGenData;
         this.roomData = roomDataToUse;
 

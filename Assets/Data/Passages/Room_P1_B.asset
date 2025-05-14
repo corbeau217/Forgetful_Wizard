@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d27fc0ea217c24b3f9be8cc15cf94769, type: 3}
-  m_Name: P1_R
+  m_Name: Room_P1_B
   m_EditorClassIdentifier: 
-  passageType: 2
-  roomMask: {fileID: 11400000, guid: 9127a87ce74c84a03a0c26744aaf1190, type: 2}
+  passageType: 130
+  roomMask: {fileID: 11400000, guid: 172bea32cd674433583576c3747838a2, type: 2}

@@ -37,7 +37,7 @@ public class LevelRenderer : MonoBehaviour
 
     private GameObject[,] roomObjects;
 
-    private PassageType[,] passageTypes;
+    private TileType[,] passageTypes;
 
     private int rowCount;
     private int colCount;
@@ -59,7 +59,7 @@ public class LevelRenderer : MonoBehaviour
         // start making our level
         this.Initialise();
         this.LoadLevelData();
-        this.GenerateRoomPassageTypes();
+        this.GenerateRoomPassageTileTypes();
         this.GenerateRoomRenderers();
     }
 
@@ -92,7 +92,7 @@ public class LevelRenderer : MonoBehaviour
 
             // prepare the grid
             this.roomObjects = new GameObject[ this.rowCount, this.colCount ];
-            this.passageTypes = new PassageType[ this.rowCount, this.colCount ];
+            this.passageTypes = new TileType[ this.rowCount, this.colCount ];
 
             // =====================================
             // ------------ prepare grid properties
@@ -107,7 +107,7 @@ public class LevelRenderer : MonoBehaviour
     }
 
     // HARD CODED PASSAGE TYPES FOR NOW
-    private void GenerateRoomPassageTypes(){
+    private void GenerateRoomPassageTileTypes(){
         // every row
         for(int rowIndex = 0; rowIndex < this.rowCount; rowIndex++){
             // every column
@@ -116,44 +116,44 @@ public class LevelRenderer : MonoBehaviour
                 if(rowIndex == 0){
                     // bottom right?
                     if(colIndex == 0){
-                        this.passageTypes[rowIndex,colIndex] = PassageType.P2_BR;
+                        this.passageTypes[rowIndex,colIndex] = TileType.Room_P2_BR;
                     }
                     // bottom left?
                     else if(colIndex == this.colCount-1){
-                        this.passageTypes[rowIndex,colIndex] = PassageType.P2_BL;
+                        this.passageTypes[rowIndex,colIndex] = TileType.Room_P2_BL;
                     }
                     // bottom row?
                     else {
-                        this.passageTypes[rowIndex,colIndex] = PassageType.P3_NF;
+                        this.passageTypes[rowIndex,colIndex] = TileType.Room_P3_NF;
                     }
                 }
                 // front row?
                 else if(rowIndex == this.rowCount-1){
                     // top right?
                     if(colIndex == 0){
-                        this.passageTypes[rowIndex,colIndex] = PassageType.P2_FR;
+                        this.passageTypes[rowIndex,colIndex] = TileType.Room_P2_FR;
                     }
                     // top left?
                     else if(colIndex == this.colCount-1){
-                        this.passageTypes[rowIndex,colIndex] = PassageType.P2_FL;
+                        this.passageTypes[rowIndex,colIndex] = TileType.Room_P2_FL;
                     }
                     // top side?
                     else {
-                        this.passageTypes[rowIndex,colIndex] = PassageType.P3_NB;
+                        this.passageTypes[rowIndex,colIndex] = TileType.Room_P3_NB;
                     }
                 }
                 // middle rows
                 else {
                     // left side?
                     if(colIndex == 0){
-                        this.passageTypes[rowIndex,colIndex] = PassageType.P3_NL;
+                        this.passageTypes[rowIndex,colIndex] = TileType.Room_P3_NL;
                     }
                     // right side?
                     else if(colIndex == this.colCount-1){
-                        this.passageTypes[rowIndex,colIndex] = PassageType.P3_NR;
+                        this.passageTypes[rowIndex,colIndex] = TileType.Room_P3_NR;
                     }
                     else {
-                        this.passageTypes[rowIndex,colIndex] = PassageType.P4;
+                        this.passageTypes[rowIndex,colIndex] = TileType.Room_P4;
                     }
                 }
             }

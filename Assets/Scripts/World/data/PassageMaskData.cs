@@ -2,29 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PassageType {
-    P0,
-    
-    P1_F,
-    P1_R,
-    P1_B,
-    P1_L,
-    
-    P2_FL,
-    P2_FR,
-    P2_BR,
-    P2_BL,
-    
-    P2_PF,
-    P2_PL,
-
-    P3_NB,
-    P3_NL,
-    P3_NF,
-    P3_NR,
-    
-    P4
-}
 
 [CreateAssetMenu(fileName = "PassageMask", menuName = "ScriptableObjects/PassageMaskData", order = 1)]
 public class PassageMaskData : ScriptableObject
@@ -34,7 +11,7 @@ public class PassageMaskData : ScriptableObject
     // ================================================================
     // -------------------------------------------- public data fields
 
-    public PassageType passageType;
+    public TileType passageType;
     public RoomLayerMaskData roomMask;
 
     // ================================================================
