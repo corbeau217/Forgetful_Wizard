@@ -109,6 +109,8 @@ The five boxing wizards jump quickly
     - [x] optional extra detail layers
 ### [ ] Milestone 012 - room passage types
 - [ ] adding in room passage types
+    - [ ] rough sketch the room generation structure for tile selection
+    - [ ] plan out the same structure as with tiles in rooms
     - [ ] generating level based on adjacency of rooms
         - [ ] room adjacency / vacancy rules
 ### [ ] Milestone 013 - initial interactables
