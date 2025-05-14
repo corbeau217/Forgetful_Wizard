@@ -14,6 +14,7 @@ public class RoomData : ScriptableObject
     // -------------------------------------------- public data fields
 
     public RoomGeneratorSettings generatorSettings;
+    public GameObject errorTile;
 
     // ================================================================
     // ================================================================
@@ -54,7 +55,9 @@ public class RoomData : ScriptableObject
         return this.roomGenerator.GetTileData(rowIndex,colIndex);
     }
     public GameObject GetTileObject( int rowIndex, int colIndex ){
-        return this.GetTileData(rowIndex, colIndex).TilePrefab;
+        TileData data = this.GetTileData(rowIndex, colIndex);
+        if(data==null){ return this.errorTile; }
+        return data.TilePrefab;
     }
 
     // return type???

@@ -67,7 +67,9 @@ public class RoomRenderer : MonoBehaviour
 
         this.tileContainer = this.gameObject.transform.Find("TileGrid").gameObject;
         this.tileOverlayContainer = this.gameObject.transform.Find("TileOverlayGrid").gameObject;
-
+        if(roomData == null){
+            Debug.Log("erm, what the sigma??");
+        }
         this.Initialise();
         this.LoadRoomData();
         this.GenerateTileObjects();
@@ -140,6 +142,9 @@ public class RoomRenderer : MonoBehaviour
 
     private void GenerateTile( int rowIndex, int colIndex, Quaternion tileRotation ){
         GameObject tile = this.roomData.GetTileObject(rowIndex,colIndex);
+        if(tile==null){
+            Debug.Log("lol woops");
+        }
         // generate tile for location
         GameObject tileInstance = (GameObject)Instantiate(
             // tile object
@@ -169,7 +174,7 @@ public class RoomRenderer : MonoBehaviour
             // parent transform
             this.tileOverlayContainer.transform
         );
-
+    
         TileOverlayObject overlayObjectHandler = tileOverlayInstance.GetComponent<TileOverlayObject>();
 
         overlayObjectHandler.Initialise(

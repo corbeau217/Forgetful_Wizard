@@ -40,6 +40,7 @@
      <Compile Include="Assets/Scripts/FollowBehaviour.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerData.cs" />
      <Compile Include="Assets/Scripts/World/data/TileData.cs" />
+     <Compile Include="Assets/BookSpriteManager.cs" />
      <Compile Include="Assets/Scripts/Spell/BoltSpell.cs" />
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
      <Compile Include="Assets/Scripts/World/RoomGenerator.cs" />
@@ -56,16 +57,17 @@
      <Compile Include="Assets/Scripts/Spell/TriggerComponents/ProjectileHitTrigger.cs" />
      <Compile Include="Assets/Scripts/Spell/BlinkSpell.cs" />
      <Compile Include="Assets/Scripts/World/data/PassageMaskData.cs" />
+     <Compile Include="Assets/SpellBookOptionHandle.cs" />
+     <Compile Include="Assets/SpellBookOption.cs" />
      <Compile Include="Assets/Scripts/World/data/RoomData.cs" />
      <Compile Include="Assets/Scripts/World/data/LevelData.cs" />
      <Compile Include="Assets/Scripts/SpellBook.cs" />
      <Compile Include="Assets/Scripts/World/rendering/LevelRenderer.cs" />
      <Compile Include="Assets/Scripts/World/data/WorldGenData.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseSpell.cs" />
+     <Compile Include="Assets/BookSpriteMaskManager.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BasePersonalAuraSpell.cs" />
      <Compile Include="Assets/SpellBookToggle.cs" />
-     <Compile Include="Assets/SpellBookOption.cs" />
-     <Compile Include="Assets/SpellBookOptionHandle.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

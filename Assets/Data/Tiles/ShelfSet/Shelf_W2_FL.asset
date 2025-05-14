@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12da725a558f400e8f3af76128a2832, type: 3}
+  m_Name: Shelf_W2_FL
+  m_EditorClassIdentifier: 
+  TilePrefab: {fileID: 2716033401527759546, guid: e48a2ea160be34ac5b185e3c51d9e468, type: 3}
+  filledRequired: 010101010100010001
+  adjacencyRequired: 000100010100000000
+  vacancyRequired: 000000000001000100
+  tileType: 69
+  maskTollerance: 0.5
+  filledMaskTexture: {fileID: 0}
+  adjacencyTexture: {fileID: 0}
+  vacancyTexture: {fileID: 0}

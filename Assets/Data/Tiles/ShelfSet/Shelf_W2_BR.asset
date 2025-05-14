@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f12da725a558f400e8f3af76128a2832, type: 3}
-  m_Name: ShelfBlock
+  m_Name: Shelf_W2_BR
   m_EditorClassIdentifier: 
-  TilePrefab: {fileID: 4768556330760753866, guid: 88c322fbf24bf4c9aa5396e789be8221, type: 3}
-  filledRequired: 000000000100000000
-  adjacencyRequired: 
-  vacancyRequired: 000000000000000000
-  tileType: 32
+  TilePrefab: {fileID: 6653765906030875821, guid: 0769b002e776140b6acdfe7f0c8cadb8, type: 3}
+  filledRequired: 010001000101010101
+  adjacencyRequired: 000000000101000100
+  vacancyRequired: 000100010000000000
+  tileType: 71
   maskTollerance: 0.5
   filledMaskTexture: {fileID: 0}
   adjacencyTexture: {fileID: 0}

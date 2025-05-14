@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PillarSet
   m_EditorClassIdentifier: 
   tileDataList:
-  - {fileID: 11400000, guid: 91b76118a145fc0308497b5df0316738, type: 2}
-  tileFilledMap: {fileID: 18700000, guid: fdb36e2d369304b8fb369c0423ebf9fa, type: 3}
-  tileAdjacencyMap: {fileID: 18700000, guid: 530324651de154e71b32b61a8f986fb2, type: 3}
-  tileVacancyMap: {fileID: 18700000, guid: 61c9dd982bffa4b5e90f3e2a0f3c9946, type: 3}
+  - {fileID: 11400000, guid: 26cb77c2fe89e40eb876e57c9edc11b5, type: 2}
+  defaultTile: {fileID: 11400000, guid: fdefc28a74b744a61954beb2b5e0f988, type: 2}
+  tileFilledMap: {fileID: 18700000, guid: f7cde87c6311640fba8e37362c7248ea, type: 3}
+  tileAdjacencyMap: {fileID: 18700000, guid: e4257c22b030047fe8f1086c233e9106, type: 3}
+  tileVacancyMap: {fileID: 18700000, guid: 4b0f5d21af7c64ef390c7ce8a5d437d5, type: 3}

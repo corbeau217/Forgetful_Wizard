@@ -7,6 +7,8 @@ public class TileSetData : ScriptableObject
 {   
     public TileData[] tileDataList;
 
+    public TileData defaultTile;
+
     // tile region filling
     public Texture2DArray tileFilledMap;
     // nearby required filled tiles
@@ -14,9 +16,11 @@ public class TileSetData : ScriptableObject
     // nearby required vacant tiles
     public Texture2DArray tileVacancyMap;
 
+    public bool randomiseTileOnMultipleValidOptions;
+
     public TileData GetTileData(bool[] adjacentFilled){
-        int desirableIndex = -1;
-        int desirableCount = 0;
+        List<int> desirableIndices = new List<int>();
+        int resultTileIndex = -1;
         
         // find a matching hash
         for(int i = 0; i < this.tileDataList.Length; i++){
@@ -51,20 +55,27 @@ public class TileSetData : ScriptableObject
             }
             // check for not yucky to use
             if(!yuckyOption){
-                desirableIndex = i;
-                desirableCount++;
+                desirableIndices.Add(i);
             }
         }
-        // purely for debugging, but shouldnt show up anymore
-        if(desirableCount == 0){
-            // give back null to cause an error
-            return null;
+        TileData result;
+        // stash the first tile if we have an option
+        if(desirableIndices.Count >= 1){
+            resultTileIndex = desirableIndices[((this.randomiseTileOnMultipleValidOptions)?Random.Range(0,desirableIndices.Count):0)];
+            result = this.tileDataList[resultTileIndex];
         }
-        if(desirableCount > 1){
-            Debug.Log("multiple desirable for placement: "+desirableCount);
+        // say if it didnt happen
+        else {
+            Debug.Log("didnt find tile for: ["+
+                ((adjacentFilled[0])?'#':'_')+((adjacentFilled[1])?'#':'_')+((adjacentFilled[2])?'#':'_')+"]["+
+                ((adjacentFilled[3])?'#':'_')+((adjacentFilled[4])?'#':'_')+((adjacentFilled[5])?'#':'_')+"]["+
+                ((adjacentFilled[6])?'#':'_')+((adjacentFilled[7])?'#':'_')+((adjacentFilled[8])?'#':'_')+"]");
+            result = this.defaultTile;
         }
+        // TODO : announcing multiples in payload?
 
-        return this.tileDataList[desirableIndex];
+        // give
+        return result;
     }
 
     private void InitialiseTiles(){

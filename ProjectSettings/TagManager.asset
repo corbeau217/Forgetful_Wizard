@@ -8,6 +8,8 @@ TagManager:
   - SpellProjectiles
   - Tiles
   - GameHUD
+  - GameHUD_Background
+  - GameHUD_Placeholder
   layers:
   - Default
   - TransparentFX
@@ -18,11 +20,11 @@ TagManager:
   - 
   - Walls
   - Tiles
+  - 
+  - 
+  - GameHUD_Background
   - GameHUD
-  - 
-  - 
-  - 
-  - 
+  - GameHUD_Placeholder
   - 
   - 
   - 
@@ -44,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BookShape
+    uniqueID: 3315485973
     locked: 0
   - name: SpellBookMenu
     uniqueID: 1181666291

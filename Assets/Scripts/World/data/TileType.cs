@@ -8,6 +8,8 @@ using UnityEngine;
 // ##########################################################################################
 
 public enum TileType {
+    // ====================================================================
+    // ====================================================================
     // ----------------------------------
     // -------------- row 0
     Tile_C1_FR,
@@ -97,6 +99,99 @@ public enum TileType {
     Tile_W4,
     Tile_Block,
     // ----------------------------------
+    // ====================================================================
+    // ====================================================================
+    // ----------------------------------
+    // -------------- detail row 0
+    Detail_W3_NF,
+    Detail_W3_NR,
+    Detail_W3_NB,
+    Detail_W3_NL,
+    // ---
+    Detail_W2_BL,
+    Detail_W2_FL,
+    Detail_W2_FR,
+    Detail_W2_BR,
+    // ----------------------------------
+    // -------------- detail row 1
+    Detail_W1_B,
+    Detail_W1_L,
+    Detail_W1_F,
+    Detail_W1_R,
+    // ---
+    Detail_W2_PF,
+    Detail_W2_PL,
+    Detail_W0,
+    Detail_W4,
+    // ----------------------------------
+    // -------------- detail row 2
+    Detail_Pillar,
+    Placeholder_Detail_R2C1, // filler space
+    Placeholder_Detail_R2C2, // filler space
+    Placeholder_Detail_R2C3, // filler space
+    // --- 
+    Placeholder_Detail_R2C4, // filler space
+    Placeholder_Detail_R2C5, // filler space
+    Placeholder_Detail_R2C6, // filler space
+    Placeholder_Detail_R2C7, // filler space
+    // ----------------------------------
+    // -------------- detail row 3
+    Placeholder_Detail_R3C0, // filler space
+    Placeholder_Detail_R3C1, // filler space
+    Placeholder_Detail_R3C2, // filler space
+    Placeholder_Detail_R3C3, // filler space
+    // --- 
+    Placeholder_Detail_R3C4, // filler space
+    Placeholder_Detail_R3C5, // filler space
+    Placeholder_Detail_R3C6, // filler space
+    Placeholder_Detail_R3C7, // filler space
+    // ----------------------------------
+    // -------------- detail row 4
+    Placeholder_Detail_R4C0, // filler space
+    Placeholder_Detail_R4C1, // filler space
+    Placeholder_Detail_R4C2, // filler space
+    Placeholder_Detail_R4C3, // filler space
+    // --- 
+    Placeholder_Detail_R4C4, // filler space
+    Placeholder_Detail_R4C5, // filler space
+    Placeholder_Detail_R4C6, // filler space
+    Placeholder_Detail_R4C7, // filler space
+    // ----------------------------------
+    // -------------- detail row 5
+    Placeholder_Detail_R5C0, // filler space
+    Placeholder_Detail_R5C1, // filler space
+    Placeholder_Detail_R5C2, // filler space
+    Placeholder_Detail_R5C3, // filler space
+    // --- 
+    Placeholder_Detail_R5C4, // filler space
+    Placeholder_Detail_R5C5, // filler space
+    Placeholder_Detail_R5C6, // filler space
+    Placeholder_Detail_R5C7, // filler space
+    // ----------------------------------
+    // -------------- detail row 6
+    Placeholder_Detail_R6C0, // filler space
+    Placeholder_Detail_R6C1, // filler space
+    Placeholder_Detail_R6C2, // filler space
+    Placeholder_Detail_R6C3, // filler space
+    // --- 
+    Placeholder_Detail_R6C4, // filler space
+    Placeholder_Detail_R6C5, // filler space
+    Placeholder_Detail_R6C6, // filler space
+    Placeholder_Detail_R6C7, // filler space
+    // ----------------------------------
+    // -------------- detail row 7
+    Placeholder_Detail_R7C0, // filler space
+    Placeholder_Detail_R7C1, // filler space
+    Placeholder_Detail_R7C2, // filler space
+    Placeholder_Detail_R7C3, // filler space
+    // --- 
+    Placeholder_Detail_R7C4, // filler space
+    Placeholder_Detail_R7C5, // filler space
+    Placeholder_Detail_R7C6, // filler space
+    Placeholder_Detail_R7C7, // filler space
+    // ----------------------------------
+    // ====================================================================
+    // ====================================================================
 }
 
 // ##########################################################################################
@@ -112,24 +207,11 @@ static class TileTypeUtils {
 
     // supplying the index of the type
     public static int GetIndex(this TileType input){
-        return (int)input;
-        // int columnCount = 8;
-        // int rowCount = 8;
-
-        // int topleftIndex = (int)input;
-
-        // // extract column index, stays same
-        // int topleftColIndex = topleftIndex % columnCount;
-        
-        // // extract topleft row index
-        // int topleftRowIndexTopToBottom = topleftIndex / columnCount;
-
-        // // convert to pixel row index
-        // int lasttopleftRow = (rowCount-1);
-        // int bottomleftRowIndex = lasttopleftRow - topleftRowIndexTopToBottom;
-
-        // // combine for the bottomleft index
-        // return (bottomleftRowIndex*columnCount)+topleftColIndex;
+        // mod 64 to handle if it's part of the standard set or secondary detail set
+        return (int)input%64;
+    }
+    public static bool IsDetailTile(this TileType input){
+        return (int)input >= 64;
     }
 
     // get the pixel information by type

@@ -13,7 +13,25 @@ MonoBehaviour:
   m_Name: ShelfSet
   m_EditorClassIdentifier: 
   tileDataList:
+  - {fileID: 11400000, guid: 9fc4eb79f2995437182cc6437fa632a4, type: 2}
+  - {fileID: 11400000, guid: 08ecd6f66c3dd47d599f23dbf0cb87ff, type: 2}
+  - {fileID: 11400000, guid: 600f7e1c3ce78421b959bebcf9328a97, type: 2}
+  - {fileID: 11400000, guid: 4ebd81cedd35747c7a7e4b9defacae9e, type: 2}
+  - {fileID: 11400000, guid: 5f15b88db53e2439199bc657edb0c1ca, type: 2}
+  - {fileID: 11400000, guid: 57c9639ae4ceb40eb92b596cd5772737, type: 2}
+  - {fileID: 11400000, guid: 7be5d8e0cddfc43c5b49d4f58def1ce9, type: 2}
+  - {fileID: 11400000, guid: cc9d79c213a764e099d7e8d299b8d2fc, type: 2}
+  - {fileID: 11400000, guid: 598324283fbd94d4d91e58db09ecf420, type: 2}
+  - {fileID: 11400000, guid: e04ecf9c2be1d4930aa7addeed400baa, type: 2}
+  - {fileID: 11400000, guid: f885671e15aa64d5cb39845dfb51b5a5, type: 2}
+  - {fileID: 11400000, guid: c5abb56036c9a4c94864b3fb4e0a2ff0, type: 2}
+  - {fileID: 11400000, guid: 54d28f41da1ed4bc6858cc061d30406c, type: 2}
+  - {fileID: 11400000, guid: 48d54c149b3b148b4813c96a3cb2332b, type: 2}
+  - {fileID: 11400000, guid: f06da240a751a43248e80a122fae8515, type: 2}
+  - {fileID: 11400000, guid: 0e25b36aa95e143bb9b3c971c949026a, type: 2}
   - {fileID: 11400000, guid: 038f622450c1b4acf828793624386283, type: 2}
-  tileFilledMap: {fileID: 18700000, guid: fdb36e2d369304b8fb369c0423ebf9fa, type: 3}
-  tileAdjacencyMap: {fileID: 18700000, guid: 530324651de154e71b32b61a8f986fb2, type: 3}
-  tileVacancyMap: {fileID: 18700000, guid: 61c9dd982bffa4b5e90f3e2a0f3c9946, type: 3}
+  defaultTile: {fileID: 11400000, guid: fdefc28a74b744a61954beb2b5e0f988, type: 2}
+  tileFilledMap: {fileID: 18700000, guid: f7cde87c6311640fba8e37362c7248ea, type: 3}
+  tileAdjacencyMap: {fileID: 18700000, guid: e4257c22b030047fe8f1086c233e9106, type: 3}
+  tileVacancyMap: {fileID: 18700000, guid: 4b0f5d21af7c64ef390c7ce8a5d437d5, type: 3}
+  randomiseTileOnMultipleValidOptions: 0

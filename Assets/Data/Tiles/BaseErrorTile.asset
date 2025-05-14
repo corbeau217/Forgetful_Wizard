@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12da725a558f400e8f3af76128a2832, type: 3}
+  m_Name: BaseErrorTile
+  m_EditorClassIdentifier: 
+  TilePrefab: {fileID: 5018209765519358535, guid: d642f255628544a6faa4e21ab5e0d8c4, type: 3}
+  filledRequired: 000000000100000000
+  adjacencyRequired: 000000000000000000
+  vacancyRequired: 000000000000000000
+  tileType: 32
+  maskTollerance: 0.5
+  filledMaskTexture: {fileID: 2800000, guid: a913175ce29bb4aac93c668743e5d4cd, type: 3}
+  adjacencyTexture: {fileID: 2800000, guid: a913175ce29bb4aac93c668743e5d4cd, type: 3}
+  vacancyTexture: {fileID: 2800000, guid: a913175ce29bb4aac93c668743e5d4cd, type: 3}

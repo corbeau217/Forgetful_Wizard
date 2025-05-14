@@ -93,19 +93,20 @@ The five boxing wizards jump quickly
         - [x] experiment with hexagonal tiles?
             * *it's cursed, need to make our own later*
 - [ ] minimalist ui showing equipped spells
-### [ ] Milestone 011 - simple detail tiles
+### [x] Milestone 011 - simple detail tiles
 - [x] adding missing tile objects to project
     - [x] making tile object shapes
 - [ ] tiles show option count text above them when more than 1 legal option??
-- [ ] tiles classified as movement or detail
+- [x] tiles classified as movement or detail
     - [x] movement tiles are the previous tile types
     - [x] detail tiles are part of movement tiles?? idk
     - [ ] nicer tile objects made for detail tiles
         - [x] make the shapes
         - [x] swap out the pillar shape to the new style
-        - [ ] add in the type handling
-        - [ ] fill the tileset with the new objects
-    - [ ] code supports new objects for detail layers
+        - [x] add in the type handling
+        - [x] fill the tileset with the new objects
+    - [x] code supports new objects for detail layers
+    - [ ] optional extra detail layers
 ### [ ] Milestone 012 - room passage types
 - [ ] adding in room passage types
     - [ ] generating level based on adjacency of rooms
