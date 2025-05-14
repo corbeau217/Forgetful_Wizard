@@ -8,7 +8,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Room", menuName = "ScriptableObjects/RoomData", order = 1)]
 public class RoomData : ScriptableObject
 {
-
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
