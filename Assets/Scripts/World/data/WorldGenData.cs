@@ -13,8 +13,8 @@ public class WorldGenData : ScriptableObject
     // ================================================================
     // -------------------------------------------- public data fields
 
-    public PassageMaskData[] passageMasks;
-
+    // public PassageMaskData[] passageMasks;
+    public PassageSetData passageTileset;
 
     public LevelData baseLevelData;
     public GameObject baseRoomPrefab;
@@ -31,6 +31,10 @@ public class WorldGenData : ScriptableObject
     // ================================================================
     // ------------------------------------------------- event methods
 
+    public void Initialise(){
+        this.passageTileset.Initialise();
+    }
+
     // ================================================================
     // ================================================================
     // ------------------------------------------------ public methods
@@ -39,14 +43,18 @@ public class WorldGenData : ScriptableObject
         return this.baseLevelData;
     }
 
-    public RoomLayerMaskData GetRoomPassageFromType(TileType typeIn){
-        for (int index = 0; index < this.passageMasks.Length; index++) {
-            if(this.passageMasks[index].passageType == typeIn){
-                return this.passageMasks[index].roomMask;
+    public PassageMaskData GetRoomPassageFromType(TileType typeIn){
+        for (int index = 0; index < this.passageTileset.tileDataList.Length; index++) {
+            if(this.passageTileset.tileDataList[index].passageType == typeIn){
+                return this.passageTileset.tileDataList[index];
             }
         }
-        Debug.Log("failed to find in "+this.passageMasks.Length);
+        Debug.Log("failed to find in "+this.passageTileset.tileDataList.Length);
         return null;
+    }
+
+    public PassageMaskData GetRoomPassageFromAdjacent(bool[] adjacency){
+        return this.passageTileset.GetPassageMaskData(adjacency);
     }
 
     // ================================================================
