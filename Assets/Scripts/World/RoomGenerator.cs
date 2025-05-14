@@ -9,18 +9,19 @@ public enum CellGenerationType {
     Filled,
     Passage,
     Movement,
-    Detail
+    Shelf,
+    Pillar
 }
 public static class CellGenerationTypeUtils {
-    public static CellGenerationType GetTypeFromMask( bool passageUsed, bool movementUsed, bool detailUsed ){
+    public static CellGenerationType GetTypeFromMask( bool passageUsed, bool movementUsed, bool shelfUsed, bool pillarUsed ){
         // passage tiles dont care about any other type of cell
         if (passageUsed) { return CellGenerationType.Movement; }
         
-        // still movement if detail isnt using it
-        else if (movementUsed && !detailUsed) { return CellGenerationType.Movement; }
+        // still movement if shelf/pillar isnt using it
+        else if (movementUsed && !(shelfUsed||pillarUsed)) { return CellGenerationType.Movement; }
         
-        // detail wants to use it and would be free?
-        else if (movementUsed && detailUsed) { return CellGenerationType.Detail; }
+        // shelf/pillar wants to use it and would be free? pillar takes priority
+        else if (movementUsed && (shelfUsed||pillarUsed)) { return (pillarUsed)? CellGenerationType.Pillar : CellGenerationType.Shelf; }
 
         // otherwise fill it
         else { return CellGenerationType.Filled; }
@@ -29,7 +30,8 @@ public static class CellGenerationTypeUtils {
     public static bool AllowsDetailTile(this CellGenerationType typeIn){
         switch (typeIn) {
             default:
-            case CellGenerationType.Detail:
+            case CellGenerationType.Shelf:
+            case CellGenerationType.Pillar:
             case CellGenerationType.Movement:
                 return true;
             case CellGenerationType.Filled:
@@ -45,7 +47,8 @@ public static class CellGenerationTypeUtils {
             case CellGenerationType.Passage:
                 // only filled cells
                 return otherIn == CellGenerationType.Filled;
-            case CellGenerationType.Detail:
+            case CellGenerationType.Shelf:
+            case CellGenerationType.Pillar:
             case CellGenerationType.Filled:
                 // anything that fills a cells
                 return otherIn.IsOccupied();
@@ -57,14 +60,16 @@ public static class CellGenerationTypeUtils {
             case CellGenerationType.Movement:
             case CellGenerationType.Passage:
                 return false;
-            case CellGenerationType.Detail:
+            case CellGenerationType.Shelf:
+            case CellGenerationType.Pillar:
             case CellGenerationType.Filled:
                 return true;
         }
     }
-    public static TileSetData ChooseTileset(this CellGenerationType typeIn, TileSetData baseTileset, TileSetData detailTileset){
+    public static TileSetData TryToUseDetailTileset(this CellGenerationType typeIn, TileSetData baseTileset, TileSetData shelfTileset, TileSetData pillarTileset){
         if(typeIn.AllowsDetailTile()){
-            return detailTileset;
+            if(typeIn==CellGenerationType.Pillar) return pillarTileset;
+            else return shelfTileset;
         }
         else {
             return baseTileset;
@@ -117,7 +122,8 @@ public class RoomGenerator {
                 this.cellGenerationTypes[rowIndex, colIndex] = CellGenerationTypeUtils.GetTypeFromMask(
                     this.roomSettings.IsPassageUsedCell(rowIndex,colIndex),
                     this.roomSettings.IsMovementUsedCell(rowIndex,colIndex),
-                    this.roomSettings.IsDetailUsedCell(rowIndex,colIndex)
+                    this.roomSettings.IsShelfUsedCell(rowIndex,colIndex),
+                    this.roomSettings.IsPillarUsedCell(rowIndex,colIndex)
                 );
 
             }
@@ -133,7 +139,7 @@ public class RoomGenerator {
                 // find our tileset for this tile
                 TileSetData tileSetOfTile;
                 if(this.cellGenerationTypes[rowIndex,colIndex].IsOccupied()){
-                    tileSetOfTile = this.cellGenerationTypes[rowIndex,colIndex].ChooseTileset(this.roomSettings.roomBaseTileset, this.roomSettings.detailTileset);
+                    tileSetOfTile = this.cellGenerationTypes[rowIndex,colIndex].TryToUseDetailTileset(this.roomSettings.roomBaseTileset, this.roomSettings.shelfTileset, this.roomSettings.pillarTileset);
                 }
                 else {
                     tileSetOfTile = this.roomSettings.roomBaseTileset;

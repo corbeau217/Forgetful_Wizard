@@ -100,13 +100,13 @@ The five boxing wizards jump quickly
 - [x] tiles classified as movement or detail
     - [x] movement tiles are the previous tile types
     - [x] detail tiles are part of movement tiles?? idk
-    - [ ] nicer tile objects made for detail tiles
+    - [x] nicer tile objects made for detail tiles
         - [x] make the shapes
         - [x] swap out the pillar shape to the new style
         - [x] add in the type handling
         - [x] fill the tileset with the new objects
     - [x] code supports new objects for detail layers
-    - [ ] optional extra detail layers
+    - [x] optional extra detail layers
 ### [ ] Milestone 012 - room passage types
 - [ ] adding in room passage types
     - [ ] generating level based on adjacency of rooms

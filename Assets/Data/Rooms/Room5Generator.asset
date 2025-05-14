@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomBaseTileset: {fileID: 11400000, guid: 9287886b8ae4eeceda3b7e24af608b90, type: 2}
   roomShapeLayer: {fileID: 11400000, guid: ce71d4c4722d7480b8ffacb3914ee464, type: 2}
-  detailTileset: {fileID: 11400000, guid: f59bb97f004c4124f8d2d90c07b2b5e7, type: 2}
-  detailLayer: {fileID: 11400000, guid: aa91970d03a53431fb65267f8178acf3, type: 2}
+  shelfTileset: {fileID: 11400000, guid: f59bb97f004c4124f8d2d90c07b2b5e7, type: 2}
+  pillarTileset: {fileID: 11400000, guid: 26c0109b3f850685abd8cb3cd02b13f4, type: 2}
+  shelfLayer: {fileID: 11400000, guid: aa91970d03a53431fb65267f8178acf3, type: 2}
+  pillarLayer: {fileID: 11400000, guid: 9e73c16f872fa451c8cc01425e0adbdc, type: 2}

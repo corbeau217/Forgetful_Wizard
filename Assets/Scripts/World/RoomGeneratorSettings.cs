@@ -13,8 +13,10 @@ public class RoomGeneratorSettings : ScriptableObject
     private RoomLayerMaskData passageLayer;
     public RoomLayerMaskData roomShapeLayer;
 
-    public TileSetData detailTileset;
-    public RoomLayerMaskData detailLayer;
+    public TileSetData shelfTileset;
+    public TileSetData pillarTileset;
+    public RoomLayerMaskData shelfLayer;
+    public RoomLayerMaskData pillarLayer;
 
 
     // ================================================================
@@ -32,8 +34,10 @@ public class RoomGeneratorSettings : ScriptableObject
         this.passageLayer.Initialise();
         this.roomShapeLayer.Initialise();
 
-        this.detailTileset.Initialise();
-        this.detailLayer.Initialise();
+        this.shelfTileset.Initialise();
+        this.pillarTileset.Initialise();
+        this.shelfLayer.Initialise();
+        this.pillarLayer.Initialise();
     }
 
     // ================================================================
@@ -48,22 +52,17 @@ public class RoomGeneratorSettings : ScriptableObject
         return this.roomShapeLayer.GetDimensions();
     }
 
-    public bool IsMovementLayerCell( int rowIndex, int colIndex ){
-        return this.passageLayer.GetLocationIsFilled( rowIndex, colIndex ) || this.roomShapeLayer.GetLocationIsFilled( rowIndex, colIndex );
-    }
-    public bool IsDetailLayerCell( int rowIndex, int colIndex ){
-        return this.detailLayer.GetLocationIsFilled( rowIndex, colIndex );
-    }
-
-
     public bool IsPassageUsedCell( int rowIndex, int colIndex ){
         return this.passageLayer.GetLocationIsFilled( rowIndex, colIndex );
     }
     public bool IsMovementUsedCell( int rowIndex, int colIndex ){
         return this.roomShapeLayer.GetLocationIsFilled( rowIndex, colIndex );
     }
-    public bool IsDetailUsedCell( int rowIndex, int colIndex ){
-        return this.detailLayer.GetLocationIsFilled( rowIndex, colIndex );
+    public bool IsShelfUsedCell( int rowIndex, int colIndex ){
+        return this.shelfLayer.GetLocationIsFilled( rowIndex, colIndex );
+    }
+    public bool IsPillarUsedCell( int rowIndex, int colIndex ){
+        return this.pillarLayer.GetLocationIsFilled( rowIndex, colIndex );
     }
 
     // ================================================================

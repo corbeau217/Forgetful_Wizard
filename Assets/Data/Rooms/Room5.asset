@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Room5
   m_EditorClassIdentifier: 
   generatorSettings: {fileID: 11400000, guid: 882e989c801fb45a3ba27bb7b7c4a7f6, type: 2}
-  errorTile: {fileID: 5018209765519358535, guid: ab24ecbd194e8a0d786d9c2dce61ee35, type: 3}
+  errorTile: {fileID: 5018209765519358535, guid: d154f65f835d04f349d6c0603f0d4229, type: 3}
