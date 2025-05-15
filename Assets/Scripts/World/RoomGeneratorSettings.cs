@@ -18,6 +18,12 @@ public class RoomGeneratorSettings : ScriptableObject
     public RoomLayerMaskData shelfLayer;
     public RoomLayerMaskData pillarLayer;
 
+    public CellOptionSet baseCellSet;
+    public CellOptionSet shelfCellSet;
+    public CellOptionSet pillarCellSet;
+    public CellSetData baseCellSetData;
+    public CellSetData shelfCellSetData;
+    public CellSetData pillarCellSetData;
 
     // ================================================================
     // ================================================================
@@ -38,6 +44,10 @@ public class RoomGeneratorSettings : ScriptableObject
         this.pillarTileset.Initialise();
         this.shelfLayer.Initialise();
         this.pillarLayer.Initialise();
+
+        this.baseCellSetData = new CellSetData( baseCellSet );
+        this.shelfCellSetData = new CellSetData( shelfCellSet );
+        this.pillarCellSetData = new CellSetData( pillarCellSet );        
     }
 
     // ================================================================

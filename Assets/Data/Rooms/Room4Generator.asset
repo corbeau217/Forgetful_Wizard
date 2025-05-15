@@ -18,3 +18,6 @@ MonoBehaviour:
   pillarTileset: {fileID: 11400000, guid: 26c0109b3f850685abd8cb3cd02b13f4, type: 2}
   shelfLayer: {fileID: 11400000, guid: 9e73c16f872fa451c8cc01425e0adbdc, type: 2}
   pillarLayer: {fileID: 11400000, guid: 31abac2e2dd184771b39eda6aa1bb0fc, type: 2}
+  baseCellSet: {fileID: 11400000, guid: 2e54f672fdcfe4b76ae6d9b8e2d24bb0, type: 2}
+  shelfCellSet: {fileID: 11400000, guid: f38673a7d89eb4b1fa608cbb5e6b1dc5, type: 2}
+  pillarCellSet: {fileID: 11400000, guid: 0c4eeebb5b5824079aa134a614942248, type: 2}

@@ -91,7 +91,7 @@ public class RoomGenerator {
 
     bool[,] roomOccupiedCells;
 
-    TileData[,] roomTileLayout;
+    CellData[,] roomCellLayout;
 
 
     public RoomGenerator(RoomGeneratorSettings settings, RoomLayerMaskData roomPassageMask){
@@ -107,7 +107,7 @@ public class RoomGenerator {
 
         this.cellGenerationTypes = new CellGenerationType[this.roomDimensions.y, this.roomDimensions.x];
 
-        this.roomTileLayout = new TileData[this.roomDimensions.y, this.roomDimensions.x];
+        this.roomCellLayout = new CellData[this.roomDimensions.y, this.roomDimensions.x];
 
         this.GatherCellTypes();
 
@@ -136,16 +136,26 @@ public class RoomGenerator {
                 bool[] adjacency = this.GetAdjacencyList( rowIndex, colIndex );
 
                 // find our tileset for this tile
-                TileSetData tileSetOfTile;
+                CellSetData cellSetOfTile;
                 if(this.cellGenerationTypes[rowIndex,colIndex].IsOccupied()){
-                    tileSetOfTile = this.cellGenerationTypes[rowIndex,colIndex].TryToUseDetailTileset(this.roomSettings.roomBaseTileset, this.roomSettings.shelfTileset, this.roomSettings.pillarTileset);
+                    if(this.cellGenerationTypes[rowIndex,colIndex].AllowsDetailTile()){
+                        if(this.cellGenerationTypes[rowIndex,colIndex]==CellGenerationType.Pillar){
+                            cellSetOfTile = this.roomSettings.pillarCellSetData;
+                        }
+                        else {
+                            cellSetOfTile = this.roomSettings.shelfCellSetData;
+                        }
+                    }
+                    else {
+                        cellSetOfTile = this.roomSettings.baseCellSetData;
+                    }
                 }
                 else {
-                    tileSetOfTile = this.roomSettings.roomBaseTileset;
+                    cellSetOfTile = this.roomSettings.baseCellSetData;
                 }
 
                 // use it
-                this.roomTileLayout[ rowIndex, colIndex ] = tileSetOfTile.GetTileData(adjacency);
+                this.roomCellLayout[ rowIndex, colIndex ] = cellSetOfTile.GetCellData(adjacency);
             }
         }
     }
@@ -181,8 +191,8 @@ public class RoomGenerator {
     }
 
 
-    public TileData GetTileData( int rowIndex, int colIndex ){
-        return this.roomTileLayout[ rowIndex, colIndex ];
+    public CellData GetCellData( int rowIndex, int colIndex ){
+        return this.roomCellLayout[ rowIndex, colIndex ];
     }
     public Vector2Int GetDimensions(){
         return this.roomDimensions;

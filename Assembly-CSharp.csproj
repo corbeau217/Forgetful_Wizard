@@ -44,11 +44,14 @@
      <Compile Include="Assets/Scripts/Spell/BoltSpell.cs" />
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
      <Compile Include="Assets/Scripts/World/RoomGenerator.cs" />
+     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/CellPlacementStyle.cs" />
      <Compile Include="Assets/Scripts/World/data/TileSetData.cs" />
      <Compile Include="Assets/Scripts/World/RoomGeneratorSettings.cs" />
      <Compile Include="Assets/Scripts/World/rendering/WorldRenderer.cs" />
      <Compile Include="Assets/Scripts/World/data/RoomLayerMaskData.cs" />
      <Compile Include="Assets/Scripts/World/data/TileType.cs" />
+     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/PassageOption.cs" />
+     <Compile Include="Assets/Scripts/GridMap/RuntimeObjects/CellSetData.cs" />
      <Compile Include="Assets/Scripts/Spell/MovementSpell.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseAuraSpell.cs" />
      <Compile Include="Assets/Scripts/World/rendering/TileOverlayObject.cs" />
@@ -56,6 +59,7 @@
      <Compile Include="Assets/Scripts/World/rendering/RoomRenderer.cs" />
      <Compile Include="Assets/Scripts/Spell/TriggerComponents/ProjectileHitTrigger.cs" />
      <Compile Include="Assets/Scripts/Spell/BlinkSpell.cs" />
+     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/TileOption.cs" />
      <Compile Include="Assets/Scripts/World/data/PassageMaskData.cs" />
      <Compile Include="Assets/SpellBookOptionHandle.cs" />
      <Compile Include="Assets/SpellBookOption.cs" />
@@ -64,20 +68,16 @@
      <Compile Include="Assets/Scripts/SpellBook.cs" />
      <Compile Include="Assets/Scripts/World/rendering/LevelRenderer.cs" />
      <Compile Include="Assets/Scripts/World/data/WorldGenData.cs" />
+     <Compile Include="Assets/Scripts/GridMap/RuntimeObjects/CellType.cs" />
+     <Compile Include="Assets/Scripts/GridMap/RuntimeObjects/CellPlacementRules.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseSpell.cs" />
      <Compile Include="Assets/Scripts/World/data/PassageSetData.cs" />
+     <Compile Include="Assets/Scripts/GridMap/RuntimeObjects/CellData.cs" />
+     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/CellOptionSet.cs" />
+     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/abstracts/CellOptionBase.cs" />
      <Compile Include="Assets/BookSpriteMaskManager.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BasePersonalAuraSpell.cs" />
      <Compile Include="Assets/SpellBookToggle.cs" />
-     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/CellOptionSet.cs" />
-     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/abstracts/CellOptionBase.cs" />
-     <Compile Include="Assets/Scripts/GridMap/RuntimeObjects/CellPlacementRules.cs" />
-     <Compile Include="Assets/Scripts/GridMap/RuntimeObjects/CellType.cs" />
-     <Compile Include="Assets/Scripts/GridMap/RuntimeObjects/CellData.cs" />
-     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/CellPlacementStyle.cs" />
-     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/TileOption.cs" />
-     <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/PassageOption.cs" />
-     <Compile Include="Assets/Scripts/GridMap/RuntimeObjects/CellSetData.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

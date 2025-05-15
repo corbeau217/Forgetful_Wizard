@@ -50,18 +50,18 @@ public class RoomData : ScriptableObject
         return this.roomDimensions.x;
     }
 
-    public TileData GetTileData( int rowIndex, int colIndex ){
-        return this.roomGenerator.GetTileData(rowIndex,colIndex);
+    public CellData GetCellData( int rowIndex, int colIndex ){
+        return this.roomGenerator.GetCellData(rowIndex,colIndex);
     }
     public GameObject GetTileObject( int rowIndex, int colIndex ){
-        TileData data = this.GetTileData(rowIndex, colIndex);
+        CellData data = this.GetCellData(rowIndex, colIndex);
         if(data==null){ return this.errorTile; }
-        return data.TilePrefab;
+        return ((data.cellOption) as TileOption).tilePrefab;
     }
 
     // return type???
     public Texture2D GetTileOverlayTexture( int rowIndex, int colIndex ){
-        return this.GetTileData(rowIndex, colIndex).filledMaskTexture;
+        return this.GetCellData(rowIndex, colIndex).cellPlacementRules.filledMaskTexture;
     }
 
     // ================================================================

@@ -66,10 +66,10 @@ public class PassageSetData : ScriptableObject
         }
         // say if it didnt happen
         else {
-            Debug.Log("didnt find tile for: ["+
-                ((adjacentFilled[0])?'#':'_')+((adjacentFilled[1])?'#':'_')+((adjacentFilled[2])?'#':'_')+"]["+
-                ((adjacentFilled[3])?'#':'_')+((adjacentFilled[4])?'#':'_')+((adjacentFilled[5])?'#':'_')+"]["+
-                ((adjacentFilled[6])?'#':'_')+((adjacentFilled[7])?'#':'_')+((adjacentFilled[8])?'#':'_')+"]");
+            // Debug.Log("didnt find tile for: ["+
+            //     ((adjacentFilled[0])?'#':'_')+((adjacentFilled[1])?'#':'_')+((adjacentFilled[2])?'#':'_')+"]["+
+            //     ((adjacentFilled[3])?'#':'_')+((adjacentFilled[4])?'#':'_')+((adjacentFilled[5])?'#':'_')+"]["+
+            //     ((adjacentFilled[6])?'#':'_')+((adjacentFilled[7])?'#':'_')+((adjacentFilled[8])?'#':'_')+"]");
             result = this.defaultTile;
         }
         // TODO : announcing multiples in payload?

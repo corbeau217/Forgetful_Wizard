@@ -165,7 +165,7 @@ public class RoomRenderer : MonoBehaviour
 
     private void GenerateTileOverlay( int rowIndex, int colIndex, Quaternion tileRotation ){
         // prepare tile information
-        TileData tileData = this.roomData.GetTileData(rowIndex,colIndex);
+        CellData cellData = this.roomData.GetCellData(rowIndex,colIndex);
 
         // generate tile for location
         GameObject tileOverlayInstance = (GameObject)Instantiate(
@@ -177,9 +177,9 @@ public class RoomRenderer : MonoBehaviour
         TileOverlayObject overlayObjectHandler = tileOverlayInstance.GetComponent<TileOverlayObject>();
 
         overlayObjectHandler.Initialise(
-            tileData.filledMaskTexture,
-            tileData.adjacencyTexture,
-            tileData.vacancyTexture,
+            cellData.cellPlacementRules.filledMaskTexture,
+            cellData.cellPlacementRules.adjacencyTexture,
+            cellData.cellPlacementRules.vacancyTexture,
             this.overlayOpacity
         );
 

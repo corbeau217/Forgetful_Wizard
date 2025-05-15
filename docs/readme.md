@@ -255,3 +255,4 @@ The five boxing wizards jump quickly
 
 ### random ideas
 * probably could hashmap our tiles by filled/adjacency/vacancy to help find similar tiles
+* composition for tile making
