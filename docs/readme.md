@@ -107,21 +107,26 @@ The five boxing wizards jump quickly
         - [x] fill the tileset with the new objects
     - [x] code supports new objects for detail layers
     - [x] optional extra detail layers
-### [ ] Milestone 012 - room passage types
-- [ ] adding in room passage type sets
+### [x] Milestone 012 - room passage types
+- [x] adding in room passage type sets
     - [x] rough sketch the room generation structure for tile selection
     - [x] plan out the same structure as with tiles in rooms
     - [x] swap over to a shared tile base class that works at tile and room generation
+### [ ] Milestone 013 - restructuring room generator
     - [ ] rooms using shared base classes with level generation
-### [ ] Milestone 013 - level generation
+        - [ ] gridmask base file
+        - [ ] gridrenderer base file
+        - [ ] gridgenerator base file
+        - [ ] gridgeneratorsettings base file
+### [ ] Milestone 014 - level generation
     - [ ] generating level based on adjacency of rooms
         - [ ] room adjacency / vacancy rules
-### [ ] Milestone 013 - initial interactables
+### [ ] Milestone 015 - initial interactables
 - [ ] interactable tile interface
     - [ ] tile that can be activated in some way
 - [ ] actor / living entity / being interface
     - [ ] dummy that just exists and does nothing
-### [ ] Milestone 014 - more interactables
+### [ ] Milestone 016 - more interactables
 - [ ] interactable tile
     - [ ] interaction states
     - [ ] strategy pattern for state changes
@@ -131,7 +136,7 @@ The five boxing wizards jump quickly
     - [ ] fires event
 - [ ] actor / living entity / being interface
     - [ ] movement strategy pattern
-### [ ] Milestone 015 - simple resources
+### [ ] Milestone 017 - simple resources
 - [ ] design player resource architecture
     - [ ] player health
     - [ ] player magic resource
