@@ -89,17 +89,17 @@ public class RoomGenerator {
 
     CellGenerationType[,] cellGenerationTypes;
 
-    bool[,] roomOccupiedCells;
-
     TileData[,] roomTileLayout;
 
 
     public RoomGenerator(RoomGeneratorSettings settings, RoomLayerMaskData roomPassageMask){
+        // Debug.Log("RoomGenerator constructed");
         this.roomSettings = settings;
         this.roomPassageMask = roomPassageMask;
     }
 
     public void Initialise(){
+        // Debug.Log("RoomGenerator.Initialise() called");
         this.roomSettings.Initialise(this.roomPassageMask);
 
         // get the room sizing

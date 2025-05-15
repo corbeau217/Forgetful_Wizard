@@ -30,6 +30,8 @@ public class WorldRenderer : MonoBehaviour
     // ------------------------------------------------- event methods
 
     public void Generate(){
+        Debug.Log("WorldRenderer.Generate() called");
+        this.worldGenData.Initialise();
         levelRenderer.Generate(this.worldGenData);
     }
 

@@ -28,6 +28,7 @@ public class RoomGeneratorSettings : ScriptableObject
     // ------------------------------------------------- event methods
     
     public void Initialise(RoomLayerMaskData passageLayerToUse){
+        // Debug.Log("RoomGeneratorSettings.Initialise() called");
         this.passageLayer = passageLayerToUse;
 
         this.roomBaseTileset.Initialise();

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77b0fccd65be4d5da4d58d1a8e812ca, type: 3}
-  m_Name: Room2
+  m_Script: {fileID: 11500000, guid: 0f4000ccf57944fd196f1b78533b0f78, type: 3}
+  m_Name: Level1GeneratorSettings
   m_EditorClassIdentifier: 
-  generatorSettings: {fileID: 11400000, guid: 5ff4655d3e4e549228049caf47eeb62f, type: 2}
-  errorTile: {fileID: 5018209765519358535, guid: d154f65f835d04f349d6c0603f0d4229, type: 3}
+  passageTileset: {fileID: 11400000, guid: d83e3faf42f7f4b5b8b6a938b8798c1e, type: 2}
+  levelShapeLayer: {fileID: 11400000, guid: e62a9673a3e774c9c96cee191b921f6e, type: 2}

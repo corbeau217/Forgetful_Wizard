@@ -32,6 +32,7 @@ public class WorldGenData : ScriptableObject
     // ------------------------------------------------- event methods
 
     public void Initialise(){
+        Debug.Log("WorldGenData.Initialise() called");
         this.passageTileset.Initialise();
     }
 

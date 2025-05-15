@@ -28,6 +28,7 @@ public class RoomData : ScriptableObject
     // ------------------------------------------------- event methods
 
     public void Initialise(RoomLayerMaskData roomPassageMask){
+        // Debug.Log("RoomData.Initialise(roomPassageMask) called");
         this.roomGenerator = new RoomGenerator(this.generatorSettings, roomPassageMask);
         this.roomGenerator.Initialise();
 

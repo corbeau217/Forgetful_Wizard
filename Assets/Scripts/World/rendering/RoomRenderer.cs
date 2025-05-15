@@ -57,6 +57,7 @@ public class RoomRenderer : MonoBehaviour
     // ------------------------------------------------- event methods
 
     public void GenerateFromData(WorldGenData worldGenData, RoomData roomDataToUse, PassageMaskData passageMaskData){
+        // Debug.Log("RoomRenderer.GenerateFromData(worldGenData,roomData,passageMaskData) called");
         this.worldGenData = worldGenData;
         this.roomData = roomDataToUse;
 
@@ -75,6 +76,7 @@ public class RoomRenderer : MonoBehaviour
     }
 
     public void Initialise(){
+        // Debug.Log("RoomRenderer.Initialise() called");
         // prepare references
 
         this.containerRectTransform = this.tileContainer.GetComponent<RectTransform>();

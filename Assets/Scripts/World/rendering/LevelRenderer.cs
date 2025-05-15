@@ -21,6 +21,8 @@ public class LevelRenderer : MonoBehaviour
     // X and Z are room size in grid, Y is grid scale for height
     public Vector3 roomScale = Vector3.one;
 
+    public int maximumRooms = 5;
+    
     // ================================================================
     // ================================================================
     // ------------------------------------------- private data fields
@@ -37,7 +39,7 @@ public class LevelRenderer : MonoBehaviour
 
     private GameObject[,] roomObjects;
 
-    private PassageMaskData[,] passageMasks;
+    // private PassageMaskData[,] passageMasks;
 
     private int rowCount;
     private int colCount;
@@ -47,30 +49,34 @@ public class LevelRenderer : MonoBehaviour
     // ------------------------------------------------- event methods
 
     public void Generate(WorldGenData worldGenData){
+        Debug.Log("LevelRenderer.Generate(worldGenData) called");
         // save access to world generating data
         this.worldGenData = worldGenData;
 
+        this.levelData = this.worldGenData.GetLevelData();
+        this.levelData.Initialise(this.worldGenData.passageTileset);
+
         // gather the things we need
         this.baseRoomPrefab = this.worldGenData.baseRoomPrefab;
-        this.levelData = this.worldGenData.GetLevelData();
 
         this.roomContainer = this.gameObject.transform.Find("LevelGrid").gameObject;
 
         // start making our level
         this.Initialise();
         this.LoadLevelData();
-        this.GenerateRoomPassageMaskData();
+        // this.GenerateRoomPassageMaskData();
         this.GenerateRoomRenderers();
     }
 
     public void Initialise(){
+        Debug.Log("LevelRenderer.Initialise() called");
         // prepare references
 
         this.containerRectTransform = this.roomContainer.GetComponent<RectTransform>();
         this.containerGridLayoutGroup = this.roomContainer.GetComponent<GridLayoutGroup>();
 
-        this.rowCount = this.levelData.rowCount;
-        this.colCount = this.levelData.colCount;
+        this.rowCount = this.levelData.RowCount();
+        this.colCount = this.levelData.ColCount();
 
         // put us in the center?
         this.gameObject.transform.position = new Vector3(
@@ -92,7 +98,7 @@ public class LevelRenderer : MonoBehaviour
 
             // prepare the grid
             this.roomObjects = new GameObject[ this.rowCount, this.colCount ];
-            this.passageMasks = new PassageMaskData[ this.rowCount, this.colCount ];
+            // this.passageMasks = new PassageMaskData[ this.rowCount, this.colCount ];
 
             // =====================================
             // ------------ prepare grid properties
@@ -106,72 +112,21 @@ public class LevelRenderer : MonoBehaviour
         }
     }
 
-    // HARD CODED PASSAGE TYPES FOR NOW
-    private void GenerateRoomPassageMaskData(){
-        // every row
-        for(int rowIndex = 0; rowIndex < this.rowCount; rowIndex++){
-            // every column
-            for(int colIndex = 0; colIndex < this.colCount; colIndex++){
-                // ...
-                // GET ADJACENCY
-                // TODO
-                // this.passageMasks
-                this.GeneratePassageMaskAt( rowIndex, colIndex );
-            }
-        }
-    }
-    private void GeneratePassageMaskAt( int rowIndex, int colIndex ){
-        if(rowIndex == 0){
-            // bottom right?
-            if(colIndex == 0){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P2_BR);
-            }
-            // bottom left?
-            else if(colIndex == this.colCount-1){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P2_BL);
-            }
-            // bottom row?
-            else {
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P3_NF);
-            }
-        }
-        // front row?
-        else if(rowIndex == this.rowCount-1){
-            // top right?
-            if(colIndex == 0){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P2_FR);
-            }
-            // top left?
-            else if(colIndex == this.colCount-1){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P2_FL);
-            }
-            // top side?
-            else {
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P3_NB);
-            }
-        }
-        // middle rows
-        else {
-            // left side?
-            if(colIndex == 0){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P3_NL);
-            }
-            // right side?
-            else if(colIndex == this.colCount-1){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P3_NR);
-            }
-            else {
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P4);
-            }
-        }
-    }
     private void GenerateRoomRenderers(){
+        Debug.Log("begginning room generation..");
+        int roomCount = 0;
         // every row
         for(int rowIndex = 0; rowIndex < this.rowCount; rowIndex++){
             // every column
             for(int colIndex = 0; colIndex < this.colCount; colIndex++){
-                // make the room
-                this.GenerateRoom( rowIndex, colIndex );
+                if (roomCount<this.maximumRooms) {
+                    // make the room
+                    this.GenerateRoom( rowIndex, colIndex );
+                }
+                else {
+                    Debug.Log("maximum rooms reached");
+                    return;
+                }
             }
         }
     }
@@ -185,8 +140,10 @@ public class LevelRenderer : MonoBehaviour
         RectTransform rt = newRoom.AddComponent(typeof(RectTransform)) as RectTransform;
         // find a room to use
         RoomData randomRoom = this.levelData.GetRandomRoom();
+        PassageMaskData passageToUse = this.levelData.GetPassageMaskData(rowIndex, colIndex);
+        
         // make it
-        newRoom.GetComponent<RoomRenderer>().GenerateFromData(this.worldGenData, randomRoom, this.passageMasks[rowIndex,colIndex]);
+        newRoom.GetComponent<RoomRenderer>().GenerateFromData(this.worldGenData, randomRoom, passageToUse);
         // save it for accessing
         this.roomObjects[ rowIndex, colIndex ] = newRoom;
         

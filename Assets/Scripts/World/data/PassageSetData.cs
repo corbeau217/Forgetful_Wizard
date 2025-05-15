@@ -105,6 +105,7 @@ public class PassageSetData : ScriptableObject
     
 
     public void Initialise(){
+        Debug.Log("PassageSetData.Initialise() called");
         this.InitialiseTiles();
     }
 }

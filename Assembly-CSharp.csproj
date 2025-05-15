@@ -40,6 +40,7 @@
      <Compile Include="Assets/Scripts/FollowBehaviour.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerData.cs" />
      <Compile Include="Assets/Scripts/World/data/TileData.cs" />
+     <Compile Include="Assets/Scripts/World/LevelGeneratorSettings.cs" />
      <Compile Include="Assets/BookSpriteManager.cs" />
      <Compile Include="Assets/Scripts/Spell/BoltSpell.cs" />
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
@@ -60,15 +61,16 @@
      <Compile Include="Assets/SpellBookOptionHandle.cs" />
      <Compile Include="Assets/SpellBookOption.cs" />
      <Compile Include="Assets/Scripts/World/data/RoomData.cs" />
+     <Compile Include="Assets/Scripts/World/LevelGenerator.cs" />
      <Compile Include="Assets/Scripts/World/data/LevelData.cs" />
      <Compile Include="Assets/Scripts/SpellBook.cs" />
      <Compile Include="Assets/Scripts/World/rendering/LevelRenderer.cs" />
      <Compile Include="Assets/Scripts/World/data/WorldGenData.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseSpell.cs" />
+     <Compile Include="Assets/Scripts/World/data/PassageSetData.cs" />
      <Compile Include="Assets/BookSpriteMaskManager.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BasePersonalAuraSpell.cs" />
      <Compile Include="Assets/SpellBookToggle.cs" />
-     <Compile Include="Assets/Scripts/World/data/PassageSetData.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -752,6 +754,9 @@
     </Reference>
     <Reference Include="Unity.Services.Core">
         <HintPath>/Users/auroragriffith/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Toolchain.Macos-arm64-Linux-x86_64">
+        <HintPath>/Users/auroragriffith/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Toolchain.Macos-arm64-Linux-x86_64.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
         <HintPath>/Users/auroragriffith/unity_projects/Forgetful_Wizard/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>

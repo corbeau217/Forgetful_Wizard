@@ -2,22 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Level", menuName = "ScriptableObjects/LevelData", order = 1)]
-public class LevelData : ScriptableObject
+[CreateAssetMenu(fileName = "GeneratorSettings", menuName = "ScriptableObjects/LevelGeneratorSettings", order = 1)]
+public class LevelGeneratorSettings : ScriptableObject
 {
-
     // ================================================================
     // ================================================================
     // -------------------------------------------- public data fields
 
-    public LevelGeneratorSettings generatorSettings;
-
-    public RoomData[] roomOptions;
-
-    // private 
-    private LevelGenerator levelGenerator;
-
-    private Vector2Int levelDimensions = new Vector2Int(0, 0);
+    private PassageSetData passageTileset;
+    public RoomLayerMaskData levelShapeLayer;
 
     // ================================================================
     // ================================================================
@@ -26,16 +19,14 @@ public class LevelData : ScriptableObject
     // ================================================================
     // ================================================================
     // ------------------------------------------------- event methods
-
-    public void Initialise(PassageSetData passageTileset){
-        Debug.Log("LevelData.Initialise() called");
-        this.generatorSettings.Initialise();
-        this.levelGenerator = new LevelGenerator(this.generatorSettings, passageTileset);
-        this.levelGenerator.Initialise();
-
-        this.levelDimensions = this.levelGenerator.GetDimensions();
-    }
     
+    public void Initialise(){
+        Debug.Log("LevelGeneratorSettings.Initialise() called");
+        // this.passageTileset.Initialise();
+        // this.passageTileset = passageTileset;
+        this.levelShapeLayer.Initialise();
+    }
+
     // ================================================================
     // ================================================================
     // ----------------------------------------------- private methods
@@ -44,21 +35,12 @@ public class LevelData : ScriptableObject
     // ================================================================
     // ----------------------------------------- public getter methods
 
-    public int RowCount(){
-        return this.levelDimensions.y;
-    }
-    public int ColCount(){
-        return this.levelDimensions.x;
+    public Vector2Int GetDimensions(){
+        return this.levelShapeLayer.GetDimensions();
     }
 
-    public RoomData GetRandomRoom(){
-        if( this.roomOptions==null && this.roomOptions.Length==0 ){
-            return null;
-        }
-        return this.roomOptions[Random.Range(0,this.roomOptions.Length)];
-    }
-    public PassageMaskData GetPassageMaskData(int rowIndex, int colIndex){
-        return this.levelGenerator.GetPassageMask(rowIndex,colIndex);
+    public bool IsRoomUsedCell( int rowIndex, int colIndex ){
+        return this.levelShapeLayer.GetLocationIsFilled( rowIndex, colIndex );
     }
 
     // ================================================================
