@@ -85,7 +85,7 @@ public class PassageSetData : ScriptableObject
             // the current working tile
             PassageMaskData currPassage = this.tileDataList[index];
             // get the type
-            TileType currPassageType  = currPassage.passageType;
+            CellType currPassageType  = currPassage.passageType;
 
             // Debug.Log("preparing tile["+index+"] with type["+currPassageType.GetIndex()+"]");
 

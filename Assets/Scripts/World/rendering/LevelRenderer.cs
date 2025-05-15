@@ -124,44 +124,44 @@ public class LevelRenderer : MonoBehaviour
         if(rowIndex == 0){
             // bottom right?
             if(colIndex == 0){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P2_BR);
+                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(CellType.Room_P2_BR);
             }
             // bottom left?
             else if(colIndex == this.colCount-1){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P2_BL);
+                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(CellType.Room_P2_BL);
             }
             // bottom row?
             else {
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P3_NF);
+                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(CellType.Room_P3_NF);
             }
         }
         // front row?
         else if(rowIndex == this.rowCount-1){
             // top right?
             if(colIndex == 0){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P2_FR);
+                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(CellType.Room_P2_FR);
             }
             // top left?
             else if(colIndex == this.colCount-1){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P2_FL);
+                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(CellType.Room_P2_FL);
             }
             // top side?
             else {
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P3_NB);
+                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(CellType.Room_P3_NB);
             }
         }
         // middle rows
         else {
             // left side?
             if(colIndex == 0){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P3_NL);
+                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(CellType.Room_P3_NL);
             }
             // right side?
             else if(colIndex == this.colCount-1){
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P3_NR);
+                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(CellType.Room_P3_NR);
             }
             else {
-                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(TileType.Room_P4);
+                this.passageMasks[rowIndex,colIndex] = this.worldGenData.GetRoomPassageFromType(CellType.Room_P4);
             }
         }
     }

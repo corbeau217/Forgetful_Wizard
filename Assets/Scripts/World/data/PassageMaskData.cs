@@ -11,7 +11,7 @@ public class PassageMaskData : ScriptableObject
     // ================================================================
     // -------------------------------------------- public data fields
 
-    public TileType passageType;
+    public CellType passageType;
     public RoomLayerMaskData roomMask;
 
     // top row to bottom row, left to right each row

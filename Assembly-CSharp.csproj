@@ -39,13 +39,11 @@
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseProjectileSpell.cs" />
      <Compile Include="Assets/Scripts/FollowBehaviour.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerData.cs" />
-     <Compile Include="Assets/Scripts/World/data/TileData.cs" />
      <Compile Include="Assets/BookSpriteManager.cs" />
      <Compile Include="Assets/Scripts/Spell/BoltSpell.cs" />
      <Compile Include="Assets/Scripts/MouseLocation.cs" />
      <Compile Include="Assets/Scripts/World/RoomGenerator.cs" />
      <Compile Include="Assets/Scripts/GridMap/ScriptableObjects/CellPlacementStyle.cs" />
-     <Compile Include="Assets/Scripts/World/data/TileSetData.cs" />
      <Compile Include="Assets/Scripts/World/RoomGeneratorSettings.cs" />
      <Compile Include="Assets/Scripts/World/rendering/WorldRenderer.cs" />
      <Compile Include="Assets/Scripts/World/data/RoomLayerMaskData.cs" />

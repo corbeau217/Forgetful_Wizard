@@ -9,12 +9,9 @@ public class RoomGeneratorSettings : ScriptableObject
     // ================================================================
     // -------------------------------------------- public data fields
     
-    public TileSetData roomBaseTileset;
     private RoomLayerMaskData passageLayer;
     public RoomLayerMaskData roomShapeLayer;
 
-    public TileSetData shelfTileset;
-    public TileSetData pillarTileset;
     public RoomLayerMaskData shelfLayer;
     public RoomLayerMaskData pillarLayer;
 
@@ -36,12 +33,9 @@ public class RoomGeneratorSettings : ScriptableObject
     public void Initialise(RoomLayerMaskData passageLayerToUse){
         this.passageLayer = passageLayerToUse;
 
-        this.roomBaseTileset.Initialise();
         this.passageLayer.Initialise();
         this.roomShapeLayer.Initialise();
 
-        this.shelfTileset.Initialise();
-        this.pillarTileset.Initialise();
         this.shelfLayer.Initialise();
         this.pillarLayer.Initialise();
 

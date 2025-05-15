@@ -43,7 +43,7 @@ public class WorldGenData : ScriptableObject
         return this.baseLevelData;
     }
 
-    public PassageMaskData GetRoomPassageFromType(TileType typeIn){
+    public PassageMaskData GetRoomPassageFromType(CellType typeIn){
         for (int index = 0; index < this.passageTileset.tileDataList.Length; index++) {
             if(this.passageTileset.tileDataList[index].passageType == typeIn){
                 return this.passageTileset.tileDataList[index];

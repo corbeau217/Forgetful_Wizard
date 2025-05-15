@@ -66,15 +66,6 @@ public static class CellGenerationTypeUtils {
                 return true;
         }
     }
-    public static TileSetData TryToUseDetailTileset(this CellGenerationType typeIn, TileSetData baseTileset, TileSetData shelfTileset, TileSetData pillarTileset){
-        if(typeIn.AllowsDetailTile()){
-            if(typeIn==CellGenerationType.Pillar) return pillarTileset;
-            else return shelfTileset;
-        }
-        else {
-            return baseTileset;
-        }
-    }
 }
 
 
