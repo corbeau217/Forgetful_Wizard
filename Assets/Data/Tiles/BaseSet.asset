@@ -62,6 +62,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b42b86ce0f86049408a5af45c7b35467, type: 2}
   - {fileID: 11400000, guid: ca3bb6315a32a4f4cb5f9c716502bfd2, type: 2}
   defaultTile: {fileID: 11400000, guid: d40207bc1f9294afbbe80fd79c17758c, type: 2}
-  tileFilledMap: {fileID: 18700000, guid: 9ede4b6358cf54d1bbee67047bb44a43, type: 3}
-  tileAdjacencyMap: {fileID: 18700000, guid: 4e9a0d5ffee3f416da53d2bfbe4b265f, type: 3}
-  tileVacancyMap: {fileID: 18700000, guid: 08832d13c522c42299f1c84230d26e60, type: 3}
+  placementStyle: {fileID: 11400000, guid: 6a21e694e0fd540e2851e9a3b29cd7f9, type: 2}
+  randomiseTileOnMultipleValidOptions: 0

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f75d06204b8417299a758247454eb8, type: 3}
   m_Name: Pillars_error
   m_EditorClassIdentifier: 
-  cellType: 63
-  tilePrefab: {fileID: 5018209765519358535, guid: d642f255628544a6faa4e21ab5e0d8c4, type: 3}
+  cellType: 80
+  tilePrefab: {fileID: 5018209765519358535, guid: 01629cd2fca6f4ab492ef027caa36d29, type: 3}

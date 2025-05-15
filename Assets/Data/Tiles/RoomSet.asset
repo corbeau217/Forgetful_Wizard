@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300a128233bc8704a9ea429d7862d6fe, type: 3}
   m_Name: RoomSet
   m_EditorClassIdentifier: 
-  tileDataList: []
+  tileDataList:
+  - {fileID: 0}
   defaultTile: {fileID: 11400000, guid: fdefc28a74b744a61954beb2b5e0f988, type: 2}
-  tileFilledMap: {fileID: 18700000, guid: 18ef3f14cc1b34af282c8e9c52c90e28, type: 3}
-  tileAdjacencyMap: {fileID: 18700000, guid: 3ce0231faab8043d9a0e43a2db6c5796, type: 3}
-  tileVacancyMap: {fileID: 18700000, guid: e6c8a01a0a95e440395541d435c91784, type: 3}
+  placementStyle: {fileID: 11400000, guid: 1fc310b4c5461416aba7a5df3527e98b, type: 2}
   randomiseTileOnMultipleValidOptions: 0

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Shelves_error
   m_EditorClassIdentifier: 
   cellType: 63
-  tilePrefab: {fileID: 5018209765519358535, guid: d642f255628544a6faa4e21ab5e0d8c4, type: 3}
+  tilePrefab: {fileID: 5018209765519358535, guid: 01629cd2fca6f4ab492ef027caa36d29, type: 3}
