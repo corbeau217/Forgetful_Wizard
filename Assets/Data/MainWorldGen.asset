@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad06dfec65ea4fb0b96d9b7b838d510, type: 3}
   m_Name: MainWorldGen
   m_EditorClassIdentifier: 
-  passageTileset: {fileID: 11400000, guid: d83e3faf42f7f4b5b8b6a938b8798c1e, type: 2}
+  passageOptions: {fileID: 11400000, guid: 8d569fe3d7ae54593a8afc306e6b22c6, type: 2}
   baseLevelData: {fileID: 11400000, guid: 56ae8e417086b4317bd76134a9f56bad, type: 2}
   baseRoomPrefab: {fileID: 8426757014189063297, guid: 8bed3d225c9ef404097cee600a6cd20d, type: 3}
   tileOverlayPrefab: {fileID: 7495104918864547197, guid: 26b5925ed75204035abd9fc10310b69e, type: 3}

@@ -14,7 +14,12 @@ public class WorldGenData : ScriptableObject
     // -------------------------------------------- public data fields
 
     // public PassageMaskData[] passageMasks;
-    public PassageSetData passageTileset;
+    // public PassageSetData passageTileset;
+    
+    
+    public CellOptionSet passageOptions;
+    public CellSetData passageCellSet;
+
 
     public LevelData baseLevelData;
     public GameObject baseRoomPrefab;
@@ -32,7 +37,8 @@ public class WorldGenData : ScriptableObject
     // ------------------------------------------------- event methods
 
     public void Initialise(){
-        this.passageTileset.Initialise();
+        // this.passageTileset.Initialise();
+        passageCellSet = new CellSetData(this.passageOptions);
     }
 
     // ================================================================
@@ -43,18 +49,18 @@ public class WorldGenData : ScriptableObject
         return this.baseLevelData;
     }
 
-    public PassageMaskData GetRoomPassageFromType(CellType typeIn){
-        for (int index = 0; index < this.passageTileset.tileDataList.Length; index++) {
-            if(this.passageTileset.tileDataList[index].passageType == typeIn){
-                return this.passageTileset.tileDataList[index];
-            }
-        }
-        Debug.Log("failed to find in "+this.passageTileset.tileDataList.Length);
-        return null;
+    public RoomLayerMaskData GetRoomMaskFromType(CellType typeIn){
+        CellData data = this.passageCellSet.GetCellFromType(typeIn);
+        CellOptionBase option = (data.cellOption);
+        RoomOption room = option as RoomOption;
+        return room.roomMask;
     }
 
-    public PassageMaskData GetRoomPassageFromAdjacent(bool[] adjacency){
-        return this.passageTileset.GetPassageMaskData(adjacency);
+    public RoomLayerMaskData GetRoomMaskFromAdjacent(bool[] adjacency){
+        CellData data = this.passageCellSet.GetCellData(adjacency);
+        CellOptionBase option = (data.cellOption);
+        RoomOption room = option as RoomOption;
+        return room.roomMask;
     }
 
     // ================================================================

@@ -36,7 +36,7 @@ public class RoomRenderer : MonoBehaviour
     private WorldGenData worldGenData;
     private RoomData roomData;
 
-    private PassageMaskData passageMaskData;
+    private RoomLayerMaskData passageMaskData;
 
     private GameObject tileOverlayPrefab;
 
@@ -56,7 +56,7 @@ public class RoomRenderer : MonoBehaviour
     // ================================================================
     // ------------------------------------------------- event methods
 
-    public void GenerateFromData(WorldGenData worldGenData, RoomData roomDataToUse, PassageMaskData passageMaskData){
+    public void GenerateFromData(WorldGenData worldGenData, RoomData roomDataToUse, RoomLayerMaskData passageMaskData){
         this.worldGenData = worldGenData;
         this.roomData = roomDataToUse;
 
@@ -84,7 +84,7 @@ public class RoomRenderer : MonoBehaviour
 
         // prepare room data
         
-        this.roomData.Initialise(passageMaskData.roomMask);
+        this.roomData.Initialise(passageMaskData);
     }
 
     // ================================================================

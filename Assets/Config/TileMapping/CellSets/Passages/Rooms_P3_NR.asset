@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ce1536e672e45549eb8c5a15cf0351, type: 3}
+  m_Name: Rooms_P3_NR
+  m_EditorClassIdentifier: 
+  cellType: 139
+  roomMask: {fileID: 11400000, guid: f862eb495c8204e19a5b24839adf7199, type: 2}

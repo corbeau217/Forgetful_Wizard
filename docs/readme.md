@@ -108,9 +108,12 @@ The five boxing wizards jump quickly
     - [x] code supports new objects for detail layers
     - [x] optional extra detail layers
 ### [ ] Milestone 012 - room passage types
-- [ ] adding in room passage types
-    - [ ] rough sketch the room generation structure for tile selection
-    - [ ] plan out the same structure as with tiles in rooms
+- [ ] adding in room passage type sets
+    - [x] rough sketch the room generation structure for tile selection
+    - [x] plan out the same structure as with tiles in rooms
+    - [x] swap over to a shared tile base class that works at tile and room generation
+    - [ ] rooms using shared base classes with level generation
+### [ ] Milestone 013 - level generation
     - [ ] generating level based on adjacency of rooms
         - [ ] room adjacency / vacancy rules
 ### [ ] Milestone 013 - initial interactables

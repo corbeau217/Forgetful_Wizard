@@ -96,4 +96,14 @@ public class CellSetData
         // give
         return result;
     }
+
+    public CellData GetCellFromType(CellType input){
+        for (int index = 0; index < this.cellDataList.Length; index++)
+        {
+            if(this.cellDataList[index].cellOption.cellType == input){
+                return this.cellDataList[index];
+            }
+        }
+        return defaultOption;
+    }
 }
