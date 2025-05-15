@@ -9,12 +9,14 @@ public class TileSetData : ScriptableObject
 
     public TileData defaultTile;
 
-    // tile region filling
-    public Texture2DArray tileFilledMap;
-    // nearby required filled tiles
-    public Texture2DArray tileAdjacencyMap;
-    // nearby required vacant tiles
-    public Texture2DArray tileVacancyMap;
+    // // tile region filling
+    // public Texture2DArray tileFilledMap;
+    // // nearby required filled tiles
+    // public Texture2DArray tileAdjacencyMap;
+    // // nearby required vacant tiles
+    // public Texture2DArray tileVacancyMap;
+
+    public CellPlacementStyle placementStyle;
 
     public bool randomiseTileOnMultipleValidOptions;
 
@@ -89,9 +91,9 @@ public class TileSetData : ScriptableObject
 
             // Debug.Log("preparing tile["+index+"] with type["+currTileType.GetIndex()+"]");
 
-            Color[] tileFilledMapPixels = currTileType.GetPixelsFromSpritesheet(this.tileFilledMap);
-            Color[] tileAdjacencyMapPixels = currTileType.GetPixelsFromSpritesheet(this.tileAdjacencyMap);
-            Color[] tileVacancyMapPixels = currTileType.GetPixelsFromSpritesheet(this.tileVacancyMap);
+            Color[] tileFilledMapPixels = currTileType.GetPixelsFromSpritesheet(this.placementStyle.cellFilledMap);
+            Color[] tileAdjacencyMapPixels = currTileType.GetPixelsFromSpritesheet(this.placementStyle.cellAdjacencyMap);
+            Color[] tileVacancyMapPixels = currTileType.GetPixelsFromSpritesheet(this.placementStyle.cellVacancyMap);
 
             // then fetch the information for it and initialise
             currTile.Initialise(
