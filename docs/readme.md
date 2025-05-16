@@ -114,14 +114,14 @@ The five boxing wizards jump quickly
     - [x] swap over to a shared tile base class that works at tile and room generation
 ### [ ] Milestone 013 - restructuring room generator
 - [x] documenting new structure
-- [ ] scriptable objects
-    - [ ] `GridMask` - mask and option set
-    - [ ] `GridGeneratorSettings` - mask layers, error tiles
+- [x] scriptable objects
+    - [x] `GridMask` - mask and option set
+    - [x] `GridGeneratorSettings` - mask layers, error tiles
 - [ ] runtime objects
-    - [ ] `GridMaskData` - interpretation of mask image as 2d bool with size
-    - [ ] `GridLayer` - cell types from mask data/optionset
-    - [ ] `GridData` - reconciled layers to 2d cell options
-    - [ ] `GridGenerator` - makes `GridLayer`s from settings, then reconciles to `GridData` to return
+    - [x] `GridMaskData` - interpretation of mask image as 2d bool with size
+    - [x] `CellGenerator` - cell option with priority
+    - [x] `GridData` - handle for cell generators
+    - [ ] `GridGenerator` - makes griddata from settings, then makes grid data fill cell generators
 - [ ] components
     - [ ] `CellRenderer` - abstract class handling instantiation of cells
     - [ ] `GridRenderer` - spawns `GridGenerator`, reads created information and then spawns `CellRenderer`s
@@ -271,3 +271,4 @@ The five boxing wizards jump quickly
 ### random ideas
 * probably could hashmap our tiles by filled/adjacency/vacancy to help find similar tiles
 * composition for tile making
+* glowy mushrooms (other colours), `omphalotus nidiformis` ahh

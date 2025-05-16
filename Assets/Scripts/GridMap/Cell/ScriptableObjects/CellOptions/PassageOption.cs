@@ -6,4 +6,9 @@ using UnityEngine;
 public class PassageOption : CellOptionBase
 {
     public RoomLayerMaskData roomMask;
+
+    public override GameObject Generate(GameObject parent){
+        // honk shoo mimiimimimi
+        return null;
+    }
 }

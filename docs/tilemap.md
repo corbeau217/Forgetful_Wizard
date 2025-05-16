@@ -21,19 +21,19 @@
 
 * early pre-muliroom levels diagram to figure out how the tiles would work together
 
-![image](./notes/20250510_suggestedStructure.jpg)
+[![image](./notes/20250510_suggestedStructure.jpg)](./notes/20250510_suggestedStructure.jpg)
 
 #### 20250515 - structure investigation
 * diagram was made while investigating the way that objects were creating, initialising, and referencing each other
 * notice the spaghetti
 
-![image](./notes/20250515_structureInvestigation.png)
+[![image](./notes/20250515_structureInvestigation.png)](./notes/20250515_structureInvestigation.png)
 
 #### 20250516 - grid architecture design
 * proposed new structure
 * this structure is mostly to become more familiar with C# and experiment with performance
 * this option will provide a lot of insight in to how unity handles object creation/deletion and give a solid foundation for improvement without as much work required
 
-![image](./notes/20250516_gridArchitectureDesign.png)
+[![image](./notes/20250516_gridArchitectureDesignV4.png)](./notes/20250516_gridArchitectureDesignV4.png)
 
 ---

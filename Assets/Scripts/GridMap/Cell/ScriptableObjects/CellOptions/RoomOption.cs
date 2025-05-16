@@ -6,4 +6,9 @@ using UnityEngine;
 public class RoomOption : CellOptionBase
 {
     public RoomLayerMaskData roomMask;
+
+    public override GameObject Generate(GameObject parent){
+        // honk shoo mimimimi
+        return null;
+    }
 }

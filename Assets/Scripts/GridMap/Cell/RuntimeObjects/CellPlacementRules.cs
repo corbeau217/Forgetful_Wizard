@@ -14,7 +14,7 @@ public class CellPlacementRules
     public Texture2D vacancyTexture;
 
     public float maskTollerance = 0.5f;
-
+    
     public CellPlacementRules( Color[] filledMask, Color[] adjacencyMask, Color[] vacancyMask ){
         // whadawegot
         // Debug.Log("initialising tile with filledMask["+filledMask.Length+"], adjacencyMask["+adjacencyMask.Length+"], vacancyMask["+vacancyMask.Length+"]");
