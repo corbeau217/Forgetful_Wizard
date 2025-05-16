@@ -45,7 +45,7 @@
      <Compile Include="Assets/Scripts/GridMap/Grid/RoomGenerator.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/ScriptableObjects/CellPlacementStyle.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/RoomGeneratorSettings.cs" />
-     <Compile Include="Assets/Scripts/World/rendering/WorldRenderer.cs" />
+     <Compile Include="Assets/Scripts/GridMap/WorldRenderer.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/RoomLayerMaskData.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/ScriptableObjects/CellOptions/PassageOption.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/CellSetData.cs" />
@@ -60,10 +60,10 @@
      <Compile Include="Assets/SpellBookOptionHandle.cs" />
      <Compile Include="Assets/SpellBookOption.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/RoomData.cs" />
-     <Compile Include="Assets/Scripts/World/data/LevelData.cs" />
+     <Compile Include="Assets/Scripts/GridMap/LevelData.cs" />
      <Compile Include="Assets/Scripts/SpellBook.cs" />
-     <Compile Include="Assets/Scripts/World/rendering/LevelRenderer.cs" />
-     <Compile Include="Assets/Scripts/World/data/WorldGenData.cs" />
+     <Compile Include="Assets/Scripts/GridMap/LevelRenderer.cs" />
+     <Compile Include="Assets/Scripts/GridMap/WorldGenData.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/ScriptableObjects/CellOptions/RoomOption.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/CellType.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/CellPlacementRules.cs" />
