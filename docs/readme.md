@@ -113,14 +113,21 @@ The five boxing wizards jump quickly
     - [x] plan out the same structure as with tiles in rooms
     - [x] swap over to a shared tile base class that works at tile and room generation
 ### [ ] Milestone 013 - restructuring room generator
-    - [ ] rooms using shared base classes with level generation
-        - [ ] gridmask base file
-        - [ ] gridrenderer base file
-        - [ ] gridgenerator base file
-        - [ ] gridgeneratorsettings base file
+- [x] documenting new structure
+- [ ] scriptable objects
+    - [ ] `GridMask` - mask and option set
+    - [ ] `GridGeneratorSettings` - mask layers, error tiles
+- [ ] runtime objects
+    - [ ] `GridMaskData` - interpretation of mask image as 2d bool with size
+    - [ ] `GridLayer` - cell types from mask data/optionset
+    - [ ] `GridData` - reconciled layers to 2d cell options
+    - [ ] `GridGenerator` - makes `GridLayer`s from settings, then reconciles to `GridData` to return
+- [ ] components
+    - [ ] `CellRenderer` - abstract class handling instantiation of cells
+    - [ ] `GridRenderer` - spawns `GridGenerator`, reads created information and then spawns `CellRenderer`s
 ### [ ] Milestone 014 - level generation
-    - [ ] generating level based on adjacency of rooms
-        - [ ] room adjacency / vacancy rules
+- [ ] generating level based on adjacency of rooms
+    - [ ] room adjacency / vacancy rules
 ### [ ] Milestone 015 - initial interactables
 - [ ] interactable tile interface
     - [ ] tile that can be activated in some way
