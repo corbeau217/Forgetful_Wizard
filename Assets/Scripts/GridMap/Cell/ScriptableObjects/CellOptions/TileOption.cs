@@ -7,13 +7,13 @@ public class TileOption : CellOptionBase
 {
     public GameObject tilePrefab;
 
-    public override GameObject Generate(GameObject parent){
+    public override GameObject Generate(GameObject renderer, GameObject parent){
         GameObject cellObject = (GameObject)Instantiate(
             this.tilePrefab,
             parent.transform
         );
         // stash it and dont use so it waits for the adding
-        RectTransform rt = cellObject.AddComponent(typeof(RectTransform)) as RectTransform;
+        // RectTransform rt = renderer.AddComponent(typeof(RectTransform)) as RectTransform;
         return cellObject;
     }
 }

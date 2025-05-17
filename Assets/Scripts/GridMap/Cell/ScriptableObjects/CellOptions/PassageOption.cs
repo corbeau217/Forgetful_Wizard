@@ -7,7 +7,7 @@ public class PassageOption : CellOptionBase
 {
     public RoomLayerMaskData roomMask;
 
-    public override GameObject Generate(GameObject parent){
+    public override GameObject Generate(GameObject renderer, GameObject parent){
         // honk shoo mimiimimimi
         return null;
     }

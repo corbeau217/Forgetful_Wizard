@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Base_Pillar
   m_EditorClassIdentifier: 
   cellType: 32
-  tilePrefab: {fileID: 5018209765519358535, guid: ea97c30444b3baf6081ebdb4025d0463, type: 3}
+  tilePrefab: {fileID: 5018209765519358535, guid: 6cee7844efc3456a4a53028425e0ded2, type: 3}

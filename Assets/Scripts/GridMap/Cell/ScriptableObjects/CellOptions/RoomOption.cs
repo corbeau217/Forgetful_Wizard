@@ -7,7 +7,7 @@ public class RoomOption : CellOptionBase
 {
     public RoomLayerMaskData roomMask;
 
-    public override GameObject Generate(GameObject parent){
+    public override GameObject Generate(GameObject renderer, GameObject parent){
         // honk shoo mimimimi
         return null;
     }

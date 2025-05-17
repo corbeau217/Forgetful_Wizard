@@ -273,3 +273,6 @@ The five boxing wizards jump quickly
 * probably could hashmap our tiles by filled/adjacency/vacancy to help find similar tiles
 * composition for tile making
 * glowy mushrooms (other colours), `omphalotus nidiformis` ahh
+* using the dual grid system with meshes, by chopping up the meshes and constructing new ones at runtime
+    * this could use [https://docs.unity3d.com/ScriptReference/Mesh.html](https://docs.unity3d.com/ScriptReference/Mesh.html)
+    * 16 shapes for a tileset?
