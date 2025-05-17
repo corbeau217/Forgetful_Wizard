@@ -1,0 +1,11 @@
+# 20250510 ideas
+## about
+* ideas for the day relating to tilemapping
+* retro-active ideas document created from other documenting formats
+
+## day's ideas
+
+### room structure exploration
+* early pre-muliroom levels diagram to figure out how the tiles would work together
+
+[![image](/docs/notes/20250510_suggestedStructure.jpg)](/docs/notes/20250510_suggestedStructure.jpg)
