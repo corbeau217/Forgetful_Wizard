@@ -36,4 +36,13 @@
 
 [![image](./notes/20250516_gridArchitectureDesignV4.png)](./notes/20250516_gridArchitectureDesignV4.png)
 
+#### 20250517 - grid architecture design
+* showing the tile map varieties and how a [dual grid system](https://youtu.be/jEWFSv3ivTg) would look
+* currently seems we've reinvented the 47-piece system's wheel
+
+|  |
+| --- |
+| [![image](./notes/20250517_TilemapVarieties.png)](./notes/20250517_TilemapVarieties.png) |
+| [![image](./notes/20250517_TilemapVarietiesAnnotated.png)](./notes/20250517_TilemapVarietiesAnnotated.png) |
+
 ---
