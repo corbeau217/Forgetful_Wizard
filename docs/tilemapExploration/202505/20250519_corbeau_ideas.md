@@ -29,6 +29,6 @@
 * current version likely has an issue with positioning, we should change positioning to be temporary so that it can be removed in the exporting
 
 ### conversion to dual grid
-* diagrams of the current situation? or just cowboy it?
-* with diagrams we can assess the damage and find any mistakes that are currently in the system
-* will be able to confirm when it's spooky too
+* drew up a diagram of the current grid format, 1/3 of it will likely be removed
+
+[![image](/docs/notes/20250519_oldSetClassDiagram.png)](/docs/notes/20250519_oldSetClassDiagram.png)
