@@ -276,3 +276,6 @@ The five boxing wizards jump quickly
 * using the dual grid system with meshes, by chopping up the meshes and constructing new ones at runtime
     * this could use [https://docs.unity3d.com/ScriptReference/Mesh.html](https://docs.unity3d.com/ScriptReference/Mesh.html)
     * 16 shapes for a tileset?
+* barrel with rotating portions to create the spell?
+    * bike lock with the numbers and rotate them out
+    * strategy pattern for spells
