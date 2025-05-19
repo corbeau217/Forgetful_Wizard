@@ -32,3 +32,7 @@
 * drew up a diagram of the current grid format, 1/3 of it will likely be removed
 
 [![image](/docs/notes/20250519_oldSetClassDiagram.png)](/docs/notes/20250519_oldSetClassDiagram.png)
+
+* below is the suggested class diagram to change to
+
+[![image](/docs/notes/20250519_newSetSuggestedClassDiagram.png)](/docs/notes/20250519_newSetSuggestedClassDiagram.png)
