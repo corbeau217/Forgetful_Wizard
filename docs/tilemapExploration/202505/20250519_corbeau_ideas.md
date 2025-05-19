@@ -36,3 +36,5 @@
 * below is the suggested class diagram to change to
 
 [![image](/docs/notes/20250519_newSetSuggestedClassDiagram.png)](/docs/notes/20250519_newSetSuggestedClassDiagram.png)
+
+* probably need a new cell generator too
