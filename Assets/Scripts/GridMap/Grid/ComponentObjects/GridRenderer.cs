@@ -28,7 +28,8 @@ public class GridRenderer : MonoBehaviour
     private GridGenerator gridGenerator;
     private CellOptionBase[,] bakedCells;
     private CellRenderer[,] cellRenderers;
-    private Vector2Int dimensions;
+    private Vector2Int primaryDimensions;
+    private Vector2Int secondaryDimensions;
 
     // ================================================================
     // ================================================================
@@ -40,16 +41,17 @@ public class GridRenderer : MonoBehaviour
 
     private void StartGridGenerator(){
         this.gridGenerator = new GridGenerator(this.gridSettings);
-        this.dimensions = this.gridGenerator.dimensions;
+        this.primaryDimensions = this.gridSettings.GetPrimaryDimensions();
+        this.secondaryDimensions = this.gridSettings.GetSecondaryDimensions();
     }
     private void BakeCells(){
         this.bakedCells = this.gridGenerator.BakeCells();
     }
     private void SpawnCellRenderers(){
-        this.cellRenderers = new CellRenderer[this.dimensions.y, this.dimensions.x];
-        for (int rowIndex = 0; rowIndex < this.dimensions.y; rowIndex++)
+        this.cellRenderers = new CellRenderer[this.secondaryDimensions.y, this.secondaryDimensions.x];
+        for (int rowIndex = 0; rowIndex < this.secondaryDimensions.y; rowIndex++)
         {
-            for (int colIndex = 0; colIndex < this.dimensions.x; colIndex++)
+            for (int colIndex = 0; colIndex < this.secondaryDimensions.x; colIndex++)
             {
                 this.SpawnCellRendererForLocation(rowIndex, colIndex);
             }
@@ -68,9 +70,9 @@ public class GridRenderer : MonoBehaviour
         this.cellRenderers[rowIndex,colIndex].cellOption = bakedCells[rowIndex,colIndex];
     }
     private void StartCellGeneration(){
-        for (int rowIndex = 0; rowIndex < this.dimensions.y; rowIndex++)
+        for (int rowIndex = 0; rowIndex < this.secondaryDimensions.y; rowIndex++)
         {
-            for (int colIndex = 0; colIndex < this.dimensions.x; colIndex++)
+            for (int colIndex = 0; colIndex < this.secondaryDimensions.x; colIndex++)
             {
                 // tell them all to spawn their data
                 this.cellRenderers[rowIndex,colIndex].Generate();
@@ -104,8 +106,11 @@ public class GridRenderer : MonoBehaviour
         this.SpawnCellRenderers();
         this.StartCellGeneration();
     }
-    public Vector2Int GetDimensions(){
-        return this.dimensions;
+    public Vector2Int GetPrimaryDimensions(){
+        return this.primaryDimensions;
+    }
+    public Vector2Int GetSecondaryDimensions(){
+        return this.secondaryDimensions;
     }
 
     // ================================================================

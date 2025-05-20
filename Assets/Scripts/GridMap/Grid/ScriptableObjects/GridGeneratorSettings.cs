@@ -17,8 +17,12 @@ public class GridGeneratorSettings : ScriptableObject
     // ================================================================
     // ----------------------------------------- public getter methods
 
-    public Vector2Int GetDimensions(){
-        return this.layerMasks[0].GetDimensions();
+    public Vector2Int GetPrimaryDimensions(){
+        return this.layerMasks[0].GetPrimaryDimensions();
+    }
+    public Vector2Int GetSecondaryDimensions(){
+        Vector2Int primaryDimensions = this.layerMasks[0].GetPrimaryDimensions();
+        return new Vector2Int(primaryDimensions.x - 1, primaryDimensions.y - 1);
     }
 
     // ================================================================

@@ -23,7 +23,7 @@ public class CellGenerator
         }
     }
 
-    public CellOptionSet GetSetData(){
+    public CellOptionSet GetOptionSet(){
         return this.currentSet;
     }
 }

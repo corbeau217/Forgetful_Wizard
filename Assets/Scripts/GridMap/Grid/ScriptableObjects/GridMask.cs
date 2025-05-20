@@ -21,7 +21,7 @@ public class GridMask : ScriptableObject
     // ================================================================
     // ----------------------------------------- public getter methods
 
-    public Vector2Int GetDimensions(){
+    public Vector2Int GetPrimaryDimensions(){
         return new Vector2Int( this.maskImage.width, this.maskImage.height );
     }
     public Color[] GetPixels(){

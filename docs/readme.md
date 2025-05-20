@@ -133,16 +133,17 @@ The five boxing wizards jump quickly
 - [x] `TileOption` removed and squashed in to base
 - [x] clearing out mentions of the removed files
 - [x] `CellSetData` removed
-- [ ] code structure reconciled with second revision
+- [x] code structure reconciled with fourth revision
     * this was to correct some overlooked items and using better naming of variables/methods
 - [ ] `CellOptionSet` handles secondary grid indexing by mask
 - [x] `CellData` removed
 - [ ] `GridData` uses the `CellOptionSet` form of cell retrieval during baking
-    - [ ] has secondary grid as smaller size to the mask
+    - [x] has secondary grid as smaller size to the mask
     - [ ] asks for cell that would fit secondary grid
     - [ ] saves cell in `finalCells`
 - [ ] `GridGenerator` handles secondary grid generation
-    - [ ] has secondary grid as smaller size to the mask
+    - [x] has secondary grid as smaller size to the mask
+    - [ ] verified working
 ### [ ] Milestone 015 - initial interactables
 - [ ] tertiary grid is on the same alignment as primary grid for interactable tiles
 - [ ] interactable tile interface
@@ -166,6 +167,13 @@ The five boxing wizards jump quickly
 - [ ] design player resource architecture
     - [ ] player health
     - [ ] player magic resource
+### [ ] Milestone 019 - development documentation cleanup
+- [ ] housekeeping for the development documentation structure
+    - [ ] renaming and restructuring notes and diagrams
+    - [ ] cleaning up `readme.md` and removing bloat
+- [ ] moving development documentation to separate repository
+- [ ] adding the documentation repository as a sub repository/link in this repository
+
 
 
 ## TO-DO - easter eggs

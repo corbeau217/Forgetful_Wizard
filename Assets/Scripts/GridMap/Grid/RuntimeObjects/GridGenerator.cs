@@ -10,10 +10,13 @@ public class GridGenerator
     public GridData gridData;
     public CellOptionBase[,] finalCells;
     
-    public Vector2Int dimensions;
+    public Vector2Int primaryDimensions;
+    public Vector2Int secondaryDimensions;
 
     public GridGenerator(GridGeneratorSettings settings){
         this.settings = settings;
+        this.primaryDimensions = this.settings.GetPrimaryDimensions();
+        this.secondaryDimensions = this.settings.GetSecondaryDimensions();
 
         this.InitialiseGridMaskData();
         this.InitialiseGridDataFromMasks();
@@ -27,11 +30,10 @@ public class GridGenerator
         {
             this.masks[maskIndex] = new GridMaskData(this.settings.layerMasks[maskIndex]);
         }
-        this.dimensions = this.masks[0].GetDimensions();
     }
     private void InitialiseGridDataFromMasks(){
         // prepare data structure
-        this.gridData = new GridData(this.dimensions, this.settings.noneCell);
+        this.gridData = new GridData(this.primaryDimensions, this.secondaryDimensions, this.settings.noneCell);
 
         // load each mask
         for (int maskIndex = 0; maskIndex < this.masks.Length; maskIndex++)
