@@ -178,7 +178,8 @@ The five boxing wizards jump quickly
     - [ ] player magic resource
 ### [ ] Milestone 021 - development documentation cleanup
 - [ ] housekeeping for the development documentation structure
-    - [ ] renaming and restructuring notes and diagrams
+    - [x] renaming and restructuring notes
+    - [ ] renaming and restructuring diagrams
     - [ ] cleaning up `readme.md` and removing bloat
 - [ ] moving development documentation to separate repository
 - [ ] adding the documentation repository as a sub repository/link in this repository
