@@ -125,7 +125,7 @@ The five boxing wizards jump quickly
 - [x] components
     - [x] `CellRenderer` - abstract class handling instantiation of cells
     - [x] `GridRenderer` - spawns `GridGenerator`, reads created information and then spawns `CellRenderer`s
-### [ ] Milestone 014 - room dual grid
+### [x] Milestone 014 - room dual grid
 - [x] `CellPlacementRules` removed
 - [x] `CellPlacementStyle` removed
 - [x] `CellType` removed
@@ -145,20 +145,24 @@ The five boxing wizards jump quickly
     - [x] has secondary grid as smaller size to the mask
     - [x] verified working
         * lots of errors though ahahaha
-- [ ] update tile models to not have offsets
-- [ ] trim unseen faces for backup set
+- [x] update tile models to not have offsets
+- [x] trim unseen faces for backup set
+- [x] correctly orient tile directions
+### [ ] Milestone 016 - room dual grid fixes
+- [ ] restructure secondary cell generation to have default set to use
+- [ ] tidy up secondary cell selection code
 - [ ] invert room masks for base layer?
     * not filled cells should be black, filled cells should be white
-### [ ] Milestone 015 - initial interactables
+### [ ] Milestone 017 - initial interactables
 - [ ] tertiary grid is on the same alignment as primary grid for interactable tiles
 - [ ] interactable tile interface
     - [ ] tile that can be activated in some way
 - [ ] actor / living entity / being interface
     - [ ] dummy that just exists and does nothing
-### [ ] Milestone 016 - room structuring
+### [ ] Milestone 018 - room structuring
 - [ ] introspection and investigation on how to mesh rooms together again
     * likely uses something similar to the old style of cell generation
-### [ ] Milestone 017 - more interactables
+### [ ] Milestone 019 - more interactables
 - [ ] interactable tile
     - [ ] interaction states
     - [ ] strategy pattern for state changes
@@ -168,11 +172,11 @@ The five boxing wizards jump quickly
     - [ ] fires event
 - [ ] actor / living entity / being interface
     - [ ] movement strategy pattern
-### [ ] Milestone 018 - simple resources
+### [ ] Milestone 020 - simple resources
 - [ ] design player resource architecture
     - [ ] player health
     - [ ] player magic resource
-### [ ] Milestone 019 - development documentation cleanup
+### [ ] Milestone 021 - development documentation cleanup
 - [ ] housekeeping for the development documentation structure
     - [ ] renaming and restructuring notes and diagrams
     - [ ] cleaning up `readme.md` and removing bloat
