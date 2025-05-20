@@ -9,13 +9,13 @@ using UnityEngine;
 public class GridData
 {
     private CellGenerator[,] cells;
-    private CellData noneCell;
+    private CellOptionBase noneCell;
     
     private Vector2Int dimensions;
 
     public GridData(Vector2Int dimensions, CellOptionBase noneCellOption){
         this.dimensions = dimensions;
-        this.noneCell = new CellData(noneCellOption);
+        this.noneCell = noneCellOption;
 
         this.cells = new CellGenerator[this.dimensions.y,this.dimensions.x];
 
@@ -38,9 +38,9 @@ public class GridData
         }
     }
 
-    public CellData[,] BakeCells(){
+    public CellOptionBase[,] BakeCells(){
         // prepare tthe structure
-        CellData[,] resultCells = new CellData[this.dimensions.y, this.dimensions.x];
+        CellOptionBase[,] resultCells = new CellOptionBase[this.dimensions.y, this.dimensions.x];
         for (int rowIndex = 0; rowIndex < this.dimensions.y; rowIndex++)
         {
             for (int colIndex = 0; colIndex < this.dimensions.x; colIndex++)
@@ -55,7 +55,7 @@ public class GridData
                     // // gather adjacency
                     // bool[] currentAdjacency = this.GetAdjacency(rowIndex,colIndex);
                     // // match it and stash
-                    // CellData foundData = currentOptionSet.GetCellData(currentAdjacency);
+                    // CellOptionBase foundData = currentOptionSet.GetCellOptionBase(currentAdjacency);
                     // resultCells[rowIndex,colIndex] = foundData;
                 }
             }

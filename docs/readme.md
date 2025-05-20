@@ -136,7 +136,7 @@ The five boxing wizards jump quickly
 - [ ] code structure reconciled with second revision
     * this was to correct some overlooked items and using better naming of variables/methods
 - [ ] `CellOptionSet` handles secondary grid indexing by mask
-- [ ] `CellData` removed
+- [x] `CellData` removed
 - [ ] `GridData` uses the `CellOptionSet` form of cell retrieval during baking
     - [ ] has secondary grid as smaller size to the mask
     - [ ] asks for cell that would fit secondary grid

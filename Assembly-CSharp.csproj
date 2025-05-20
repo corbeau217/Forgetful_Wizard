@@ -58,7 +58,6 @@
      <Compile Include="Assets/Scripts/GridMap/Grid/ScriptableObjects/GridGeneratorSettings.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/CellGenerator.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseSpell.cs" />
-     <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/CellData.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/ScriptableObjects/CellOptionSet.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/ScriptableObjects/GridMask.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/ScriptableObjects/CellOptionBase.cs" />

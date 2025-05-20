@@ -65,7 +65,7 @@ public class GridRenderer : MonoBehaviour
         RectTransform rt = cellObject.AddComponent(typeof(RectTransform)) as RectTransform;
         // yep grab
         this.cellRenderers[rowIndex,colIndex] = cellObject.GetComponent<CellRenderer>();
-        this.cellRenderers[rowIndex,colIndex].cellData = bakedCells[rowIndex,colIndex];
+        this.cellRenderers[rowIndex,colIndex].cellOption = bakedCells[rowIndex,colIndex];
     }
     private void StartCellGeneration(){
         for (int rowIndex = 0; rowIndex < this.dimensions.y; rowIndex++)
