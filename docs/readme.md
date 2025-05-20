@@ -125,16 +125,31 @@ The five boxing wizards jump quickly
 - [x] components
     - [x] `CellRenderer` - abstract class handling instantiation of cells
     - [x] `GridRenderer` - spawns `GridGenerator`, reads created information and then spawns `CellRenderer`s
-### [ ] Milestone 014 - level generation
-- [ ] new selects tiles and builds levels
-- [ ] generating level based on adjacency of rooms
-    - [ ] room adjacency / vacancy rules
+### [ ] Milestone 014 - room dual grid
+- [x] `CellPlacementRules` removed
+- [x] `CellPlacementStyle` removed
+- [x] `CellType` removed
+    - [x] gutted old style script files
+- [x] `TileOption` removed and squashed in to base
+- [x] clearing out mentions of the removed files
+- [ ] `CellSetData` handles secondary grid indexing by mask
+- [ ] `CellData` removed
+- [ ] `GridData` uses the `CellSetData` form of cell retrieval during baking
+    - [ ] has secondary grid as smaller size to the mask
+    - [ ] asks for cell that would fit secondary grid
+    - [ ] saves cell in `finalCells`
+- [ ] `GridGenerator` handles secondary grid generation
+    - [ ] has secondary grid as smaller size to the mask
 ### [ ] Milestone 015 - initial interactables
+- [ ] tertiary grid is on the same alignment as primary grid for interactable tiles
 - [ ] interactable tile interface
     - [ ] tile that can be activated in some way
 - [ ] actor / living entity / being interface
     - [ ] dummy that just exists and does nothing
-### [ ] Milestone 016 - more interactables
+### [ ] Milestone 016 - room structuring
+- [ ] introspection and investigation on how to mesh rooms together again
+    * likely uses something similar to the old style of cell generation
+### [ ] Milestone 017 - more interactables
 - [ ] interactable tile
     - [ ] interaction states
     - [ ] strategy pattern for state changes
@@ -144,7 +159,7 @@ The five boxing wizards jump quickly
     - [ ] fires event
 - [ ] actor / living entity / being interface
     - [ ] movement strategy pattern
-### [ ] Milestone 017 - simple resources
+### [ ] Milestone 018 - simple resources
 - [ ] design player resource architecture
     - [ ] player health
     - [ ] player magic resource
