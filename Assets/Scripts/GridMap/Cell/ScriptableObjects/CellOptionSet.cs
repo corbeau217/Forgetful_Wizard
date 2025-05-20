@@ -8,8 +8,62 @@ public class CellOptionSet : ScriptableObject
     public CellOptionBase[] options;
     public CellOptionBase defaultOption;
 
-    public int GetIndexByMask(bool sameTopLeft, bool sameTopRight, bool sameBottomLeft, bool sameBottomRight){
-        // TODO: convert primary grid filling to secondary grid tile index
-        return 0;
+
+    /**
+
+    # #|# .|. #|# #
+    . #|# .|. .|. .
+    ---+---+---+---
+    . #|# .|. .|. .
+    # .|. .|. .|. #
+    ---+---+---+---
+    # .|. .|. .|. #
+    # #|# #|# .|. #
+    ---+---+---+---
+    # #|# #|# .|. #
+    # #|# .|. #|# #
+
+    */
+    // convert primary grid filling to secondary grid tile option index
+    //  indices hard coded to a 16 option count show above with
+    //  top left as first, and bottom right as last in row major ordering
+    public int GetIndexByMask(bool sameTopLeft_q0, bool sameTopRight_q1, bool sameBottomLeft_q2, bool sameBottomRight_q3){
+        // these were retrieved through using a karnaugh map to convert from filling to tile index
+        // filling index is in the order as our formal parameters, TL,TR,BL,BR
+        // tile index is also in row major order starting from top left on the 'tile sheet'
+        //  3D with a list, means we can rearrange the order, but it's best to stick to conventional ordering
+
+        // probably could simplify these more with factorisation
+
+        // (2^0) least significant bit
+        int bit0 = (
+            ( sameBottomRight_q3 && !sameTopLeft_q0) ||
+            (!sameBottomRight_q3 &&  sameTopLeft_q0)
+        )? 1 : 0;
+
+        // (2^1)
+        int bit1 = (
+            (!sameBottomRight_q3 &&                       !sameTopRight_q1 && !sameTopLeft_q0) ||
+            ( sameBottomRight_q3 && !sameBottomLeft_q2 && !sameTopRight_q1                   ) ||
+            (!sameBottomRight_q3 && !sameBottomLeft_q2 &&  sameTopRight_q1                   ) ||
+            ( sameBottomRight_q3 &&                        sameTopRight_q1 && !sameTopLeft_q0)
+        )? 2 : 0;
+
+        // (2^2)
+        int bit2 = (
+            (!sameBottomLeft_q2 && !sameTopRight_q1) ||
+            ( sameBottomLeft_q2 &&  sameTopRight_q1)
+        )? 4 : 0;
+        
+        // (2^3) most significant bit
+        int bit3 = (
+            (                        sameBottomLeft_q2 && !sameTopRight_q1 && !sameTopLeft_q0) ||
+            ( sameBottomRight_q3                       && !sameTopRight_q1 &&  sameTopLeft_q0) ||
+            (                        sameBottomLeft_q2 &&  sameTopRight_q1 &&  sameTopLeft_q0) ||
+            ( sameBottomRight_q3                       &&  sameTopRight_q1 && !sameTopLeft_q0)
+        )? 8 : 0;
+
+        // usually bitwise or operation, but that may cause weird compatibility issues between architectures
+        return bit3 + bit2 + bit1 + bit0;
     }
 }

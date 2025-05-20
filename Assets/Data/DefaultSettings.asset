@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMasks:
   - {fileID: 11400000, guid: 7c4d9a7213ddd49a0a015907795e211f, type: 2}
-  errorTile: {fileID: 11400000, guid: 17195bf005a454b0da4c2ceffa19a57e, type: 2}
+  errorTile: {fileID: 11400000, guid: 842a971be9f294528b94d8cb2aae9987, type: 2}
   noneCell: {fileID: 11400000, guid: f5f5775450a434eaa81f90f9d1f05c13, type: 2}

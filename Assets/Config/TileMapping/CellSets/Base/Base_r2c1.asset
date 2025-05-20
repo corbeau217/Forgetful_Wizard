@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f75d06204b8417299a758247454eb8, type: 3}
-  m_Name: Base_Block
+  m_Script: {fileID: 11500000, guid: 9292dc83490ee4baeaa377f7e7eea306, type: 3}
+  m_Name: Base_r2c1
   m_EditorClassIdentifier: 
-  cellType: 63
-  tilePrefab: {fileID: 5018209765519358535, guid: ea97c30444b3baf6081ebdb4025d0463, type: 3}
+  shape: {fileID: 5437861510626317346, guid: 3cb1686d0a04d49a4acfbade4a4e4eda, type: 3}

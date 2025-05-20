@@ -135,15 +135,18 @@ The five boxing wizards jump quickly
 - [x] `CellSetData` removed
 - [x] code structure reconciled with fourth revision
     * this was to correct some overlooked items and using better naming of variables/methods
-- [ ] `CellOptionSet` handles secondary grid indexing by mask
+- [x] `CellOptionSet` handles secondary grid indexing by mask
 - [x] `CellData` removed
-- [ ] `GridData` uses the `CellOptionSet` form of cell retrieval during baking
+- [x] `GridData` uses the `CellOptionSet` form of cell retrieval during baking
     - [x] has secondary grid as smaller size to the mask
-    - [ ] asks for cell that would fit secondary grid
-    - [ ] saves cell in `finalCells`
-- [ ] `GridGenerator` handles secondary grid generation
+    - [x] asks for cell that would fit secondary grid
+    - [x] saves cell in `finalCells`
+- [x] `GridGenerator` handles secondary grid generation
     - [x] has secondary grid as smaller size to the mask
-    - [ ] verified working
+    - [x] verified working
+        * lots of errors though ahahaha
+- [ ] invert room masks for base layer?
+    * not filled cells should be black, filled cells should be white
 ### [ ] Milestone 015 - initial interactables
 - [ ] tertiary grid is on the same alignment as primary grid for interactable tiles
 - [ ] interactable tile interface
