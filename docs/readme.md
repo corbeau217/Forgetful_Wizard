@@ -145,6 +145,8 @@ The five boxing wizards jump quickly
     - [x] has secondary grid as smaller size to the mask
     - [x] verified working
         * lots of errors though ahahaha
+- [ ] update tile models to not have offsets
+- [ ] trim unseen faces for backup set
 - [ ] invert room masks for base layer?
     * not filled cells should be black, filled cells should be white
 ### [ ] Milestone 015 - initial interactables
