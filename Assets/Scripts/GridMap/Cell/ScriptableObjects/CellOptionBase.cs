@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TileOption", menuName = "ScriptableObjects/TileMapping/TileOption", order = 1)]
-public class TileOption : CellOptionBase
+[CreateAssetMenu(fileName = "CellOptionBase", menuName = "ScriptableObjects/TileMapping/CellOptionBase", order = 1)]
+public class CellOptionBase : ScriptableObject
 {
-    public GameObject tilePrefab;
-
-    public override GameObject Generate(GameObject renderer, GameObject parent){
+    public GameObject shape;
+    
+    public GameObject Generate(GameObject renderer, GameObject parent){
         GameObject cellObject = (GameObject)Instantiate(
-            this.tilePrefab,
+            this.shape,
             parent.transform
         );
         // stash it and dont use so it waits for the adding

@@ -11,6 +11,7 @@ public class GridMask : ScriptableObject
 
     // where the layer is loaded from
     public Texture2D maskImage;
+    
     // what we cell set we want to use with it
     public CellOptionSet optionSet;
 

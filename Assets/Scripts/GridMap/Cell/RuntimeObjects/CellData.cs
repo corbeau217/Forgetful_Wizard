@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class CellData {
     public CellOptionBase cellOption;
-    public CellPlacementRules cellPlacementRules;
 
-    public CellData(CellOptionBase cellOption, CellPlacementRules cellPlacementRules){
+    public CellData(CellOptionBase cellOption){
         this.cellOption = cellOption;
-        this.cellPlacementRules = cellPlacementRules;
     }
 }

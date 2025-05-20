@@ -15,7 +15,7 @@ public class GridData
 
     public GridData(Vector2Int dimensions, CellOptionBase noneCellOption){
         this.dimensions = dimensions;
-        this.noneCell = new CellData(noneCellOption, new CellPlacementRules(new Color[9], new Color[9], new Color[9]));
+        this.noneCell = new CellData(noneCellOption);
 
         this.cells = new CellGenerator[this.dimensions.y,this.dimensions.x];
 
@@ -51,29 +51,16 @@ public class GridData
                 else {
                     CellGenerator currentCellGenerator = this.cells[rowIndex, colIndex];
                     CellSetData currentOptionSet = currentCellGenerator.GetSetData();
-                    // gather adjacency
-                    bool[] currentAdjacency = this.GetAdjacency(rowIndex,colIndex);
-                    // match it and stash
-                    CellData foundData = currentOptionSet.GetCellData(currentAdjacency);
-                    resultCells[rowIndex,colIndex] = foundData;
+                    // TODO : update with dual grid
+                    // // gather adjacency
+                    // bool[] currentAdjacency = this.GetAdjacency(rowIndex,colIndex);
+                    // // match it and stash
+                    // CellData foundData = currentOptionSet.GetCellData(currentAdjacency);
+                    // resultCells[rowIndex,colIndex] = foundData;
                 }
             }
         }
         return resultCells;
-    }
-
-
-    public bool[] GetAdjacency(int rowIndex, int colIndex){
-        bool[] adjacencyList = new bool[9];
-        int i = 0;
-        for (int rowOffset = -1; rowOffset < 2; rowOffset++)
-        {
-            for (int colOffset = -1; colOffset < 2; colOffset++)
-            {
-                adjacencyList[i++] = this.LocationIsFilled(rowIndex+rowOffset, colIndex+colOffset);
-            }
-        }
-        return adjacencyList;
     }
 
     public bool LocationIsFilled(int rowIndex, int colIndex){
