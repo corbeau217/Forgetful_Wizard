@@ -44,7 +44,6 @@
      <Compile Include="Assets/Scripts/Utils/MouseLocation.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/Utils/GridLayerPriority.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/RuntimeObjects/GridGenerator.cs" />
-     <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/CellSetData.cs" />
      <Compile Include="Assets/Scripts/Spell/MovementSpell.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseAuraSpell.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerBehaviour.cs" />

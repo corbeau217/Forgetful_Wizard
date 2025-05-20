@@ -26,7 +26,7 @@ public class GridRenderer : MonoBehaviour
     // ------------------------------------------- private data fields
 
     private GridGenerator gridGenerator;
-    private CellData[,] bakedCells;
+    private CellOptionBase[,] bakedCells;
     private CellRenderer[,] cellRenderers;
     private Vector2Int dimensions;
 

@@ -13,7 +13,7 @@ public class GridMaskData
     private GridMask gridMask;
     private GridLayerPriority priority;
 
-    private CellSetData cellSet;
+    private CellOptionSet optionSet;
 
     private Color[] pixelColourData;
     private bool[,] cellFillValues;
@@ -26,7 +26,7 @@ public class GridMaskData
     public GridMaskData(GridMask gridMask){
         this.gridMask = gridMask;
         this.priority = this.gridMask.priority;
-        this.cellSet = new CellSetData(gridMask.optionSet);
+        this.optionSet = this.gridMask.optionSet;
         this.pixelColourData = this.gridMask.GetPixels();
         this.dimensions = this.gridMask.GetDimensions();
         this.cellFillValues = new bool[this.dimensions.y, this.dimensions.x];
@@ -89,8 +89,8 @@ public class GridMaskData
         return this.cellFillValues[rowIndex, colIndex];
     }
 
-    public CellSetData GetCellSetData(){
-        return this.cellSet;
+    public CellOptionSet GetCellOptionSet(){
+        return this.optionSet;
     }
     public GridLayerPriority GetPriority(){
         return this.priority;

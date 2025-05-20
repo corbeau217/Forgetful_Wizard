@@ -10,20 +10,20 @@ using UnityEngine;
 public class CellGenerator
 {
     private GridLayerPriority currentPriority;
-    private CellSetData currentSet;
+    private CellOptionSet currentSet;
 
     public CellGenerator(){
         // .. cry in to the void, nothing to do 
     }
 
-    public void GiveOption(GridLayerPriority newPriority, CellSetData setData){
+    public void GiveOption(GridLayerPriority newPriority, CellOptionSet optionSet){
         if(!this.currentPriority.TakesPriorityOver(newPriority)){
             this.currentPriority = newPriority;
-            this.currentSet = setData;
+            this.currentSet = optionSet;
         }
     }
 
-    public CellSetData GetSetData(){
+    public CellOptionSet GetSetData(){
         return this.currentSet;
     }
 }

@@ -15,5 +15,6 @@
 * below is the suggested class diagram to change to
 
 [![image](/docs/notes/20250520_updatedClassDiagram.png)](/docs/notes/20250520_updatedClassDiagram.png)
+[![image](/docs/notes/20250520_updatedClassDiagramV2.png)](/docs/notes/20250520_updatedClassDiagramV2.png)
 
 * `CellGenerator` still feels out of place and will likely need work as we move towards completing the change over

@@ -17,7 +17,7 @@ public class CellRenderer : MonoBehaviour
     // ================================================================
     // -------------------------------------------- public data fields
 
-    public CellData cellData;
+    public CellOptionBase cellOption;
     public GameObject container;
 
     // ================================================================
@@ -56,7 +56,7 @@ public class CellRenderer : MonoBehaviour
 
     public void Generate(){
         
-        this.cellData.cellOption.Generate(this.gameObject, this.container);
+        this.cellOption.Generate(this.gameObject, this.container);
     }
 
     // ================================================================

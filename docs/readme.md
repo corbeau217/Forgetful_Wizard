@@ -132,9 +132,12 @@ The five boxing wizards jump quickly
     - [x] gutted old style script files
 - [x] `TileOption` removed and squashed in to base
 - [x] clearing out mentions of the removed files
-- [ ] `CellSetData` handles secondary grid indexing by mask
+- [x] `CellSetData` removed
+- [ ] code structure reconciled with second revision
+    * this was to correct some overlooked items and using better naming of variables/methods
+- [ ] `CellOptionSet` handles secondary grid indexing by mask
 - [ ] `CellData` removed
-- [ ] `GridData` uses the `CellSetData` form of cell retrieval during baking
+- [ ] `GridData` uses the `CellOptionSet` form of cell retrieval during baking
     - [ ] has secondary grid as smaller size to the mask
     - [ ] asks for cell that would fit secondary grid
     - [ ] saves cell in `finalCells`

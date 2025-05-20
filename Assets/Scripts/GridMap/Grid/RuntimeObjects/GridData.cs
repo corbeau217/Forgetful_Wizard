@@ -33,7 +33,7 @@ public class GridData
         {
             for (int colIndex = 0; colIndex < this.dimensions.x; colIndex++)
             {
-                this.cells[rowIndex,colIndex].GiveOption(maskData.GetPriority(), maskData.GetCellSetData());
+                this.cells[rowIndex,colIndex].GiveOption(maskData.GetPriority(), maskData.GetCellOptionSet());
             }
         }
     }
@@ -50,7 +50,7 @@ public class GridData
                 }
                 else {
                     CellGenerator currentCellGenerator = this.cells[rowIndex, colIndex];
-                    CellSetData currentOptionSet = currentCellGenerator.GetSetData();
+                    CellOptionSet currentOptionSet = currentCellGenerator.GetSetData();
                     // TODO : update with dual grid
                     // // gather adjacency
                     // bool[] currentAdjacency = this.GetAdjacency(rowIndex,colIndex);
