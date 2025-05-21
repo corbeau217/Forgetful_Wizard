@@ -10,6 +10,7 @@ TagManager:
   - GameHUD
   - GameHUD_Background
   - GameHUD_Placeholder
+  - InteractableChest
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - Walls
   - Tiles
-  - 
+  - Interactable
   - 
   - GameHUD_Background
   - GameHUD
