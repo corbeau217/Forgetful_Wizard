@@ -18,9 +18,9 @@ public class SecondaryCellGenerator
     public void GiveLayer(SecondaryCellLayer newLayer){
         if(!this.currentHighestPriority.TakesPriorityOver(newLayer.priority)){
             this.currentHighestPriority = newLayer.priority;
-            this.cellLayers.Add(newLayer);
-            this.givenLayer = true;
         }
+        this.cellLayers.Add(newLayer);
+        this.givenLayer = true;
     }
 
     public GridLayerPriority GetHighestLayerPriority(){
@@ -38,9 +38,32 @@ public class SecondaryCellGenerator
             secondaryCellContainer.name = "NoLayersGiven";
         }
 
-        // make all our layers generate their object and include it
-        for (int layerIndex = 0; layerIndex < this.cellLayers.Count; layerIndex++) {
-            GameObject currentLayer = this.cellLayers[layerIndex].GenerateCell(secondaryCellContainer);
+        // TODO : sort layers in priority order before generating
+
+        // layer fill tests
+        bool tl_fillSoFar = false;
+        bool tr_fillSoFar = false;
+        bool bl_fillSoFar = false;
+        bool br_fillSoFar = false;
+
+        // make all our layers from last to first
+        for (int layerIndex =  this.cellLayers.Count-1; layerIndex >= 0; layerIndex--) {
+            // prepare fill checks
+            bool tl_fillCurrent, tr_fillCurrent, bl_fillCurrent, br_fillCurrent;
+
+            // add but save our fill information
+            GameObject currentLayer = this.cellLayers[layerIndex].GenerateCell(secondaryCellContainer, out tl_fillCurrent, out tr_fillCurrent, out bl_fillCurrent, out br_fillCurrent);
+
+            // update our fill tests
+            tl_fillSoFar = tl_fillSoFar || tl_fillCurrent;
+            tr_fillSoFar = tr_fillSoFar || tr_fillCurrent;
+            bl_fillSoFar = bl_fillSoFar || bl_fillCurrent;
+            br_fillSoFar = br_fillSoFar || br_fillCurrent;
+
+            // when all were filled, stop adding
+            if(tl_fillSoFar && tr_fillSoFar && bl_fillSoFar && br_fillSoFar){
+                break;
+            }
         }
 
         // done here

@@ -148,7 +148,7 @@ The five boxing wizards jump quickly
 - [x] update tile models to not have offsets
 - [x] trim unseen faces for backup set
 - [x] correctly orient tile directions
-### [ ] Milestone 016 - room dual grid fixes
+### [x] Milestone 016 - room dual grid fixes
 - [x] `SecondaryCellLayer` created
     - [x] has primary cell quadrant fills
     - [x] has `CellOptionSet` to use
@@ -163,17 +163,21 @@ The five boxing wizards jump quickly
     - [x] given no layers, would generate fill using defaultOption
 - [x] `GridMaskData` creates `SecondaryCellLayer` by top left primary cell location
 - [x] `GridData` uses `SecondaryCellGenerator` and `SecondaryCellLayer`
-- [ ] experiment with adding in layers
+- [x] experiment with adding in layers
+- [x] really hacky fix for layer reconciling until later
 ### [ ] Milestone 017 - initial interactables
+- [ ] minimalist placeholders for shelves/passage/pillar tiles
 - [ ] tertiary grid is on the same alignment as primary grid for interactable tiles
 - [ ] interactable tile interface
     - [ ] tile that can be activated in some way
 - [ ] actor / living entity / being interface
     - [ ] dummy that just exists and does nothing
-### [ ] Milestone 018 - room structuring
+### [ ] Milestone 018 - tilemap cleanups
+- [ ] cleaning up tilemapping so it behaves nicer
+### [ ] Milestone 019 - room structuring
 - [ ] introspection and investigation on how to mesh rooms together again
     * likely uses something similar to the old style of cell generation
-### [ ] Milestone 019 - more interactables
+### [ ] Milestone 020 - more interactables
 - [ ] interactable tile
     - [ ] interaction states
     - [ ] strategy pattern for state changes
@@ -183,11 +187,11 @@ The five boxing wizards jump quickly
     - [ ] fires event
 - [ ] actor / living entity / being interface
     - [ ] movement strategy pattern
-### [ ] Milestone 020 - simple resources
+### [ ] Milestone 021 - simple resources
 - [ ] design player resource architecture
     - [ ] player health
     - [ ] player magic resource
-### [ ] Milestone 021 - development documentation cleanup
+### [ ] Milestone 022 - development documentation cleanup
 - [ ] housekeeping for the development documentation structure
     - [x] renaming and restructuring notes
     - [ ] renaming and restructuring diagrams

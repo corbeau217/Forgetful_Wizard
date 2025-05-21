@@ -20,10 +20,25 @@ public class SecondaryCellLayer
         this.br_filled = br_filled;
     }
 
-    public GameObject GenerateCell(GameObject optionParent){
+    public GameObject GenerateCell(GameObject optionParent, out bool tl_fillOut, out bool tr_fillOut, out bool bl_fillOut, out bool br_fillOut ){
+        // declare for return
+        GameObject resultObject;
+
+        // update our fills
+        tl_fillOut = this.tl_filled;
+        tr_fillOut = this.tr_filled;
+        bl_fillOut = this.bl_filled;
+        br_fillOut = this.br_filled;
+
+        // safety first
         if(this.layerSet == null){
-            return new GameObject("LayerError");
+            resultObject = new GameObject("LayerError");
         }
-        return this.layerSet.GenerateOption(optionParent, this.tl_filled, this.tr_filled, this.bl_filled, this.br_filled);
+        else{
+            resultObject = this.layerSet.GenerateOption(optionParent, this.tl_filled, this.tr_filled, this.bl_filled, this.br_filled);
+        }
+        
+
+        return resultObject;
     }
 }

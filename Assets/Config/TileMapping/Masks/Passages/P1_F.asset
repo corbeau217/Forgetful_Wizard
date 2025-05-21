@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: MainWorldGen
+  m_Script: {fileID: 11500000, guid: e1f2b54773eab48bf9262df4a5da889c, type: 3}
+  m_Name: P1_F
   m_EditorClassIdentifier: 
+  maskImage: {fileID: 2800000, guid: fd05b1d1f413414fea9d8678d4ab9b38, type: 3}
+  optionSet: {fileID: 11400000, guid: 2e54f672fdcfe4b76ae6d9b8e2d24bb0, type: 2}
+  priority: 6

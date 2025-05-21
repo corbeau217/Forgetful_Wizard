@@ -23,11 +23,11 @@ public class GridGenerator
     }
 
     private void InitialiseGridMaskData(){
+        int maskLayerCount = this.settings.GetLayerCount();
         // prepare array
-        this.masks = new GridMaskData[this.settings.layerMasks.Length];
+        this.masks = new GridMaskData[maskLayerCount];
         // then translate each
-        for (int maskIndex = 0; maskIndex < this.settings.layerMasks.Length; maskIndex++)
-        {
+        for (int maskIndex = 0; maskIndex < maskLayerCount; maskIndex++) {
             this.masks[maskIndex] = new GridMaskData(this.settings.layerMasks[maskIndex]);
         }
     }
@@ -36,8 +36,7 @@ public class GridGenerator
         this.gridData = new GridData(this.primaryDimensions, this.secondaryDimensions, this.settings.noneCell);
 
         // load each mask
-        for (int maskIndex = 0; maskIndex < this.masks.Length; maskIndex++)
-        {
+        for (int maskIndex = 0; maskIndex < this.masks.Length; maskIndex++) {
             this.gridData.UpdateWithMask(this.masks[maskIndex]);
         }
     }

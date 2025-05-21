@@ -9,7 +9,7 @@ public class GridGeneratorSettings : ScriptableObject
     // ================================================================
     // -------------------------------------------- public data fields
 
-    public GridMask[] layerMasks;
+    public List<GridMask> layerMasks;
     public CellOptionBase errorTile;
     public CellOptionBase noneCell;
 
@@ -23,6 +23,9 @@ public class GridGeneratorSettings : ScriptableObject
     public Vector2Int GetSecondaryDimensions(){
         Vector2Int primaryDimensions = this.layerMasks[0].GetPrimaryDimensions();
         return new Vector2Int(primaryDimensions.x - 1, primaryDimensions.y - 1);
+    }
+    public int GetLayerCount(){
+        return this.layerMasks.Count;
     }
 
     // ================================================================

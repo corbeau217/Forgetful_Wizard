@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CellOptionSet", menuName = "ScriptableObjects/TileMapping/CellOptionSet", order = 1)]
 public class CellOptionSet : ScriptableObject
 {
-    public CellOptionBase[] options;
+    public List<CellOptionBase> options;
     public CellOptionBase defaultOption;
-
+    public List<bool> optionDisabled;
 
     /**
 
@@ -70,8 +70,8 @@ public class CellOptionSet : ScriptableObject
     public GameObject GenerateOption(GameObject optionParent, bool tl_filled, bool tr_filled, bool bl_filled, bool br_filled ){
         int optionIndex = this.GetIndexByMask( tl_filled, tr_filled, bl_filled, br_filled );
 
-        if(optionIndex > this.options.Length){
-            Debug.Log("CellOptionSet ("+this.name+") doesnt have the required tile!");
+        if(optionIndex > this.options.Count || (this.optionDisabled.Count > optionIndex && this.optionDisabled[optionIndex])){
+            Debug.Log("CellOptionSet ("+this.name+") doesnt have option ["+optionIndex+"] !");
             return new GameObject(this.name+" selection error");
         }
         // safe to generate
