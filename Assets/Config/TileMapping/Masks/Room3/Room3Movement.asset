@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Room3Movement
   m_EditorClassIdentifier: 
   maskImage: {fileID: 2800000, guid: c1d999e856b434a7090f7cc397813ddd, type: 3}
-  optionSet: {fileID: 11400000, guid: 2e54f672fdcfe4b76ae6d9b8e2d24bb0, type: 2}
+  optionSet: {fileID: 11400000, guid: 0882573632bf44a228fa7e0034134867, type: 2}
   priority: 3
