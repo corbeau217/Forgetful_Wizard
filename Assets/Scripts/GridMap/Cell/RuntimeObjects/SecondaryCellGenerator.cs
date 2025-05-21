@@ -52,13 +52,15 @@ public class SecondaryCellGenerator
             bool tl_fillCurrent, tr_fillCurrent, bl_fillCurrent, br_fillCurrent;
 
             // add but save our fill information
-            GameObject currentLayer = this.cellLayers[layerIndex].GenerateCell(secondaryCellContainer, out tl_fillCurrent, out tr_fillCurrent, out bl_fillCurrent, out br_fillCurrent);
+            GameObject currentLayerObject = this.cellLayers[layerIndex].GenerateCell(secondaryCellContainer, out tl_fillCurrent, out tr_fillCurrent, out bl_fillCurrent, out br_fillCurrent);
 
-            // update our fill tests
-            tl_fillSoFar = tl_fillSoFar || tl_fillCurrent;
-            tr_fillSoFar = tr_fillSoFar || tr_fillCurrent;
-            bl_fillSoFar = bl_fillSoFar || bl_fillCurrent;
-            br_fillSoFar = br_fillSoFar || br_fillCurrent;
+            if(currentLayerObject != null){
+                // update our fill tests
+                tl_fillSoFar = tl_fillSoFar || tl_fillCurrent;
+                tr_fillSoFar = tr_fillSoFar || tr_fillCurrent;
+                bl_fillSoFar = bl_fillSoFar || bl_fillCurrent;
+                br_fillSoFar = br_fillSoFar || br_fillCurrent;
+            }
 
             // when all were filled, stop adding
             if(tl_fillSoFar && tr_fillSoFar && bl_fillSoFar && br_fillSoFar){

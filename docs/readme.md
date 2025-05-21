@@ -166,7 +166,7 @@ The five boxing wizards jump quickly
 - [x] experiment with adding in layers
 - [x] really hacky fix for layer reconciling until later
 ### [ ] Milestone 017 - initial interactables
-- [ ] minimalist placeholders for shelves/passage/pillar tiles
+- [x] minimalist placeholders for shelves/passage/pillar tiles
 - [ ] tertiary grid is on the same alignment as primary grid for interactable tiles
 - [ ] interactable tile interface
     - [ ] tile that can be activated in some way

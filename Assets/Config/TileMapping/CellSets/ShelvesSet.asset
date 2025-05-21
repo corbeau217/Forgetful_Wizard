@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dafd32fd0d1e41fe8aa61802b44ddea, type: 3}
   m_Name: ShelvesSet
   m_EditorClassIdentifier: 
-  placementStyle: {fileID: 11400000, guid: 3f8410a5246d041149dda68c28d065b5, type: 2}
   options:
-  - {fileID: 11400000, guid: 32119aee29e0746d28f98f7a5f1eb92b, type: 2}
-  defaultOption: {fileID: 11400000, guid: 17195bf005a454b0da4c2ceffa19a57e, type: 2}
+  - {fileID: 11400000, guid: 98606453db8b34a7ca0db951b0e4ec4d, type: 2}
+  - {fileID: 11400000, guid: 521955f9e73b744978f640af564585b8, type: 2}
+  - {fileID: 11400000, guid: 5f4883d939e1545bfbfefdb34c87bfc0, type: 2}
+  - {fileID: 11400000, guid: 7efd96a1e474e47629e38e86a1f5b866, type: 2}
+  - {fileID: 11400000, guid: 528c0994a2d4f47c18fd338278aa7ba7, type: 2}
+  - {fileID: 11400000, guid: a0217b996f31a44a2ae39d7e5b8cef53, type: 2}
+  - {fileID: 11400000, guid: 2f42605cdad5d478da9b95cfcd472367, type: 2}
+  - {fileID: 11400000, guid: a86d9a7bf58944e639c3cf74c2ddc310, type: 2}
+  - {fileID: 11400000, guid: 3c335000fdb194a38859fa81efe5deb9, type: 2}
+  - {fileID: 11400000, guid: 63361557d20ee474c9828c4cdb841578, type: 2}
+  - {fileID: 11400000, guid: bf2aab7f4e2e540829007f96e2a6c028, type: 2}
+  - {fileID: 11400000, guid: dd3b47a6dd98e4d278126d9c91295692, type: 2}
+  - {fileID: 11400000, guid: d96f3ce4f2bc84a219239f48d651d908, type: 2}
+  - {fileID: 11400000, guid: 89bed4c26f69843a48454f14f522956c, type: 2}
+  - {fileID: 11400000, guid: 92341ad0811be4991b433529bd95d5da, type: 2}
+  - {fileID: 11400000, guid: a3c12fbad7aab4f68bab3fd82af6a7bf, type: 2}
+  defaultOption: {fileID: 11400000, guid: 32119aee29e0746d28f98f7a5f1eb92b, type: 2}
+  optionDisabled: 00000000000001000000000000000000

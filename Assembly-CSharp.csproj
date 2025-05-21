@@ -45,6 +45,7 @@
      <Compile Include="Assets/Scripts/GridMap/Grid/Utils/GridLayerPriority.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/RuntimeObjects/GridGenerator.cs" />
      <Compile Include="Assets/Scripts/Spell/MovementSpell.cs" />
+     <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/SecondaryCellLayer.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseAuraSpell.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerBehaviour.cs" />
      <Compile Include="Assets/Scripts/Spell/TriggerComponents/ProjectileHitTrigger.cs" />
@@ -61,11 +62,10 @@
      <Compile Include="Assets/Scripts/GridMap/Grid/ScriptableObjects/GridMask.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/ScriptableObjects/CellOptionBase.cs" />
      <Compile Include="Assets/Scripts/SpellBook/BookSpriteMaskManager.cs" />
+     <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/SecondaryCellGenerator.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/RuntimeObjects/GridData.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BasePersonalAuraSpell.cs" />
      <Compile Include="Assets/Scripts/SpellBook/SpellBookToggle.cs" />
-     <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/SecondaryCellGenerator.cs" />
-     <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/SecondaryCellLayer.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.6f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

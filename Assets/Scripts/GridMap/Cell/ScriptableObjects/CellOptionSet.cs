@@ -71,8 +71,9 @@ public class CellOptionSet : ScriptableObject
         int optionIndex = this.GetIndexByMask( tl_filled, tr_filled, bl_filled, br_filled );
 
         if(optionIndex > this.options.Count || (this.optionDisabled.Count > optionIndex && this.optionDisabled[optionIndex])){
-            Debug.Log("CellOptionSet ("+this.name+") doesnt have option ["+optionIndex+"] !");
-            return new GameObject(this.name+" selection error");
+            // Debug.Log("CellOptionSet ("+this.name+") doesnt have option ["+optionIndex+"] !");
+            // return new GameObject(this.name+" selection error");
+            return null;
         }
         // safe to generate
         else {

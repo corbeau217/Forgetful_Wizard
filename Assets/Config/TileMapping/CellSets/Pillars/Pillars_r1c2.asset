@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9292dc83490ee4baeaa377f7e7eea306, type: 3}
+  m_Name: Pillars_r1c2
+  m_EditorClassIdentifier: 
+  shape: {fileID: 5018209765519358535, guid: 01629cd2fca6f4ab492ef027caa36d29, type: 3}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Room3Shelves
   m_EditorClassIdentifier: 
   maskImage: {fileID: 2800000, guid: c05c272ed0804436eb03da4854037bf0, type: 3}
-  optionSet: {fileID: 11400000, guid: 2e54f672fdcfe4b76ae6d9b8e2d24bb0, type: 2}
+  optionSet: {fileID: 11400000, guid: 165217507c5de49bb9fa1384f61d1260, type: 2}
   priority: 4

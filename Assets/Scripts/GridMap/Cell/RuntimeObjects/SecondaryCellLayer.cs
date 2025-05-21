@@ -22,7 +22,7 @@ public class SecondaryCellLayer
 
     public GameObject GenerateCell(GameObject optionParent, out bool tl_fillOut, out bool tr_fillOut, out bool bl_fillOut, out bool br_fillOut ){
         // declare for return
-        GameObject resultObject;
+        GameObject resultObject = null;
 
         // update our fills
         tl_fillOut = this.tl_filled;
@@ -31,10 +31,7 @@ public class SecondaryCellLayer
         br_fillOut = this.br_filled;
 
         // safety first
-        if(this.layerSet == null){
-            resultObject = new GameObject("LayerError");
-        }
-        else{
+        if(this.layerSet != null){
             resultObject = this.layerSet.GenerateOption(optionParent, this.tl_filled, this.tr_filled, this.bl_filled, this.br_filled);
         }
         

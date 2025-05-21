@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f75d06204b8417299a758247454eb8, type: 3}
-  m_Name: Shelves_Pillar
+  m_Script: {fileID: 11500000, guid: 9292dc83490ee4baeaa377f7e7eea306, type: 3}
+  m_Name: Pillars_r3c0
   m_EditorClassIdentifier: 
-  cellType: 80
-  tilePrefab: {fileID: 4768556330760753866, guid: 88c322fbf24bf4c9aa5396e789be8221, type: 3}
+  shape: {fileID: 4450748270123996325, guid: 14c76d11eab594ef9842c73e59db6e1a, type: 3}
