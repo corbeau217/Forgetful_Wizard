@@ -13,9 +13,9 @@ public enum GridLayerPriority {
     // ============================================
     Room_None,
     Room_Fill,
+    Room_Movement, // movement should happen first
     Room_Shelves,
     Room_Pillars,
-    Room_Movement,
     Room_Passage,
     // ============================================
     Level_None,

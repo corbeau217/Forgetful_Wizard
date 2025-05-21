@@ -95,4 +95,15 @@ public class GridMaskData
     public GridLayerPriority GetPriority(){
         return this.priority;
     }
+
+    public SecondaryCellLayer GetSecondaryCellLayerFor(int primaryRowIndex, int primaryColIndex){
+        // gather fill information
+        bool tl_filled = this.GetLocationIsFilled( primaryRowIndex  , primaryColIndex   );
+        bool tr_filled = this.GetLocationIsFilled( primaryRowIndex  , primaryColIndex+1 );
+        bool bl_filled = this.GetLocationIsFilled( primaryRowIndex+1, primaryColIndex   );
+        bool br_filled = this.GetLocationIsFilled( primaryRowIndex+1, primaryColIndex+1 );
+        // generate and return
+        SecondaryCellLayer resultLayer = new SecondaryCellLayer(this.optionSet, this.priority, tl_filled, tr_filled, bl_filled, br_filled );
+        return resultLayer;
+    }
 }

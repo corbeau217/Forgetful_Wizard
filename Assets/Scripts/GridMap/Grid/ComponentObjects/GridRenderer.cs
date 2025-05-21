@@ -26,7 +26,7 @@ public class GridRenderer : MonoBehaviour
     // ------------------------------------------- private data fields
 
     private GridGenerator gridGenerator;
-    private CellOptionBase[,] bakedCells;
+    private SecondaryCellGenerator[,] secondaryCellGenerators;
     private CellRenderer[,] cellRenderers;
     private Vector2Int primaryDimensions;
     private Vector2Int secondaryDimensions;
@@ -44,8 +44,8 @@ public class GridRenderer : MonoBehaviour
         this.primaryDimensions = this.gridSettings.GetPrimaryDimensions();
         this.secondaryDimensions = this.gridSettings.GetSecondaryDimensions();
     }
-    private void BakeCells(){
-        this.bakedCells = this.gridGenerator.BakeCells();
+    private void PrepareSecondaryCellGenerators(){
+        this.secondaryCellGenerators = this.gridGenerator.GetSecondaryCellGenerators();
     }
     private void SpawnCellRenderers(){
         this.cellRenderers = new CellRenderer[this.secondaryDimensions.y, this.secondaryDimensions.x];
@@ -58,7 +58,6 @@ public class GridRenderer : MonoBehaviour
         }
     }
     private void SpawnCellRendererForLocation(int rowIndex, int colIndex){
-        // this.cellRenderers[rowIndex,colIndex] = new  uhhhhhhh .....(this.bakedCells[rowIndex,colIndex])
         GameObject cellObject = (GameObject)Instantiate(
             this.cellRendererPrefab,
             this.cellContainer.transform
@@ -67,7 +66,7 @@ public class GridRenderer : MonoBehaviour
         RectTransform rt = cellObject.AddComponent(typeof(RectTransform)) as RectTransform;
         // yep grab
         this.cellRenderers[rowIndex,colIndex] = cellObject.GetComponent<CellRenderer>();
-        this.cellRenderers[rowIndex,colIndex].cellOption = bakedCells[rowIndex,colIndex];
+        this.cellRenderers[rowIndex,colIndex].cellGenerator = this.secondaryCellGenerators[rowIndex,colIndex];
     }
     private void StartCellGeneration(){
         for (int rowIndex = 0; rowIndex < this.secondaryDimensions.y; rowIndex++)
@@ -102,7 +101,7 @@ public class GridRenderer : MonoBehaviour
 
     public void Generate(){
         this.StartGridGenerator();
-        this.BakeCells();
+        this.PrepareSecondaryCellGenerators();
         this.SpawnCellRenderers();
         this.StartCellGeneration();
     }

@@ -66,4 +66,17 @@ public class CellOptionSet : ScriptableObject
         // usually bitwise or operation, but that may cause weird compatibility issues between architectures
         return bit3 + bit2 + bit1 + bit0;
     }
+
+    public GameObject GenerateOption(GameObject optionParent, bool tl_filled, bool tr_filled, bool bl_filled, bool br_filled ){
+        int optionIndex = this.GetIndexByMask( tl_filled, tr_filled, bl_filled, br_filled );
+
+        if(optionIndex > this.options.Length){
+            Debug.Log("CellOptionSet ("+this.name+") doesnt have the required tile!");
+            return new GameObject(this.name+" selection error");
+        }
+        // safe to generate
+        else {
+            return this.options[optionIndex].Generate(optionParent);
+        }
+    }
 }

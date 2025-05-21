@@ -8,7 +8,7 @@ public class GridGenerator
     public GridGeneratorSettings settings;
     public GridMaskData[] masks;
     public GridData gridData;
-    public CellOptionBase[,] finalCells;
+    public SecondaryCellGenerator[,] secondaryCellGenerators;
     
     public Vector2Int primaryDimensions;
     public Vector2Int secondaryDimensions;
@@ -42,9 +42,9 @@ public class GridGenerator
         }
     }
 
-    public CellOptionBase[,] BakeCells(){
-        this.finalCells = this.gridData.BakeCells();
-        return finalCells;
+    public SecondaryCellGenerator[,] GetSecondaryCellGenerators(){
+        this.secondaryCellGenerators = this.gridData.GetSecondaryCellGenerators();
+        return secondaryCellGenerators;
     }
 
 }

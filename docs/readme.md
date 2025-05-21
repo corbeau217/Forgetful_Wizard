@@ -149,10 +149,21 @@ The five boxing wizards jump quickly
 - [x] trim unseen faces for backup set
 - [x] correctly orient tile directions
 ### [ ] Milestone 016 - room dual grid fixes
-- [ ] restructure secondary cell generation to have default set to use
-- [ ] tidy up secondary cell selection code
-- [ ] invert room masks for base layer?
-    * not filled cells should be black, filled cells should be white
+- [x] `SecondaryCellLayer` created
+    - [x] has primary cell quadrant fills
+    - [x] has `CellOptionSet` to use
+    - [x] makes the `CellOptionBase` game object
+- [x] `SecondaryCellGenerator` created
+    - [x] provided with layers to make
+    - [x] has some sort of latch/lock to prevent further updates?
+        * highest contained layer priority
+    - [x] combines all layers in to one tile to render
+- [x] `CellGenerator` removed
+- [x] `SecondaryCellGenerator` updated
+    - [x] given no layers, would generate fill using defaultOption
+- [x] `GridMaskData` creates `SecondaryCellLayer` by top left primary cell location
+- [x] `GridData` uses `SecondaryCellGenerator` and `SecondaryCellLayer`
+- [ ] experiment with adding in layers
 ### [ ] Milestone 017 - initial interactables
 - [ ] tertiary grid is on the same alignment as primary grid for interactable tiles
 - [ ] interactable tile interface

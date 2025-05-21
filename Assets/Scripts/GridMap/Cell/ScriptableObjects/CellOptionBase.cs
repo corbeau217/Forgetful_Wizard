@@ -7,10 +7,10 @@ public class CellOptionBase : ScriptableObject
 {
     public GameObject shape;
     
-    public GameObject Generate(GameObject renderer, GameObject parent){
+    public GameObject Generate(GameObject optionParent){
         GameObject cellObject = (GameObject)Instantiate(
             this.shape,
-            parent.transform
+            optionParent.transform
         );
         // stash it and dont use so it waits for the adding
         // RectTransform rt = renderer.AddComponent(typeof(RectTransform)) as RectTransform;
