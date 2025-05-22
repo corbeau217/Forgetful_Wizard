@@ -36,15 +36,19 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Scripts/Interactables/behaviourConcretes/InteractableUsageBehaviour.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseProjectileSpell.cs" />
      <Compile Include="Assets/Scripts/Utils/FollowBehaviour.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerData.cs" />
+     <Compile Include="Assets/Scripts/Interactables/InteractableObjectConfig.cs" />
      <Compile Include="Assets/Scripts/SpellBook/BookSpriteManager.cs" />
      <Compile Include="Assets/Scripts/Spell/BoltSpell.cs" />
      <Compile Include="Assets/Scripts/Utils/MouseLocation.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/Utils/GridLayerPriority.cs" />
+     <Compile Include="Assets/Scripts/Interactables/InteractableBuilder.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/RuntimeObjects/GridGenerator.cs" />
      <Compile Include="Assets/Scripts/Spell/MovementSpell.cs" />
+     <Compile Include="Assets/Scripts/Interactables/behaviourConcretes/InteractableTooltipBehaviour.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/SecondaryCellLayer.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseAuraSpell.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerBehaviour.cs" />
@@ -54,12 +58,16 @@
      <Compile Include="Assets/Scripts/GridMap/Cell/ComponentObjects/CellRenderer.cs" />
      <Compile Include="Assets/Scripts/SpellBook/SpellBookOptionHandle.cs" />
      <Compile Include="Assets/Scripts/SpellBook/SpellBookOption.cs" />
+     <Compile Include="Assets/Scripts/Interactables/InteractableSpawner.cs" />
      <Compile Include="Assets/Scripts/SpellBook/SpellBook.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/ComponentObjects/GridRenderer.cs" />
+     <Compile Include="Assets/Scripts/Interactables/behaviourConcretes/InteractableTriggerBehaviour.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/ScriptableObjects/GridGeneratorSettings.cs" />
      <Compile Include="Assets/Scripts/Spell/BaseObjects/BaseSpell.cs" />
+     <Compile Include="Assets/Scripts/Interactables/InteractableBehaviour.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/ScriptableObjects/CellOptionSet.cs" />
      <Compile Include="Assets/Scripts/GridMap/Grid/ScriptableObjects/GridMask.cs" />
+     <Compile Include="Assets/Scripts/Interactables/behaviourConcretes/InteractableReactivationBehaviour.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/ScriptableObjects/CellOptionBase.cs" />
      <Compile Include="Assets/Scripts/SpellBook/BookSpriteMaskManager.cs" />
      <Compile Include="Assets/Scripts/GridMap/Cell/RuntimeObjects/SecondaryCellGenerator.cs" />

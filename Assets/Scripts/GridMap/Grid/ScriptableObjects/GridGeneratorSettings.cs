@@ -12,6 +12,7 @@ public class GridGeneratorSettings : ScriptableObject
     public List<GridMask> layerMasks;
     public CellOptionBase errorTile;
     public CellOptionBase noneCell;
+    public int maximumRandomInteractablesSpawned;
 
     // ================================================================
     // ================================================================
@@ -27,7 +28,9 @@ public class GridGeneratorSettings : ScriptableObject
     public int GetLayerCount(){
         return this.layerMasks.Count;
     }
-
+    public int GetMaximumRandomInteractablesSpawned(){
+        return maximumRandomInteractablesSpawned;
+    }
     // ================================================================
     // ================================================================
 }

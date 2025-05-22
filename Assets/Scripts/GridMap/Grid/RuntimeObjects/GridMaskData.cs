@@ -77,6 +77,7 @@ public class GridMaskData
         return this.primaryDimensions;
     }
 
+    // TODO: rename to GetLocationIsUsedByMask
     // determine if a location should be labeled as filled
     public bool GetLocationIsFilled(int rowIndex, int colIndex){
         // handle errors
@@ -94,6 +95,10 @@ public class GridMaskData
     }
     public GridLayerPriority GetPriority(){
         return this.priority;
+    }
+    // asks priority if it's subtractive
+    public bool IsSubtractiveLayer(){
+        return this.priority.IsSubtractiveLayer();
     }
 
     public SecondaryCellLayer GetSecondaryCellLayerFor(int primaryRowIndex, int primaryColIndex){

@@ -37,6 +37,7 @@ public class GridGenerator
 
         // load each mask
         for (int maskIndex = 0; maskIndex < this.masks.Length; maskIndex++) {
+            // let our grid data know about it
             this.gridData.UpdateWithMask(this.masks[maskIndex]);
         }
     }
@@ -46,4 +47,7 @@ public class GridGenerator
         return secondaryCellGenerators;
     }
 
+    public bool[,] GetEmptyPrimaryCells(){
+        return this.gridData.GetEmptyPrimaryCells();
+    }
 }

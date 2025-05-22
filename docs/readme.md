@@ -170,13 +170,13 @@ The five boxing wizards jump quickly
 - [x] simple chest shape
 - [x] planning out the way that interactable objects should happen
 - [ ] spawning interactable objects
-    * tertiary grid used to spawn interactable objects, using same alignment as primary grid
-    - [ ] `GridData` keeps track of empty primary cells
-    - [ ] `GridLayerPriority` can determine if it's subtractive
-    - [ ] `GridGenerator` provides information on primary cell occupancy to `GridRenderer`
-    - [ ] `GridRenderer` selects cells to be legal for interactions to spawn
+    - [x] `GridData` keeps track of empty primary cells
+    - [x] `GridLayerPriority` can determine if it's subtractive
+    - [x] `GridGenerator` provides information on primary cell occupancy to `GridRenderer`
+    - [x] `GridRenderer` selects cells to spawn interactables
     - [ ] `InteractableBehaviour` component for interactable objects
         - [ ] shape for renderering
+        - [x] prepare behaviour concrete files
         - [ ] tooltip behaviour
             - [ ] shows tooltip if in range of
             - [ ] no tool tip

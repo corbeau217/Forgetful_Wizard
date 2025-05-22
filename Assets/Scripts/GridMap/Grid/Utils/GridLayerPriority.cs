@@ -30,6 +30,19 @@ public static class GridLayerPriorityUtils
         // }
         return (int)selfReference >= (int)other;
     }
+    // test if we're using one of the subtractive layer priorities
+    public static bool IsSubtractiveLayer(this GridLayerPriority selfReference){
+        switch (selfReference){
+            // normally fills a cell when the mask is filled
+            default:
+                return false;
+            // these ones are inverted filling
+            case GridLayerPriority.Room_Movement:
+            case GridLayerPriority.Room_Passage:
+            case GridLayerPriority.Level_Passage:
+                return true;
+        }
+    }
 }
 
 
