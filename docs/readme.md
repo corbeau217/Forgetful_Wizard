@@ -212,6 +212,7 @@ The five boxing wizards jump quickly
     * likely uses something similar to the old style of cell generation
 ### [ ] Milestone 020 - more interactables
 - [ ] interactable tile
+    * book shelves and tileset changes
     - [ ] interaction states
     - [ ] strategy pattern for state changes
 - [ ] pickup item
