@@ -168,9 +168,41 @@ The five boxing wizards jump quickly
 - [x] minimalist placeholders for shelves/passage/pillar tiles
 ### [ ] Milestone 017 - initial interactables
 - [x] simple chest shape
-- [ ] tertiary grid is on the same alignment as primary grid for interactable tiles
-- [ ] interactable tile interface
-    - [ ] tile that can be activated in some way
+- [x] planning out the way that interactable objects should happen
+- [ ] spawning interactable objects
+    * tertiary grid used to spawn interactable objects, using same alignment as primary grid
+    - [ ] `GridGenerator` provides information on primary cell occupancy to `GridRenderer`
+    - [ ] `GridRenderer` selects cells to be legal for interactions to spawn
+    - [ ] `InteractableBehaviour` component for interactable objects
+        - [ ] shape for renderering
+        - [ ] tooltip behaviour
+            - [ ] shows tooltip if in range of
+            - [ ] no tool tip
+        - [ ] interaction style behaviour
+            - [ ] mouse triggered (small box collider)
+            - [ ] player nearby triggered (big box colllider around)
+            - [ ] player touching (bounding box collider)
+        - [ ] trigger behaviour
+            - [ ] in-range binding press
+            - [ ] on touch
+        - [ ] re-activation behaviour
+            - [ ] no timeout
+            - [ ] timeout between reactivating
+        - [ ] usage behaviour
+            - [ ] hide object
+            - [ ] change tooltip
+            - [ ] attempt to damage player
+            - [ ] attempt to trade player
+    - [ ] `InteractableObjectConfig` scriptable object with config for interactables
+        - [ ] settings for each of the behaviours
+    - [ ] `InteractableBuilder` class for constructing interactable objects
+        - [ ] builds the runtime interactable object from `InteractableObjectConfig`
+    - [ ] `InteractableSpawner` component made
+        * added to an object that has `GridRenderer`
+        - [ ] creates child empty game object as a collection for interaction spawns
+        - [ ] fetches interaction spawn locations from `GridRenderer`
+        - [ ] rolls for spawning interactables at the locations
+        - [ ] creates the objects using `InteractableBuilder`
 - [ ] actor / living entity / being interface
     - [ ] dummy that just exists and does nothing
 ### [ ] Milestone 018 - tilemap cleanups
