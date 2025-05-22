@@ -171,6 +171,8 @@ The five boxing wizards jump quickly
 - [x] planning out the way that interactable objects should happen
 - [ ] spawning interactable objects
     * tertiary grid used to spawn interactable objects, using same alignment as primary grid
+    - [ ] `GridData` keeps track of empty primary cells
+    - [ ] `GridLayerPriority` can determine if it's subtractive
     - [ ] `GridGenerator` provides information on primary cell occupancy to `GridRenderer`
     - [ ] `GridRenderer` selects cells to be legal for interactions to spawn
     - [ ] `InteractableBehaviour` component for interactable objects
@@ -205,11 +207,39 @@ The five boxing wizards jump quickly
         - [ ] creates the objects using `InteractableBuilder`
 - [ ] actor / living entity / being interface
     - [ ] dummy that just exists and does nothing
-### [ ] Milestone 018 - tilemap cleanups
-- [ ] cleaning up tilemapping so it behaves nicer
-### [ ] Milestone 019 - room structuring
-- [ ] introspection and investigation on how to mesh rooms together again
-    * likely uses something similar to the old style of cell generation
+### [ ] Milestone 018 - repository cleanup
+- [ ] repository housekeeping
+    - [ ] splicing repository in to `forgetful_wizard_game` and `forgetful_wizard_docs`
+        - [ ] rename `forgetful_wizard` to `forgetful_wizard_game`
+        - [ ] initialise `forgetful_wizard_docs`
+        - [ ] copying files across to `forgetful_wizard_docs`
+        - [ ] adding the `forgetful_wizard_docs` as a link in `/forgetful_wizard_game/docs/readme.md` for `forgetful_wizard_game`
+        - [ ] removing transfered documentation from `/forgetful_wizard_game/docs/`
+            - [ ] stripping moved content from `/forgetful_wizard_game/docs/readme.md`
+            - [ ] deleting transfered files
+    - [ ] project repository made to access both sub repositories/track changes
+        - [ ] initialise `forgetful_wizard_project`
+        - [ ] add `forgetful_wizard_game` to `forgetful_wizard_project` 
+        - [ ] add `forgetful_wizard_docs` to `forgetful_wizard_project` 
+- [ ] `forgetful_wizard_docs` changes
+    - [ ] renaming and restructuring notes
+    - [ ] renaming and restructuring diagrams
+    - [ ] mull out a world grid coordinate system
+        * something akin to the regex in `/forgetful_wizard/docs/dailyNotes/202505/20250522_corbeau.md`
+### [ ] Milestone 019 - tilemap revision and tidyup
+- [ ] `forgetful_wizard_docs` changes
+    - [ ] investigating grid/cell architecture
+        - [ ] class diagram for current tilemapping code structure
+        - [ ] identification of what functions are primary/secondary/tertiary grid functions
+    - [ ] writeups
+        - [ ] identify portions of grid generation that should be accessible by external components/modules
+        - [ ] identifying flexibility and rigity in current grid architecture
+            - [ ] how to mesh rooms together again
+        - [ ] very rough draft diagrams/design for a from scratch grid system
+        - [ ] proposed renamed methods/variables/classes class diagram
+- [ ] `forgetful_wizard_game` changes
+    - [ ] applying name changes
+        - [ ] `GridMaskData.GetLocationIsFilled(int,int)` renamed to `GridMaskData.GetLocationIsUsedByMask(int,int)`
 ### [ ] Milestone 020 - more interactables
 - [ ] interactable tile
     * book shelves and tileset changes
@@ -225,13 +255,6 @@ The five boxing wizards jump quickly
 - [ ] design player resource architecture
     - [ ] player health
     - [ ] player magic resource
-### [ ] Milestone 022 - development documentation cleanup
-- [ ] housekeeping for the development documentation structure
-    - [x] renaming and restructuring notes
-    - [ ] renaming and restructuring diagrams
-    - [ ] cleaning up `readme.md` and removing bloat
-- [ ] moving development documentation to separate repository
-- [ ] adding the documentation repository as a sub repository/link in this repository
 
 
 
