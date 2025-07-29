@@ -387,3 +387,9 @@ The five boxing wizards jump quickly
 * barrel with rotating portions to create the spell?
     * bike lock with the numbers and rotate them out
     * strategy pattern for spells
+
+## issues
+* staff collider seems to catch on things so should just be removed
+* tiled terrain is too low and keeps catching on the player throwing them up in the air, should move back to overlapping truncated pyramid
+* can also solve terrain issues by using terrain object/height mapped terrain object
+    * building own mesh lets us make holes in it easier
